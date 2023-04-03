@@ -11,9 +11,9 @@ namespace ControlAforoTFG.Formularios
 {
     public partial class NuevoTicket : Form
     {
+        /*Propiedades*/
         private DateTime fecha;
-        // Crea una instancia de PrintDocument
-        private PrintDocument printDocument1 = new PrintDocument();
+        private Bitmap memoryImg;
 
         public NuevoTicket()
         {
@@ -30,32 +30,14 @@ namespace ControlAforoTFG.Formularios
         /*Boton Imprimir*/
         private void butImprimir_Click(object sender, EventArgs e)
         {
+            //butGenerar.Visible = false;
+            //butImprimir.Visible = false;
+
             /*Guardar en Base de Datos*/
             GenerarCodigoUnico(fecha);
 
             /*Imprimir Ticket*/
-            //ImprimirFormulario();
-            CaptureScreen();
-            printDocument1.Print();
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_1);
-
-        }
-
-        Bitmap memoryImage;
-
-        private void CaptureScreen()
-        {
-            Graphics myGraphics = this.CreateGraphics();
-            Size s = this.Size;
-            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
-            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
-        }
-
-
-        private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(memoryImage, 0, 0);
+            Print(panelPrint);
         }
 
         /*Boton Cerrar*/
@@ -64,6 +46,8 @@ namespace ControlAforoTFG.Formularios
             this.Close();
         }
 
+
+        /*---Metodos---*/
         private void generarQR()
         {
             fecha = capturarFecha();
@@ -105,12 +89,26 @@ namespace ControlAforoTFG.Formularios
             return hashStr.Substring(0, 8);
         }
 
-
-        // Manejador de eventos para el evento PrintPage
-        private void printDoc_PrintPage(object sender, PrintPageEventArgs e)
+        private void Print(Panel pnl)
         {
-            // Dibuja el formulario en el objeto Graphics de la página de impresión
-            e.Graphics.DrawImage(this.grbTicket.BackgroundImage, 0, 0, e.PageSettings.PrintableArea.Width, e.PageSettings.PrintableArea.Height);
+            PrinterSettings ps = new PrinterSettings();
+            panelPrint = pnl;
+            getPrintArea(pnl);
+            printPreviewDialog1.Document = printTicket;
+            printTicket.PrintPage += new PrintPageEventHandler(printTicket_PrintPage);
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void getPrintArea(Panel pnl)
+        {
+            memoryImg = new Bitmap(pnl.Width, pnl.Height);
+            pnl.DrawToBitmap(memoryImg, new Rectangle(0, 0, pnl.Width, pnl.Height));
+        }
+
+        private void printTicket_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(memoryImg, (pagearea.Width/2) - (this.panelPrint.Width/2), this.panelPrint.Location.Y);
         }
     }
 }

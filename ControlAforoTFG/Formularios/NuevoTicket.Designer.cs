@@ -28,29 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imgQR = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoTicket));
             this.butImprimir = new System.Windows.Forms.Button();
             this.butGenerar = new System.Windows.Forms.Button();
-            this.grbTicket = new System.Windows.Forms.GroupBox();
+            this.printTicket = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.panelPrint = new System.Windows.Forms.Panel();
             this.labelFechaInicio = new System.Windows.Forms.Label();
-            this.butCerrar = new System.Windows.Forms.Button();
+            this.imgQR = new System.Windows.Forms.PictureBox();
+            this.panelPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
-            this.grbTicket.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // imgQR
-            // 
-            this.imgQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgQR.Location = new System.Drawing.Point(29, 21);
-            this.imgQR.Name = "imgQR";
-            this.imgQR.Size = new System.Drawing.Size(265, 240);
-            this.imgQR.TabIndex = 0;
-            this.imgQR.TabStop = false;
             // 
             // butImprimir
             // 
             this.butImprimir.Enabled = false;
-            this.butImprimir.Location = new System.Drawing.Point(216, 424);
+            this.butImprimir.Location = new System.Drawing.Point(216, 440);
             this.butImprimir.Name = "butImprimir";
             this.butImprimir.Size = new System.Drawing.Size(121, 43);
             this.butImprimir.TabIndex = 1;
@@ -60,7 +53,7 @@
             // 
             // butGenerar
             // 
-            this.butGenerar.Location = new System.Drawing.Point(72, 424);
+            this.butGenerar.Location = new System.Drawing.Point(72, 440);
             this.butGenerar.Name = "butGenerar";
             this.butGenerar.Size = new System.Drawing.Size(121, 43);
             this.butGenerar.TabIndex = 2;
@@ -68,64 +61,75 @@
             this.butGenerar.UseVisualStyleBackColor = true;
             this.butGenerar.Click += new System.EventHandler(this.butGenerar_Click);
             // 
-            // grbTicket
+            // printTicket
             // 
-            this.grbTicket.Controls.Add(this.labelFechaInicio);
-            this.grbTicket.Controls.Add(this.imgQR);
-            this.grbTicket.Location = new System.Drawing.Point(43, 11);
-            this.grbTicket.Name = "grbTicket";
-            this.grbTicket.Size = new System.Drawing.Size(325, 393);
-            this.grbTicket.TabIndex = 3;
-            this.grbTicket.TabStop = false;
-            this.grbTicket.Text = "Nuevo Ticket";
+            this.printTicket.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printTicket_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printTicket;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // panelPrint
+            // 
+            this.panelPrint.Controls.Add(this.labelFechaInicio);
+            this.panelPrint.Controls.Add(this.imgQR);
+            this.panelPrint.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPrint.Location = new System.Drawing.Point(0, 0);
+            this.panelPrint.Name = "panelPrint";
+            this.panelPrint.Size = new System.Drawing.Size(410, 406);
+            this.panelPrint.TabIndex = 3;
             // 
             // labelFechaInicio
             // 
             this.labelFechaInicio.AutoSize = true;
             this.labelFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaInicio.Location = new System.Drawing.Point(26, 284);
+            this.labelFechaInicio.Location = new System.Drawing.Point(69, 314);
             this.labelFechaInicio.Name = "labelFechaInicio";
             this.labelFechaInicio.Size = new System.Drawing.Size(68, 20);
-            this.labelFechaInicio.TabIndex = 1;
+            this.labelFechaInicio.TabIndex = 8;
             this.labelFechaInicio.Text = "Desde: ";
             this.labelFechaInicio.Visible = false;
             // 
-            // butCerrar
+            // imgQR
             // 
-            this.butCerrar.Enabled = false;
-            this.butCerrar.Location = new System.Drawing.Point(216, 494);
-            this.butCerrar.Name = "butCerrar";
-            this.butCerrar.Size = new System.Drawing.Size(121, 34);
-            this.butCerrar.TabIndex = 4;
-            this.butCerrar.Text = "Cerrar";
-            this.butCerrar.UseVisualStyleBackColor = true;
-            this.butCerrar.Click += new System.EventHandler(this.butCerrar_Click);
+            this.imgQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgQR.Location = new System.Drawing.Point(72, 51);
+            this.imgQR.Name = "imgQR";
+            this.imgQR.Size = new System.Drawing.Size(265, 240);
+            this.imgQR.TabIndex = 7;
+            this.imgQR.TabStop = false;
             // 
             // NuevoTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 540);
-            this.Controls.Add(this.butCerrar);
-            this.Controls.Add(this.grbTicket);
+            this.Controls.Add(this.panelPrint);
             this.Controls.Add(this.butGenerar);
             this.Controls.Add(this.butImprimir);
             this.Name = "NuevoTicket";
             this.Text = "NuevoTicket";
+            this.panelPrint.ResumeLayout(false);
+            this.panelPrint.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).EndInit();
-            this.grbTicket.ResumeLayout(false);
-            this.grbTicket.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox imgQR;
         private System.Windows.Forms.Button butImprimir;
         private System.Windows.Forms.Button butGenerar;
-        private System.Windows.Forms.GroupBox grbTicket;
+        private System.Drawing.Printing.PrintDocument printTicket;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Panel panelPrint;
         private System.Windows.Forms.Label labelFechaInicio;
-        private System.Windows.Forms.Button butCerrar;
+        private System.Windows.Forms.PictureBox imgQR;
     }
 }
