@@ -15,6 +15,7 @@ namespace ControlAforoTFG
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }
