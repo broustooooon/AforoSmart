@@ -23,26 +23,30 @@ namespace ControlAforoTFG.Formularios
         /*Boton Generar*/
         private void butGenerar_Click(object sender, EventArgs e)
         {
+            //if(!textBoxPersonas.Text.Equals(""))
+            //{
+            //    try
+            //    {
+            //        generarQR();
+            //    }
+            //    catch 
+            //    {
+
+            //    }
+            //}
+
             generarQR();
-            butGenerar.Enabled = false;
         }
 
         /*Boton Imprimir*/
         private void butImprimir_Click(object sender, EventArgs e)
         {
-            //butGenerar.Visible = false;
-            //butImprimir.Visible = false;
-
             /*Guardar en Base de Datos*/
             GenerarCodigoUnico(fecha);
 
             /*Imprimir Ticket*/
             Print(panelPrint);
-        }
 
-        /*Boton Cerrar*/
-        private void butCerrar_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
 
@@ -65,9 +69,13 @@ namespace ControlAforoTFG.Formularios
             // Asigna la imagen generada al PictureBox
             imgQR.Image = resizedImage;
 
-            labelFechaInicio.Text += fecha.ToString();
-            labelFechaInicio.Visible = true;
+            labelFecha.Text += fecha.ToShortDateString();
+            labelHora.Text += fecha.ToString("HH:mm:ss");
+            labelFecha.Visible = true;
+            labelFecha.Visible = true;
+            labelHora.Visible = true;
             butImprimir.Enabled = true;
+            butGenerar.Enabled = false;
         }
 
         private DateTime capturarFecha()
@@ -91,12 +99,13 @@ namespace ControlAforoTFG.Formularios
 
         private void Print(Panel pnl)
         {
-            PrinterSettings ps = new PrinterSettings();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.PrinterSettings.PrinterName = PrinterSettings.InstalledPrinters[0];
+            printDoc.PrintController = new StandardPrintController();
             panelPrint = pnl;
             getPrintArea(pnl);
-            printPreviewDialog1.Document = printTicket;
-            printTicket.PrintPage += new PrintPageEventHandler(printTicket_PrintPage);
-            printPreviewDialog1.ShowDialog();
+            printDoc.PrintPage += new PrintPageEventHandler(printTicket_PrintPage);
+            printDoc.Print();
         }
 
         private void getPrintArea(Panel pnl)

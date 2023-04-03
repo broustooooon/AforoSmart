@@ -52,6 +52,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Ticket.cs" />
     <Compile Include="Formularios\NuevoTicket.cs">
       <SubType>Form</SubType>
     </Compile>

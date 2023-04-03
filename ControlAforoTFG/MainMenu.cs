@@ -19,12 +19,11 @@ namespace ControlAforoTFG
         }
 
         /*Generar Nuevo Ticket*/
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NuevoTicket soyHijo = new NuevoTicket();
             soyHijo.MdiParent = this;
             soyHijo.Text = "Documento " + this.MdiChildren.Length.ToString();
-            //soyHijo.Dock= DockStyle.Fill;
             soyHijo.Show();
         }
 
@@ -33,5 +32,6 @@ namespace ControlAforoTFG
         {
             Application.Exit();
         }
+
     }
 }
