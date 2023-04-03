@@ -1,0 +1,14 @@
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\ControlAforoTFG.exe.config
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\ControlAforoTFG.exe
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\ControlAforoTFG.pdb
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.csproj.AssemblyReference.cache
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.csproj.SuggestedBindingRedirects.cache
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.MainMenu.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Properties.Resources.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.csproj.GenerateResource.cache
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.csproj.CoreCompileInputs.cache
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.exe
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.pdb
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.NuevoTicket.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.csproj.CopyComplete
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\QRCoder.dll
