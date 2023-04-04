@@ -1,11 +1,12 @@
-﻿
-using QRCoder;
+﻿using QRCoder;
 using System;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using ControlAforoTFG.Entidades;
+using ControlAforoTFG.ModelosDAO;
 
 namespace ControlAforoTFG.Formularios
 {
@@ -23,27 +24,15 @@ namespace ControlAforoTFG.Formularios
         /*Boton Generar*/
         private void butGenerar_Click(object sender, EventArgs e)
         {
-            //if(!textBoxPersonas.Text.Equals(""))
-            //{
-            //    try
-            //    {
-            //        generarQR();
-            //    }
-            //    catch 
-            //    {
-
-            //    }
-            //}
-
             generarQR();
         }
 
         /*Boton Imprimir*/
         private void butImprimir_Click(object sender, EventArgs e)
         {
-            /*Guardar en Base de Datos*/
-            GenerarCodigoUnico(fecha);
-
+            Ticket ticket = new Ticket(GenerarCodigoUnico(fecha), fecha);
+            TicketDAO ticketDAO = new TicketDAO();
+            ticketDAO.guardarTicket(ticket);
             /*Imprimir Ticket*/
             Print(panelPrint);
 
@@ -118,6 +107,11 @@ namespace ControlAforoTFG.Formularios
         {
             Rectangle pagearea = e.PageBounds;
             e.Graphics.DrawImage(memoryImg, (pagearea.Width/2) - (this.panelPrint.Width/2), this.panelPrint.Location.Y);
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -12,3 +12,4 @@ C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de G
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.NuevoTicket.resources
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.csproj.CopyComplete
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\QRCoder.dll
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormAjustes.resources

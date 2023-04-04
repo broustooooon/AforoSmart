@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.nuevoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cobroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.nuevoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cobroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.precioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem1,
@@ -51,9 +54,22 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1125, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(95, 710);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // nuevoToolStripMenuItem1
+            // 
+            this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(66, 24);
+            this.nuevoToolStripMenuItem1.Text = "Nuevo";
+            this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
+            // 
+            // cobroToolStripMenuItem
+            // 
+            this.cobroToolStripMenuItem.Name = "cobroToolStripMenuItem";
+            this.cobroToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.cobroToolStripMenuItem.Text = "Cobro";
             // 
             // ajustesToolStripMenuItem
             // 
@@ -63,6 +79,9 @@
             // 
             // ajustesToolStripMenuItem1
             // 
+            this.ajustesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.precioToolStripMenuItem,
+            this.baseDeDatosToolStripMenuItem});
             this.ajustesToolStripMenuItem1.Name = "ajustesToolStripMenuItem1";
             this.ajustesToolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
             this.ajustesToolStripMenuItem1.Text = "Ajustes";
@@ -80,18 +99,19 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // nuevoToolStripMenuItem1
+            // precioToolStripMenuItem
             // 
-            this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(66, 24);
-            this.nuevoToolStripMenuItem1.Text = "Nuevo";
-            this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
+            this.precioToolStripMenuItem.Name = "precioToolStripMenuItem";
+            this.precioToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.precioToolStripMenuItem.Text = "Precio";
+            this.precioToolStripMenuItem.Click += new System.EventHandler(this.precioToolStripMenuItem_Click);
             // 
-            // cobroToolStripMenuItem
+            // baseDeDatosToolStripMenuItem
             // 
-            this.cobroToolStripMenuItem.Name = "cobroToolStripMenuItem";
-            this.cobroToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.cobroToolStripMenuItem.Text = "Cobro";
+            this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.baseDeDatosToolStripMenuItem.Text = "Crear Base de Datos";
+            this.baseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.baseDeDatosToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -121,6 +141,8 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cobroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem precioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baseDeDatosToolStripMenuItem;
     }
 }
 

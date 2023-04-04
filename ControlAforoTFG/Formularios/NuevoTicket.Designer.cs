@@ -32,9 +32,10 @@
             this.butGenerar = new System.Windows.Forms.Button();
             this.printTicket = new System.Drawing.Printing.PrintDocument();
             this.panelPrint = new System.Windows.Forms.Panel();
+            this.labelHora = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.imgQR = new System.Windows.Forms.PictureBox();
-            this.labelHora = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.panelPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +43,7 @@
             // butImprimir
             // 
             this.butImprimir.Enabled = false;
-            this.butImprimir.Location = new System.Drawing.Point(216, 451);
+            this.butImprimir.Location = new System.Drawing.Point(216, 410);
             this.butImprimir.Name = "butImprimir";
             this.butImprimir.Size = new System.Drawing.Size(121, 32);
             this.butImprimir.TabIndex = 1;
@@ -52,7 +53,7 @@
             // 
             // butGenerar
             // 
-            this.butGenerar.Location = new System.Drawing.Point(72, 451);
+            this.butGenerar.Location = new System.Drawing.Point(72, 410);
             this.butGenerar.Name = "butGenerar";
             this.butGenerar.Size = new System.Drawing.Size(121, 32);
             this.butGenerar.TabIndex = 2;
@@ -72,8 +73,19 @@
             this.panelPrint.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPrint.Location = new System.Drawing.Point(0, 0);
             this.panelPrint.Name = "panelPrint";
-            this.panelPrint.Size = new System.Drawing.Size(410, 406);
+            this.panelPrint.Size = new System.Drawing.Size(410, 379);
             this.panelPrint.TabIndex = 3;
+            // 
+            // labelHora
+            // 
+            this.labelHora.AutoSize = true;
+            this.labelHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHora.Location = new System.Drawing.Point(68, 335);
+            this.labelHora.Name = "labelHora";
+            this.labelHora.Size = new System.Drawing.Size(56, 20);
+            this.labelHora.TabIndex = 9;
+            this.labelHora.Text = "Hora: ";
+            this.labelHora.Visible = false;
             // 
             // labelFecha
             // 
@@ -95,22 +107,22 @@
             this.imgQR.TabIndex = 7;
             this.imgQR.TabStop = false;
             // 
-            // labelHora
+            // buttonCancel
             // 
-            this.labelHora.AutoSize = true;
-            this.labelHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHora.Location = new System.Drawing.Point(68, 335);
-            this.labelHora.Name = "labelHora";
-            this.labelHora.Size = new System.Drawing.Size(56, 20);
-            this.labelHora.TabIndex = 9;
-            this.labelHora.Text = "Hora: ";
-            this.labelHora.Visible = false;
+            this.buttonCancel.Location = new System.Drawing.Point(277, 463);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(121, 32);
+            this.buttonCancel.TabIndex = 4;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // NuevoTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 506);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.panelPrint);
             this.Controls.Add(this.butGenerar);
             this.Controls.Add(this.butImprimir);
@@ -131,5 +143,6 @@
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.PictureBox imgQR;
         private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

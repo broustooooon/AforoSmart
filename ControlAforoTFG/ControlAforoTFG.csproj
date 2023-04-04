@@ -52,7 +52,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Ajustes.cs" />
     <Compile Include="Entidades\Ticket.cs" />
+    <Compile Include="Formularios\FormAjustes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormAjustes.Designer.cs">
+      <DependentUpon>FormAjustes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\NuevoTicket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,8 +72,14 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelosDAO\AjustesDAO.cs" />
+    <Compile Include="ModelosDAO\ConectionDB.cs" />
+    <Compile Include="ModelosDAO\TicketDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\FormAjustes.resx">
+      <DependentUpon>FormAjustes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\NuevoTicket.resx">
       <DependentUpon>NuevoTicket.cs</DependentUpon>
     </EmbeddedResource>
