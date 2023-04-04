@@ -15,26 +15,29 @@ namespace ControlAforoTFG
 {
     public partial class MainMenu : Form
     {
-        int ancho;
-        int alto;
-        private Point posicionInicial = new Point(23,32);
         public MainMenu()
         {
             InitializeComponent();
-            ancho = this.Location.X;
-            alto = this.Location.Y;
-            posicionInicial = new Point(this.Location.X, this.Location.Y);
         }
 
         /*Generar Nuevo Ticket*/
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            NuevoTicket nuevoTicket = new NuevoTicket();
-            nuevoTicket.Location = posicionInicial;
-            //nuevoTicket.MdiParent = this;
-            nuevoTicket.Text = "Nuevo Ticket";
-            nuevoTicket.ShowDialog();
-            nuevoTicket.Focus();
+            if (this.MdiChildren.Length == 0)
+            {
+                NuevoTicket nuevoTicket = new NuevoTicket();
+                nuevoTicket.MdiParent = this;
+                nuevoTicket.Text = "Nuevo Ticket";
+                nuevoTicket.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                NuevoTicket nuevoTicket = new NuevoTicket();
+                nuevoTicket.MdiParent = this;
+                nuevoTicket.Text = "Nuevo Ticket";
+                nuevoTicket.Show();
+            }
         }
 
         /*Salir de la Aplicacion*/
@@ -65,6 +68,21 @@ namespace ControlAforoTFG
             ajustes.Text = "Ventana de Ajustes";
             ajustes.ShowDialog();
             ajustes.Focus();
+        }
+
+        private void cobroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void butNuevoTicket_Click(object sender, EventArgs e)
+        {
+            nuevoToolStripMenuItem1_Click(sender, e);
+        }
+
+        private void butCobroTicket_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

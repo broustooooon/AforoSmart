@@ -73,7 +73,7 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelosDAO\AjustesDAO.cs" />
-    <Compile Include="ModelosDAO\ConectionDB.cs" />
+    <Compile Include="GestionDB\ConectionDB.cs" />
     <Compile Include="ModelosDAO\TicketDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

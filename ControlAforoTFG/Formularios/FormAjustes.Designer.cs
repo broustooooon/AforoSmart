@@ -157,6 +157,7 @@
             this.Controls.Add(this.textBoxPrecioMinuto);
             this.Controls.Add(this.labelPrecioMinuto);
             this.Name = "FormAjustes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana de Ajustes";
             this.Load += new System.EventHandler(this.FormAjustes_Load);
             this.ResumeLayout(false);

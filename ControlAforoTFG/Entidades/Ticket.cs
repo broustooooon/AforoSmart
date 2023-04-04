@@ -8,18 +8,22 @@ namespace ControlAforoTFG.Entidades
 {
     internal class Ticket
     {
-        public string Id { get; set; }
-        public int NumPersonas { get; set; }
+        public long Id { get; set; }
+        public string codigo { get; set; }
+        public int NumPersonasIn { get; set; }
+        public int NumPersonasOut { get; set; }
         public DateTime FechaEntrada { get; set; }
         public DateTime FechaSalida { get; set; }
 
-        public Ticket(string Id, DateTime FechaEntrada) {
-            this.Id = Id;
+        public Ticket(string codigo, DateTime FechaEntrada, int NumPersonaIn) {
+            this.codigo = codigo;
             this.FechaEntrada = FechaEntrada;
+            this.NumPersonasIn = NumPersonaIn;
         }
 
         public Ticket()
         {
+
         }
 
         public void calcularPrecio(DateTime Inicio, DateTime Fin)

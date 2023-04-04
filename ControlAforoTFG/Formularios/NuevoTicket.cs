@@ -21,8 +21,7 @@ namespace ControlAforoTFG.Formularios
             InitializeComponent();
         }
 
-        /*Boton Generar*/
-        private void butGenerar_Click(object sender, EventArgs e)
+        private void NuevoTicket_Load(object sender, EventArgs e)
         {
             generarQR();
         }
@@ -30,13 +29,27 @@ namespace ControlAforoTFG.Formularios
         /*Boton Imprimir*/
         private void butImprimir_Click(object sender, EventArgs e)
         {
-            Ticket ticket = new Ticket(GenerarCodigoUnico(fecha), fecha);
-            TicketDAO ticketDAO = new TicketDAO();
-            ticketDAO.guardarTicket(ticket);
-            /*Imprimir Ticket*/
-            Print(panelPrint);
 
-            this.Close();
+            if(numPersonas.Value <= 0)
+            {
+                DialogResult result = MessageBox.Show("Introduzca un número de personas válido", 
+                                                      "Error", 
+                                                      MessageBoxButtons.OK, 
+                                                      MessageBoxIcon.Error);
+            }
+            else {
+                /*Crea el Ticket*/
+                Ticket ticket = new Ticket(GenerarCodigoUnico(fecha), fecha, Convert.ToInt32(numPersonas.Value));
+                TicketDAO ticketDAO = new TicketDAO();
+
+                /*Guarda el Ticket en base de datos*/
+                ticketDAO.guardarTicket(ticket);
+
+                /*Imprimir Ticket*/
+                Print(panelPrint);
+
+                this.Close();
+            }
         }
 
 
@@ -63,8 +76,8 @@ namespace ControlAforoTFG.Formularios
             labelFecha.Visible = true;
             labelFecha.Visible = true;
             labelHora.Visible = true;
+            labelNumPersonas.Visible = true;
             butImprimir.Enabled = true;
-            butGenerar.Enabled = false;
         }
 
         private DateTime capturarFecha()
@@ -112,6 +125,11 @@ namespace ControlAforoTFG.Formularios
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numPersonas_ValueChanged(object sender, EventArgs e)
+        {
+            labelNumPersonas.Text = "Nº Personas: " + numPersonas.Value.ToString();
         }
     }
 }

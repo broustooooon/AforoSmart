@@ -25,7 +25,6 @@ namespace ControlAforoTFG.Modelos_DAO
             connection.Open();
         }
 
-
         private void Close()
         {
             connection.Close();
@@ -73,7 +72,12 @@ namespace ControlAforoTFG.Modelos_DAO
 
         private void CreateTableTicket()
         {
-            string createTableQuery = "CREATE TABLE Ticket (id varchar(10) PRIMARY KEY, num_personas int, fecha_entrada DATETIME, fecha_salida DATETIME)";
+            string createTableQuery = "CREATE TABLE Ticket (id int IDENTITY(1,1) PRIMARY KEY, " +
+                                                            "codigo varchar(10)," +
+                                                            "num_personas_in int, " +
+                                                            "num_personas_out int, " +
+                                                            "fecha_entrada DATETIME, " +
+                                                            "fecha_salida DATETIME)";
             SqlCommand command2 = new SqlCommand(createTableQuery, connection);
             command2.ExecuteNonQuery();
         }
@@ -82,7 +86,7 @@ namespace ControlAforoTFG.Modelos_DAO
         {
             Open();
             UsingDatabase();
-            string saveTicketQuery = "INSERT INTO Ticket (id, fecha_entrada) VALUES ('" + ticket.Id + "', '" + ticket.FechaEntrada + "');";
+            string saveTicketQuery = "INSERT INTO Ticket (codigo, fecha_entrada, num_personas_in) VALUES ('" + ticket.codigo + "', '" + ticket.FechaEntrada + "', '" + ticket.NumPersonasIn + "');";
             SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
             saveCommand.ExecuteNonQuery();
 
@@ -137,7 +141,7 @@ namespace ControlAforoTFG.Modelos_DAO
 
                 Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ajustes = null;
                 Close();
