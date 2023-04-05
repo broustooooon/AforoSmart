@@ -41,6 +41,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.butCobroTicket = new System.Windows.Forms.Button();
             this.butNuevoTicket = new System.Windows.Forms.Button();
+            this.aforoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.nuevoToolStripMenuItem1,
             this.cobroToolStripMenuItem,
             this.ajustesToolStripMenuItem,
+            this.aforoToolStripMenuItem,
             this.ajustesToolStripMenuItem1,
             this.acercaDeToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -65,21 +67,21 @@
             // nuevoToolStripMenuItem1
             // 
             this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
-            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(111, 24);
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(143, 24);
             this.nuevoToolStripMenuItem1.Text = "Generar Ticket";
             this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click);
             // 
             // cobroToolStripMenuItem
             // 
             this.cobroToolStripMenuItem.Name = "cobroToolStripMenuItem";
-            this.cobroToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.cobroToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.cobroToolStripMenuItem.Text = "Cobrar Ticket";
             this.cobroToolStripMenuItem.Click += new System.EventHandler(this.cobroToolStripMenuItem_Click);
             // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
-            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.ajustesToolStripMenuItem.Text = "Consultas";
             // 
             // ajustesToolStripMenuItem1
@@ -88,7 +90,7 @@
             this.precioToolStripMenuItem,
             this.baseDeDatosToolStripMenuItem});
             this.ajustesToolStripMenuItem1.Name = "ajustesToolStripMenuItem1";
-            this.ajustesToolStripMenuItem1.Size = new System.Drawing.Size(111, 24);
+            this.ajustesToolStripMenuItem1.Size = new System.Drawing.Size(143, 24);
             this.ajustesToolStripMenuItem1.Text = "Ajustes";
             // 
             // precioToolStripMenuItem
@@ -108,13 +110,13 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -159,6 +161,13 @@
             this.butNuevoTicket.UseVisualStyleBackColor = false;
             this.butNuevoTicket.Click += new System.EventHandler(this.butNuevoTicket_Click);
             // 
+            // aforoToolStripMenuItem
+            // 
+            this.aforoToolStripMenuItem.Name = "aforoToolStripMenuItem";
+            this.aforoToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
+            this.aforoToolStripMenuItem.Text = "Aforo";
+            this.aforoToolStripMenuItem.Click += new System.EventHandler(this.aforoToolStripMenuItem_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -171,6 +180,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1143, 757);
             this.Name = "MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Aforo";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -195,6 +205,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button butCobroTicket;
         private System.Windows.Forms.Button butNuevoTicket;
+        private System.Windows.Forms.ToolStripMenuItem aforoToolStripMenuItem;
     }
 }
 

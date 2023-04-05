@@ -18,26 +18,13 @@ namespace ControlAforoTFG
         public MainMenu()
         {
             InitializeComponent();
+            instanciarFormAforo();
         }
 
         /*Generar Nuevo Ticket*/
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (this.MdiChildren.Length == 0)
-            {
-                NuevoTicket nuevoTicket = new NuevoTicket();
-                nuevoTicket.MdiParent = this;
-                nuevoTicket.Text = "Nuevo Ticket";
-                nuevoTicket.Show();
-            }
-            else
-            {
-                this.ActiveMdiChild.Close();
-                NuevoTicket nuevoTicket = new NuevoTicket();
-                nuevoTicket.MdiParent = this;
-                nuevoTicket.Text = "Nuevo Ticket";
-                nuevoTicket.Show();
-            }
+            crearNuevoTicket();
         }
 
         /*Salir de la Aplicacion*/
@@ -72,17 +59,74 @@ namespace ControlAforoTFG
 
         private void cobroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            crearFormCobro();
         }
 
         private void butNuevoTicket_Click(object sender, EventArgs e)
         {
-            nuevoToolStripMenuItem1_Click(sender, e);
+            crearNuevoTicket();
         }
 
         private void butCobroTicket_Click(object sender, EventArgs e)
         {
+            crearFormCobro();
+        }
 
+        private void aforoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            crearFormAforo();
+        }
+
+        private void crearFormAforo()
+        {
+            ControlAforo controlAforo = new ControlAforo();
+            controlAforo.Text = "Aforo Disponible Actual";
+            controlAforo.Show();
+        }
+
+        private void instanciarFormAforo()
+        {
+            ControlAforo controlAforo = new ControlAforo();
+            controlAforo.Text = "Aforo Disponible Actual";
+            controlAforo.Close();
+        }
+
+        private void crearFormCobro()
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                FormCobro nuevoCobro = new FormCobro();
+                nuevoCobro.MdiParent = this;
+                nuevoCobro.Text = "Nuevo Cobro";
+                nuevoCobro.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                FormCobro nuevoCobro = new FormCobro();
+                nuevoCobro.MdiParent = this;
+                nuevoCobro.Text = "Nuevo Cobro";
+                nuevoCobro.Show();
+            }
+        }
+
+        private void crearNuevoTicket()
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                NuevoTicket nuevoTicket = new NuevoTicket();
+                nuevoTicket.MdiParent = this;
+                nuevoTicket.Text = "Nuevo Ticket";
+                nuevoTicket.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                NuevoTicket nuevoTicket = new NuevoTicket();
+                nuevoTicket.MdiParent = this;
+                nuevoTicket.Text = "Nuevo Ticket";
+                nuevoTicket.Show();
+            }
         }
     }
 }

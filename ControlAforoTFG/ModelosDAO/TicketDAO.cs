@@ -6,9 +6,14 @@ namespace ControlAforoTFG.ModelosDAO
     internal class TicketDAO
     {
         private ConectionDB conexion = new ConectionDB();
-        public void guardarTicket(Ticket ticket)
+        public void guardarTicketIn(TicketIn ticket)
         {
-            conexion.GuardarTicket(ticket);
+            conexion.GuardarTicketIn(ticket);
+        }
+
+        public void guardarTicketOut(TicketOut ticket)
+        {
+            conexion.GuardarTicketOut(ticket);
         }
     }
 }

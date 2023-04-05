@@ -53,12 +53,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Ajustes.cs" />
-    <Compile Include="Entidades\Ticket.cs" />
+    <Compile Include="Entidades\TicketIn.cs" />
+    <Compile Include="Entidades\TicketOut.cs" />
+    <Compile Include="Formularios\ControlAforo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ControlAforo.Designer.cs">
+      <DependentUpon>ControlAforo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormAjustes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FormAjustes.Designer.cs">
       <DependentUpon>FormAjustes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormCobro.Designer.cs">
+      <DependentUpon>FormCobro.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\NuevoTicket.cs">
       <SubType>Form</SubType>
@@ -77,8 +90,14 @@
     <Compile Include="ModelosDAO\TicketDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\ControlAforo.resx">
+      <DependentUpon>ControlAforo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormAjustes.resx">
       <DependentUpon>FormAjustes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormCobro.resx">
+      <DependentUpon>FormCobro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\NuevoTicket.resx">
       <DependentUpon>NuevoTicket.cs</DependentUpon>

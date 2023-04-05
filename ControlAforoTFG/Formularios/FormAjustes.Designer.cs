@@ -38,6 +38,8 @@
             this.Guardar = new System.Windows.Forms.Button();
             this.butCancelar = new System.Windows.Forms.Button();
             this.labelResultado = new System.Windows.Forms.Label();
+            this.textBoxAforo = new System.Windows.Forms.TextBox();
+            this.labelAforo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelPrecioMinuto
@@ -57,7 +59,8 @@
             this.textBoxPrecioMinuto.Name = "textBoxPrecioMinuto";
             this.textBoxPrecioMinuto.Size = new System.Drawing.Size(125, 25);
             this.textBoxPrecioMinuto.TabIndex = 1;
-            this.textBoxPrecioMinuto.TextChanged += new System.EventHandler(this.textBoxPrecioMinuto_TextChanged);
+            this.textBoxPrecioMinuto.TextChanged += new System.EventHandler(this.TextChanged);
+            this.textBoxPrecioMinuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
             // textBoxPrecioMediaHora
             // 
@@ -66,7 +69,8 @@
             this.textBoxPrecioMediaHora.Name = "textBoxPrecioMediaHora";
             this.textBoxPrecioMediaHora.Size = new System.Drawing.Size(125, 25);
             this.textBoxPrecioMediaHora.TabIndex = 3;
-            this.textBoxPrecioMediaHora.TextChanged += new System.EventHandler(this.textBoxPrecioMediaHora_TextChanged);
+            this.textBoxPrecioMediaHora.TextChanged += new System.EventHandler(this.TextChanged);
+            this.textBoxPrecioMediaHora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
             // labelPrecioMediaHora
             // 
@@ -85,7 +89,8 @@
             this.textBoxDescuento.Name = "textBoxDescuento";
             this.textBoxDescuento.Size = new System.Drawing.Size(125, 25);
             this.textBoxDescuento.TabIndex = 5;
-            this.textBoxDescuento.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBoxDescuento.TextChanged += new System.EventHandler(this.TextChanged);
+            this.textBoxDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
             // labelDescuento
             // 
@@ -141,11 +146,33 @@
             this.labelResultado.Text = "Error al guardar los Ajustes.\r\n";
             this.labelResultado.Visible = false;
             // 
+            // textBoxAforo
+            // 
+            this.textBoxAforo.Location = new System.Drawing.Point(299, 273);
+            this.textBoxAforo.Multiline = true;
+            this.textBoxAforo.Name = "textBoxAforo";
+            this.textBoxAforo.Size = new System.Drawing.Size(125, 25);
+            this.textBoxAforo.TabIndex = 10;
+            this.textBoxAforo.TextChanged += new System.EventHandler(this.TextChanged);
+            this.textBoxAforo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
+            // 
+            // labelAforo
+            // 
+            this.labelAforo.AutoSize = true;
+            this.labelAforo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAforo.Location = new System.Drawing.Point(29, 273);
+            this.labelAforo.Name = "labelAforo";
+            this.labelAforo.Size = new System.Drawing.Size(133, 25);
+            this.labelAforo.TabIndex = 11;
+            this.labelAforo.Text = "Aforo Máximo";
+            // 
             // FormAjustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 563);
+            this.Controls.Add(this.labelAforo);
+            this.Controls.Add(this.textBoxAforo);
             this.Controls.Add(this.labelResultado);
             this.Controls.Add(this.butCancelar);
             this.Controls.Add(this.Guardar);
@@ -156,6 +183,7 @@
             this.Controls.Add(this.labelPrecioMediaHora);
             this.Controls.Add(this.textBoxPrecioMinuto);
             this.Controls.Add(this.labelPrecioMinuto);
+            this.KeyPreview = true;
             this.Name = "FormAjustes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana de Ajustes";
@@ -177,5 +205,7 @@
         private System.Windows.Forms.Button Guardar;
         private System.Windows.Forms.Button butCancelar;
         private System.Windows.Forms.Label labelResultado;
+        private System.Windows.Forms.TextBox textBoxAforo;
+        private System.Windows.Forms.Label labelAforo;
     }
 }

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using ControlAforoTFG.Entidades;
 using ControlAforoTFG.ModelosDAO;
+using ControlAforoTFG.Modelos_DAO;
 
 namespace ControlAforoTFG.Formularios
 {
@@ -29,8 +30,7 @@ namespace ControlAforoTFG.Formularios
         /*Boton Imprimir*/
         private void butImprimir_Click(object sender, EventArgs e)
         {
-
-            if(numPersonas.Value <= 0)
+            if (numPersonas.Value <= 0)
             {
                 DialogResult result = MessageBox.Show("Introduzca un número de personas válido", 
                                                       "Error", 
@@ -38,17 +38,31 @@ namespace ControlAforoTFG.Formularios
                                                       MessageBoxIcon.Error);
             }
             else {
-                /*Crea el Ticket*/
-                Ticket ticket = new Ticket(GenerarCodigoUnico(fecha), fecha, Convert.ToInt32(numPersonas.Value));
-                TicketDAO ticketDAO = new TicketDAO();
+                ConectionDB conection = new ConectionDB();
+                int aforoDisponible = conection.calcularAforo();
+                if (aforoDisponible < Convert.ToInt32(numPersonas.Value))
+                {
+                    DialogResult result = MessageBox.Show(("No hay espacio disponible (Aforo disponible: " + aforoDisponible + ")"),
+                                                      "Error",
+                                                      MessageBoxButtons.OK,
+                                                      MessageBoxIcon.Error);
+                } else
+                {
+                    /*Crea el Ticket*/
+                    TicketIn ticket = new TicketIn(GenerarCodigoUnico(fecha), fecha, Convert.ToInt32(numPersonas.Value));
+                    TicketDAO ticketDAO = new TicketDAO();
 
-                /*Guarda el Ticket en base de datos*/
-                ticketDAO.guardarTicket(ticket);
+                    /*Guarda el Ticket en base de datos*/
+                    ticketDAO.guardarTicketIn(ticket);
 
-                /*Imprimir Ticket*/
-                Print(panelPrint);
-
-                this.Close();
+                    /*Imprimir Ticket*/
+                    for (int i = 0; i < ticket.NumPersonasIn; i++)
+                    {
+                        Print(panelPrint);
+                    }
+                    ControlAforo.actualizarAforo();
+                    this.Close();
+                }
             }
         }
 
@@ -86,7 +100,7 @@ namespace ControlAforoTFG.Formularios
             return dateTime;
         }
 
-        private string GenerarCodigoUnico(DateTime fecha)
+        public static string GenerarCodigoUnico(DateTime fecha)
         {
             // Convierte el objeto DateTime a una cadena de caracteres con el formato deseado
             string fechaStr = fecha.ToString("yyyyMMddHHmmss");
