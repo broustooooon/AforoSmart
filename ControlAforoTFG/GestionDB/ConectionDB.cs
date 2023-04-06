@@ -334,5 +334,105 @@ namespace ControlAforoTFG.Modelos_DAO
             Close();
             return true;
         }
+
+        public void BorrarRegistroOut(int id)
+        {
+            Open();
+            UsingDatabase();
+
+            // Eliminar la fila de la base de datos
+            string query = "DELETE FROM ticketOut WHERE ID = @id";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+
+            Close();
+        }
+
+        public void BorrarRegistroIn(string codigo)
+        {
+            Open();
+            UsingDatabase();
+
+            // Eliminar la fila de la base de datos
+            string query = "DELETE FROM ticketIn WHERE codigo = '" +codigo +"'";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            string query2 = "DELETE FROM ticketOut WHERE codigo = '" + codigo + "'";
+            SqlCommand command2 = new SqlCommand(query2, connection);
+            command2.ExecuteNonQuery();
+
+            Close();
+        }
+
+        public List<TicketOut> DevolverInforme(string consulta)
+        {
+            List<TicketOut> listaTickets = new List<TicketOut>();
+            Open();
+            UsingDatabase();
+
+            SqlCommand command = new SqlCommand(consulta, connection);
+            command.ExecuteNonQuery();
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    TicketOut ticket = new TicketOut();
+
+                    /*Campo Codigo*/
+                    if (reader.IsDBNull(reader.GetOrdinal("codigo")))
+                    {
+                        ticket.codigo = null;
+                    }
+                    else
+                    {
+                        ticket.codigo = reader.GetString(reader.GetOrdinal("codigo"));
+                    }
+
+                    /*Campo Num_personas_out*/
+                    if (reader.IsDBNull(reader.GetOrdinal("num_personas_out")))
+                    {
+                        ticket.NumPersonasOut = 0;
+                    }
+                    else
+                    {
+                        ticket.NumPersonasOut = reader.GetInt32(reader.GetOrdinal("num_personas_out"));
+                    }
+
+                    /*Campo fecha_entrada*/
+                    ticket.FechaEntrada = Convert.ToDateTime(reader["fecha_entrada"]);
+
+                    /*Campo fecha_salida*/
+                    ticket.FechaSalida = Convert.ToDateTime(reader["fecha_salida"]);
+
+                    /*Campo importe*/
+                    if (reader.IsDBNull(reader.GetOrdinal("importe")))
+                    {
+                        ticket.Importe = 0;
+                    }
+                    else
+                    {
+                        ticket.Importe = reader.GetDecimal(reader.GetOrdinal("importe"));
+                    }
+
+                    /*Campo metodo_pago*/
+                    if (reader.IsDBNull(reader.GetOrdinal("metodo_pago")))
+                    {
+                        ticket.MetodoPago = null;
+                    }
+                    else
+                    {
+                        ticket.MetodoPago = reader.GetString(reader.GetOrdinal("metodo_pago"));
+                    }
+
+                    listaTickets.Add(ticket);
+                }
+            }
+
+            Close();
+            return listaTickets;
+        }
     }
 }

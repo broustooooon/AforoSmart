@@ -15,3 +15,6 @@ C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de G
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormAjustes.resources
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.ControlAforo.resources
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormCobro.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.Consultas.FormConsultasIn.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormConsultasOut.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormInforme.resources

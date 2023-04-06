@@ -38,5 +38,11 @@ namespace ControlAforoTFG.Formularios
             ConectionDB conection = new ConectionDB();
             label.Text = "Aforo Disponible: "+conection.calcularAforo().ToString();
         }
+
+        /*Impide que se abran mas formularios*/
+        private void ControlAforo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainMenu.formulariosAbiertos.Remove((Form)sender);
+        }
     }
 }

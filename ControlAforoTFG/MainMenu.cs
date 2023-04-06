@@ -1,4 +1,5 @@
 ﻿using ControlAforoTFG.Formularios;
+using ControlAforoTFG.Formularios.Consultas;
 using ControlAforoTFG.Modelos_DAO;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ControlAforoTFG
 {
     public partial class MainMenu : Form
     {
+        public static List<Form> formulariosAbiertos = new List<Form>();
         public MainMenu()
         {
             InitializeComponent();
@@ -48,6 +50,18 @@ namespace ControlAforoTFG
             }
         }
 
+        /*Ventana de Consultas de Entrada*/
+        private void registrosDeEntradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            crearConsultasIn();
+        }
+
+        /*Ventana de Consultas de Salida*/
+        private void registrosDeSalidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            crearConsultasOut();
+        }
+
         /*Desplegar pestaña de ajustes*/
         private void precioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -79,11 +93,20 @@ namespace ControlAforoTFG
 
         private void crearFormAforo()
         {
+            // Verificar si ya existe un formulario de tipo ControlAforo
+            if (formulariosAbiertos.Any(f => f.GetType() == typeof(ControlAforo)))
+            {
+                return;
+            }
+
+            // Si no existe, crear uno nuevo y agregarlo a la lista
             ControlAforo controlAforo = new ControlAforo();
             controlAforo.Text = "Aforo Disponible Actual";
             controlAforo.Show();
+            formulariosAbiertos.Add(controlAforo);
         }
 
+        /*Abrir Formulario de control de Aforo*/
         private void instanciarFormAforo()
         {
             ControlAforo controlAforo = new ControlAforo();
@@ -91,6 +114,13 @@ namespace ControlAforoTFG
             controlAforo.Close();
         }
 
+        private void FormAforo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Remover el formulario cerrado de la lista
+            formulariosAbiertos.Remove((Form)sender);
+        }
+
+        /*Abrir Formulario de Cobro*/
         private void crearFormCobro()
         {
             if (this.MdiChildren.Length == 0)
@@ -110,6 +140,7 @@ namespace ControlAforoTFG
             }
         }
 
+        /*Abrir formulario de ticket*/
         private void crearNuevoTicket()
         {
             if (this.MdiChildren.Length == 0)
@@ -126,6 +157,91 @@ namespace ControlAforoTFG
                 nuevoTicket.MdiParent = this;
                 nuevoTicket.Text = "Nuevo Ticket";
                 nuevoTicket.Show();
+            }
+        }
+
+        private void crearConsultasIn()
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                FormConsultasIn nuevaConsulta = new FormConsultasIn();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Consultar Registros de Entrada";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                FormConsultasIn nuevaConsulta = new FormConsultasIn();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Consultar Registros de Entrada";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+        }
+
+        private void crearConsultasOut()
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                FormConsultasOut nuevaConsulta = new FormConsultasOut();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Consultar Registros de Salida";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                FormConsultasOut nuevaConsulta = new FormConsultasOut();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Consultar Registros de Salida";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+        }
+
+        /*Abrir Formulario para buscar por fecha y hora*/
+        private void buscarPorFechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                FormConsultaFechaYHoraOut nuevaConsulta = new FormConsultaFechaYHoraOut();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Consultar Registros por Fecha y Hora";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                FormConsultaFechaYHoraOut nuevaConsulta = new FormConsultaFechaYHoraOut();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Consultar Registros por Fecha y Hora";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+        }
+
+        private void informeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                FormInforme nuevaConsulta = new FormInforme();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Informe";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                FormInforme nuevaConsulta = new FormInforme();
+                nuevaConsulta.MdiParent = this;
+                nuevaConsulta.Text = "Informe";
+                nuevaConsulta.Dock = DockStyle.Fill;
+                nuevaConsulta.Show();
             }
         }
     }

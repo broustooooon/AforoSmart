@@ -33,10 +33,11 @@
             this.butCobrar = new System.Windows.Forms.Button();
             this.butCancelar = new System.Windows.Forms.Button();
             this.numPersonas = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxTipoPago = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimeFecha = new System.Windows.Forms.DateTimePicker();
+            this.radioTarjeta = new System.Windows.Forms.RadioButton();
+            this.radioEfectivo = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,29 +91,6 @@
             this.numPersonas.Size = new System.Drawing.Size(131, 30);
             this.numPersonas.TabIndex = 5;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 248);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Forma de Pago";
-            // 
-            // comboBoxTipoPago
-            // 
-            this.comboBoxTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTipoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxTipoPago.FormattingEnabled = true;
-            this.comboBoxTipoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Tarjeta"});
-            this.comboBoxTipoPago.Location = new System.Drawing.Point(241, 240);
-            this.comboBoxTipoPago.Name = "comboBoxTipoPago";
-            this.comboBoxTipoPago.Size = new System.Drawing.Size(131, 33);
-            this.comboBoxTipoPago.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -133,15 +111,50 @@
             this.dateTimeFecha.TabIndex = 9;
             this.dateTimeFecha.ValueChanged += new System.EventHandler(this.dateTimeFecha_ValueChanged);
             // 
+            // radioTarjeta
+            // 
+            this.radioTarjeta.AutoSize = true;
+            this.radioTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioTarjeta.Location = new System.Drawing.Point(258, 291);
+            this.radioTarjeta.Name = "radioTarjeta";
+            this.radioTarjeta.Size = new System.Drawing.Size(94, 29);
+            this.radioTarjeta.TabIndex = 14;
+            this.radioTarjeta.TabStop = true;
+            this.radioTarjeta.Text = "Tarjeta";
+            this.radioTarjeta.UseVisualStyleBackColor = true;
+            // 
+            // radioEfectivo
+            // 
+            this.radioEfectivo.AutoSize = true;
+            this.radioEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioEfectivo.Location = new System.Drawing.Point(258, 253);
+            this.radioEfectivo.Name = "radioEfectivo";
+            this.radioEfectivo.Size = new System.Drawing.Size(102, 29);
+            this.radioEfectivo.TabIndex = 13;
+            this.radioEfectivo.TabStop = true;
+            this.radioEfectivo.Text = "Efectivo";
+            this.radioEfectivo.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(35, 272);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Forma de Pago";
+            // 
             // FormCobro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 506);
+            this.Controls.Add(this.radioTarjeta);
+            this.Controls.Add(this.radioEfectivo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimeFecha);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBoxTipoPago);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.numPersonas);
             this.Controls.Add(this.butCancelar);
             this.Controls.Add(this.butCobrar);
@@ -151,7 +164,6 @@
             this.Name = "FormCobro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCobro";
-            this.Load += new System.EventHandler(this.FormCobro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,9 +176,10 @@
         private System.Windows.Forms.Button butCobrar;
         private System.Windows.Forms.Button butCancelar;
         private System.Windows.Forms.NumericUpDown numPersonas;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxTipoPago;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimeFecha;
+        private System.Windows.Forms.RadioButton radioTarjeta;
+        private System.Windows.Forms.RadioButton radioEfectivo;
+        private System.Windows.Forms.Label label2;
     }
 }

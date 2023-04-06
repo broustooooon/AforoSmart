@@ -39,7 +39,7 @@ namespace ControlAforoTFG.Formularios
                                                       MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxTipoPago.SelectedItem.Equals(""))
+            if (!radioEfectivo.Checked && !radioTarjeta.Checked)
             {
                 DialogResult result = MessageBox.Show("No has introducido un metodo de pago",
                                                       "Error",
@@ -70,14 +70,21 @@ namespace ControlAforoTFG.Formularios
                 return;
             }
 
-            ticketOut.MetodoPago = comboBoxTipoPago.SelectedItem.ToString();
+            //ticketOut.MetodoPago = comboBoxTipoPago.SelectedItem.ToString();
+            if(radioEfectivo.Checked)
+            {
+                ticketOut.MetodoPago = radioEfectivo.Text;
+            } else
+            {
+                ticketOut.MetodoPago = radioTarjeta.Text;
+            }
             ticketOut.Importe = ticketOut.calcularImporte(conexion.CargarAjustes());
 
             TicketDAO ticketDAO = new TicketDAO();
             ticketDAO.guardarTicketOut(ticketOut);
             ControlAforo.actualizarAforo();
-            DialogResult messageBox = MessageBox.Show("Importe a Pagar: " + ticketOut.Importe + 
-                                                      "\nImporte por persona: " + ticketOut.Importe / ticketOut.NumPersonasOut,
+            DialogResult messageBox = MessageBox.Show("Importe a Pagar: " + ticketOut.Importe.ToString("0.00") + " €" +
+                                                      "\nImporte por persona: " + (ticketOut.Importe / ticketOut.NumPersonasOut).ToString("0.00") + " €",
                                                       "Importe total",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Information);
@@ -96,11 +103,6 @@ namespace ControlAforoTFG.Formularios
         private void textBoxFechaEntrada_TextChanged(object sender, EventArgs e)
         {
             dateTimeFecha.Value = Convert.ToDateTime(textBoxFechaEntrada.Text);
-        }
-
-        private void FormCobro_Load(object sender, EventArgs e)
-        {
-            comboBoxTipoPago.SelectedIndex = 0;
         }
     }
 }

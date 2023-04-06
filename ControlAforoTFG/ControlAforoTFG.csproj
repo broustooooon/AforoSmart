@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
@@ -52,9 +53,26 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAforoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlAforoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Ajustes.cs" />
     <Compile Include="Entidades\TicketIn.cs" />
     <Compile Include="Entidades\TicketOut.cs" />
+    <Compile Include="Formularios\Consultas\FormConsultaFechaYHoraOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Consultas\FormConsultaFechaYHoraOut.Designer.cs">
+      <DependentUpon>FormConsultaFechaYHoraOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Consultas\FormConsultasIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Consultas\FormConsultasIn.Designer.cs">
+      <DependentUpon>FormConsultasIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\ControlAforo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +91,18 @@
     <Compile Include="Formularios\FormCobro.Designer.cs">
       <DependentUpon>FormCobro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Consultas\FormConsultasOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Consultas\FormConsultasOut.Designer.cs">
+      <DependentUpon>FormConsultasOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormInforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormInforme.Designer.cs">
+      <DependentUpon>FormInforme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\NuevoTicket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +120,9 @@
     <Compile Include="ModelosDAO\TicketDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Consultas\FormConsultasIn.resx">
+      <DependentUpon>FormConsultasIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ControlAforo.resx">
       <DependentUpon>ControlAforo.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormCobro.resx">
       <DependentUpon>FormCobro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Consultas\FormConsultasOut.resx">
+      <DependentUpon>FormConsultasOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormInforme.resx">
+      <DependentUpon>FormInforme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\NuevoTicket.resx">
       <DependentUpon>NuevoTicket.cs</DependentUpon>
@@ -113,7 +152,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ControlAforoDataSet.xsc">
+      <DependentUpon>ControlAforoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ControlAforoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlAforoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ControlAforoDataSet.xss">
+      <DependentUpon>ControlAforoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -127,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Red-Cross-PNG-Photo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

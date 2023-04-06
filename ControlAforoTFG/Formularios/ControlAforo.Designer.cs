@@ -36,7 +36,7 @@ namespace ControlAforoTFG.Formularios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(257, 155);
+            this.label1.Location = new System.Drawing.Point(291, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 91);
             this.label1.TabIndex = 0;
@@ -47,12 +47,13 @@ namespace ControlAforoTFG.Formularios
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(782, 453);
+            this.ClientSize = new System.Drawing.Size(852, 454);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(870, 500);
             this.Name = "ControlAforo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ControlAforo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControlAforo_FormClosing);
             this.Load += new System.EventHandler(this.ControlAforo_Load);
             this.Resize += new System.EventHandler(this.ControlAforo_Resize);
             this.ResumeLayout(false);
