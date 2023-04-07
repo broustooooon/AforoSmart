@@ -98,7 +98,7 @@ namespace ControlAforoTFG.Formularios
                             var fecha = mes.Key.ToString("MMMM yyyy"); // Cambia el formato de la fecha a "mes año"
                             var dias = mes.GroupBy(r => ((DateTime)r.Cells["dataGridViewTextBoxColumn5"].Value).Date); // Agrupa los registros del mes por día
 
-                            var fechaParrafo = new Paragraph("Mes: " + fecha);
+                            var fechaParrafo = new Paragraph(("Mes: " + fecha).ToUpper(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.BOLD));
                             fechaParrafo.Alignment = Element.ALIGN_LEFT;
                             document.Add(fechaParrafo);
 
@@ -165,8 +165,8 @@ namespace ControlAforoTFG.Formularios
                                     // Agregamos la tabla a una nueva página del documento PDF
                                     document.Add(pTable);
 
-                                    // Mostrar el importe total del método de pago
-                                    var importeMetodoParrafo = new Paragraph($"Total recaudado por {metodo.Key} en {fechaDia}: {importeMetodoPago} €");
+                                    // Mostrar el importe total por método de pago
+                                    var importeMetodoParrafo = new Paragraph($"Subtotal recaudado por {metodo.Key} en {fechaDia} {importeMetodoPago} €");
                                     importeMetodoParrafo.Alignment = Element.ALIGN_RIGHT;
                                     importeMetodoParrafo.SpacingBefore = 10f;
                                     importeMetodoParrafo.Font.Color = BaseColor.GREEN;
@@ -176,39 +176,43 @@ namespace ControlAforoTFG.Formularios
                                     importeMes += importeMetodoPago;
                                 }
 
-                                // Mostramos el importe total recaudado por día
-                                var importeDiaParrafo = new Paragraph($"Total recaudado en {fechaDia}: {importeDia} €");
+                                // Mostramos el importe total recaudado por cada día
+                                var importeDiaParrafo = new Paragraph($"Total recaudado en {fechaDia} {importeDia} €");
                                 importeDiaParrafo.Alignment = Element.ALIGN_RIGHT;
                                 importeDiaParrafo.SpacingBefore = 10f;
                                 document.Add(importeDiaParrafo);
 
                             }
 
-                            // Mostramos el total recaudado por método de pago en el mes
+                            // Mostramos el total recaudado por método de pago por cada mes
                             foreach (var kvp in importesPorMetodoPagoDia)
                             {
                                 var importeMetodoMesParrafo = new Paragraph($"Total recaudado por {kvp.Key} en {fecha}: {kvp.Value.Sum()} €");
-                                importeMetodoMesParrafo.Alignment = Element.ALIGN_RIGHT;
+                                importeMetodoMesParrafo.Alignment = Element.ALIGN_LEFT;
                                 importeMetodoMesParrafo.SpacingBefore = 10f;
                                 document.Add(importeMetodoMesParrafo);
                             }
 
 
-                            // Mostramos el importe total recaudado por día
-                            var importeMesParrafo = new Paragraph($"Subtotal recaudado en {fecha}: {importeMes} €");
-                            importeMesParrafo.Alignment = Element.ALIGN_RIGHT;
+                            // Mostramos el importe total del mes
+                            var importeMesParrafo = new Paragraph($"Total recaudado en {fecha.ToUpper()}: {importeMes} €");
+                            importeMesParrafo.Alignment = Element.ALIGN_LEFT;
                             importeMesParrafo.SpacingBefore = 10f;
                             document.Add(importeMesParrafo);
 
                             document.NewPage();
                         }
 
+                        var tituloResultadoInforme = new Paragraph("RESULTADO DEL INFORME:");
+                        tituloResultadoInforme.Alignment = Element.ALIGN_LEFT;
+                        document.Add(tituloResultadoInforme);
+
                         decimal totalRecaudado = 0;
-                        // Mostramos el total recaudado por método de pago en el mes
+                        // Mostramos el total recaudado por método de pago en total
                         foreach (var kvp in importesPorMetodoPagoMes)
                         {
                             var importeMetodoParrafo = new Paragraph($"Total recaudado por {kvp.Key}: {kvp.Value.Sum()} €");
-                            importeMetodoParrafo.Alignment = Element.ALIGN_RIGHT;
+                            importeMetodoParrafo.Alignment = Element.ALIGN_LEFT;
                             importeMetodoParrafo.SpacingBefore = 10f;
                             importeMetodoParrafo.Font.Color = BaseColor.BLUE;
                             document.Add(importeMetodoParrafo);
@@ -216,9 +220,9 @@ namespace ControlAforoTFG.Formularios
                             totalRecaudado += kvp.Value.Sum();
                         }
 
-
+                        //Mostrar cuantia total
                         var totalParrafo = new Paragraph($"Total recaudado: {totalRecaudado} €");
-                        totalParrafo.Alignment = Element.ALIGN_RIGHT;
+                        totalParrafo.Alignment = Element.ALIGN_LEFT;
                         totalParrafo.SpacingBefore = 10f;
                         totalParrafo.Font.Color = BaseColor.BLUE;
                         document.Add(totalParrafo);
