@@ -18,3 +18,6 @@ C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de G
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.Consultas.FormConsultasIn.resources
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormConsultasOut.resources
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.FormInforme.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\itextsharp.dll
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\itextsharp.xml

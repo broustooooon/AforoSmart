@@ -9,12 +9,13 @@ namespace ControlAforoTFG.Entidades
 {
     internal class TicketOut
     {
+        public int id {  get; set; }
         public string codigo { get; set; }
-        public int NumPersonasOut { get; set; }
-        public DateTime FechaEntrada { get; set; }
-        public DateTime FechaSalida { get; set; }
-        public decimal Importe { get; set; }
-        public string MetodoPago { get; set; }
+        public int num_personas_out { get; set; }
+        public DateTime fecha_entrada { get; set; }
+        public DateTime fecha_salida { get; set; }
+        public decimal importe { get; set; }
+        public string metodo_pago { get; set; }
 
         public TicketOut() {
         
@@ -23,9 +24,9 @@ namespace ControlAforoTFG.Entidades
         public TicketOut(string codigo, int NumPersonasOut, DateTime FechaSalida, string MetodoPago)
         {
             this.codigo = codigo;
-            this.NumPersonasOut = NumPersonasOut;
-            this.FechaSalida = FechaSalida;
-            this.MetodoPago = MetodoPago;
+            this.num_personas_out = NumPersonasOut;
+            this.fecha_salida = FechaSalida;
+            this.metodo_pago = MetodoPago;
         }
 
         public decimal calcularImporte(Ajustes ajustes)
@@ -36,7 +37,7 @@ namespace ControlAforoTFG.Entidades
             int descuento = ajustes.descuento;
 
             // Calcular la diferencia de tiempo entre la fecha de entrada y la fecha de salida en minutos
-            TimeSpan tiempoTranscurrido = this.FechaSalida - this.FechaEntrada;
+            TimeSpan tiempoTranscurrido = this.fecha_salida - this.fecha_entrada;
             int minutosTranscurridos = Convert.ToInt32(tiempoTranscurrido.TotalMinutes);
 
             // Calcular el importe en base a los precios establecidos y la diferencia de tiempo
@@ -54,7 +55,7 @@ namespace ControlAforoTFG.Entidades
             {
                 decimal descuentoPorcentual = Convert.ToDecimal(descuento) / 100;
                 decimal importeConDescuento = importe - (importe * descuentoPorcentual);
-                importe = importeConDescuento * this.NumPersonasOut;
+                importe = importeConDescuento * this.num_personas_out;
             }
 
             return importe;

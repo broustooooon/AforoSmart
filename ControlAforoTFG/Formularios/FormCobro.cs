@@ -51,7 +51,7 @@ namespace ControlAforoTFG.Formularios
             string codigo = NuevoTicket.GenerarCodigoUnico(Convert.ToDateTime(textBoxFechaEntrada.Text));
             ConectionDB conexion = new ConectionDB();
             TicketOut ticketOut = conexion.ExisteTicketIn(codigo);
-            ticketOut.NumPersonasOut = Convert.ToInt32(numPersonas.Value);
+            ticketOut.num_personas_out = Convert.ToInt32(numPersonas.Value);
 
             if (ticketOut == null)
             {
@@ -73,19 +73,19 @@ namespace ControlAforoTFG.Formularios
             //ticketOut.MetodoPago = comboBoxTipoPago.SelectedItem.ToString();
             if(radioEfectivo.Checked)
             {
-                ticketOut.MetodoPago = radioEfectivo.Text;
+                ticketOut.metodo_pago = radioEfectivo.Text;
             } else
             {
-                ticketOut.MetodoPago = radioTarjeta.Text;
+                ticketOut.metodo_pago = radioTarjeta.Text;
             }
-            ticketOut.Importe = ticketOut.calcularImporte(conexion.CargarAjustes());
+            ticketOut.importe = ticketOut.calcularImporte(conexion.CargarAjustes());
 
             TicketDAO ticketDAO = new TicketDAO();
             ticketDAO.guardarTicketOut(ticketOut);
             ControlAforo.actualizarAforo();
-            DialogResult messageBox = MessageBox.Show("Importe a Pagar: " + ticketOut.Importe.ToString("0.00") + " €" +
-                                                      "\nImporte por persona: " + (ticketOut.Importe / ticketOut.NumPersonasOut).ToString("0.00") + " €",
-                                                      "Importe total",
+            DialogResult messageBox = MessageBox.Show("importe a Pagar: " + ticketOut.importe.ToString("0.00") + " €" +
+                                                      "\nImporte por persona: " + (ticketOut.importe / ticketOut.num_personas_out).ToString("0.00") + " €",
+                                                      "importe total",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Information);
         }

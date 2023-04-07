@@ -110,12 +110,12 @@ namespace ControlAforoTFG.Modelos_DAO
         {
             Open();
             UsingDatabase();
-            string saveTicketQuery = "INSERT INTO TicketOut (codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago ) VALUES ('" + ticket.codigo + "', " + ticket.NumPersonasOut + "," +
-                                     "'" + ticket.FechaEntrada.Year + "-" + ticket.FechaEntrada.Month + "-" + ticket.FechaEntrada.Day + 
-                                     " " + ticket.FechaEntrada.Hour + ":" + ticket.FechaEntrada.Minute + ":" + ticket.FechaEntrada.Second+ "',"+
-                                     "'" + ticket.FechaSalida.Year + "-" + ticket.FechaSalida.Month + "-" + ticket.FechaSalida.Day +
-                                     " " + ticket.FechaSalida.Hour + ":" + ticket.FechaSalida.Minute + ":" + ticket.FechaSalida.Second + "'," +
-                                     " " + ticket.Importe.ToString().Replace(",", ".") + ", '" +ticket.MetodoPago+ "');";
+            string saveTicketQuery = "INSERT INTO TicketOut (codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago ) VALUES ('" + ticket.codigo + "', " + ticket.num_personas_out + "," +
+                                     "'" + ticket.fecha_entrada.Year + "-" + ticket.fecha_entrada.Month + "-" + ticket.fecha_entrada.Day + 
+                                     " " + ticket.fecha_entrada.Hour + ":" + ticket.fecha_entrada.Minute + ":" + ticket.fecha_entrada.Second+ "',"+
+                                     "'" + ticket.fecha_salida.Year + "-" + ticket.fecha_salida.Month + "-" + ticket.fecha_salida.Day +
+                                     " " + ticket.fecha_salida.Hour + ":" + ticket.fecha_salida.Minute + ":" + ticket.fecha_salida.Second + "'," +
+                                     " " + ticket.importe.ToString().Replace(",", ".") + ", '" +ticket.metodo_pago+ "');";
             SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
             saveCommand.ExecuteNonQuery();
 
@@ -273,8 +273,8 @@ namespace ControlAforoTFG.Modelos_DAO
                 if (reader.Read())
                 {
                     ticket.codigo = codigo;
-                    ticket.FechaEntrada = Convert.ToDateTime(reader["fecha_entrada"]);
-                    ticket.FechaSalida = DateTime.Now;   
+                    ticket.fecha_entrada = Convert.ToDateTime(reader["fecha_entrada"]);
+                    ticket.fecha_salida = DateTime.Now;   
                 } else
                 {
                     ticket = null;
@@ -292,7 +292,7 @@ namespace ControlAforoTFG.Modelos_DAO
             UsingDatabase();
 
             int genteIn = 0;
-            int genteOutNow = ticketOut.NumPersonasOut;
+            int genteOutNow = ticketOut.num_personas_out;
             int genteOutBefore = 0;
 
             string getGenteIn = "SELECT SUM(num_personas_in) AS num_personas_in FROM TicketIn where codigo = '"+ticketOut.codigo+"'";
@@ -381,6 +381,16 @@ namespace ControlAforoTFG.Modelos_DAO
                 {
                     TicketOut ticket = new TicketOut();
 
+                    /*Campo id*/
+                    if (reader.IsDBNull(reader.GetOrdinal("id")))
+                    {
+                        ticket.id = 0;
+                    }
+                    else
+                    {
+                        ticket.id = reader.GetInt32(reader.GetOrdinal("id"));
+                    }
+
                     /*Campo Codigo*/
                     if (reader.IsDBNull(reader.GetOrdinal("codigo")))
                     {
@@ -394,37 +404,37 @@ namespace ControlAforoTFG.Modelos_DAO
                     /*Campo Num_personas_out*/
                     if (reader.IsDBNull(reader.GetOrdinal("num_personas_out")))
                     {
-                        ticket.NumPersonasOut = 0;
+                        ticket.num_personas_out = 0;
                     }
                     else
                     {
-                        ticket.NumPersonasOut = reader.GetInt32(reader.GetOrdinal("num_personas_out"));
+                        ticket.num_personas_out = reader.GetInt32(reader.GetOrdinal("num_personas_out"));
                     }
 
                     /*Campo fecha_entrada*/
-                    ticket.FechaEntrada = Convert.ToDateTime(reader["fecha_entrada"]);
+                    ticket.fecha_entrada = Convert.ToDateTime(reader["fecha_entrada"]);
 
                     /*Campo fecha_salida*/
-                    ticket.FechaSalida = Convert.ToDateTime(reader["fecha_salida"]);
+                    ticket.fecha_salida = Convert.ToDateTime(reader["fecha_salida"]);
 
                     /*Campo importe*/
                     if (reader.IsDBNull(reader.GetOrdinal("importe")))
                     {
-                        ticket.Importe = 0;
+                        ticket.importe = 0;
                     }
                     else
                     {
-                        ticket.Importe = reader.GetDecimal(reader.GetOrdinal("importe"));
+                        ticket.importe = reader.GetDecimal(reader.GetOrdinal("importe"));
                     }
 
                     /*Campo metodo_pago*/
                     if (reader.IsDBNull(reader.GetOrdinal("metodo_pago")))
                     {
-                        ticket.MetodoPago = null;
+                        ticket.metodo_pago = null;
                     }
                     else
                     {
-                        ticket.MetodoPago = reader.GetString(reader.GetOrdinal("metodo_pago"));
+                        ticket.metodo_pago = reader.GetString(reader.GetOrdinal("metodo_pago"));
                     }
 
                     listaTickets.Add(ticket);
