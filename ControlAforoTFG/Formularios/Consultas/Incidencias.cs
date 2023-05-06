@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControlAforoTFG.Formularios.Consultas
 {
-    public partial class FormConsultaFechaYHoraOut : Form
+    public partial class Incidencias : Form
     {
-        public FormConsultaFechaYHoraOut()
+        public Incidencias()
         {
             InitializeComponent();
         }

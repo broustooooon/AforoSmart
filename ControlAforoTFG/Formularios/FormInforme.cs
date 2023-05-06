@@ -67,6 +67,7 @@ namespace ControlAforoTFG.Formularios
             //ticketOutDataGridView.DataSource = listaTickets;
         }
 
+        /*Boton Generar Informe*/
         private void butGenerarInforme_Click(object sender, EventArgs e)
         {
             if (ticketOutDataGridView.Rows.Count > 0)
@@ -127,6 +128,7 @@ namespace ControlAforoTFG.Formularios
                                     pTable.DefaultCell.Padding = 2;
                                     pTable.WidthPercentage = 100;
                                     pTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
 
                                     foreach (DataGridViewColumn col in ticketOutDataGridView.Columns)
                                     {

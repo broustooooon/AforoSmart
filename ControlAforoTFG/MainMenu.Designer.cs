@@ -31,10 +31,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nuevoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cobroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aforoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosDeEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosDeSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aforoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.precioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.butCobroTicket = new System.Windows.Forms.Button();
             this.butNuevoTicket = new System.Windows.Forms.Button();
-            this.informeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarPorFechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incidenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +60,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem1,
             this.cobroToolStripMenuItem,
+            this.cerrarCajaToolStripMenuItem,
             this.aforoToolStripMenuItem,
             this.ajustesToolStripMenuItem,
             this.informeToolStripMenuItem,
@@ -84,12 +87,27 @@
             this.cobroToolStripMenuItem.Text = "Cobrar Ticket";
             this.cobroToolStripMenuItem.Click += new System.EventHandler(this.cobroToolStripMenuItem_Click);
             // 
+            // cerrarCajaToolStripMenuItem
+            // 
+            this.cerrarCajaToolStripMenuItem.Name = "cerrarCajaToolStripMenuItem";
+            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(144, 32);
+            this.cerrarCajaToolStripMenuItem.Text = "Caja";
+            this.cerrarCajaToolStripMenuItem.Click += new System.EventHandler(this.cerrarCajaToolStripMenuItem_Click);
+            // 
+            // aforoToolStripMenuItem
+            // 
+            this.aforoToolStripMenuItem.Name = "aforoToolStripMenuItem";
+            this.aforoToolStripMenuItem.Size = new System.Drawing.Size(144, 32);
+            this.aforoToolStripMenuItem.Text = "Aforo";
+            this.aforoToolStripMenuItem.Click += new System.EventHandler(this.aforoToolStripMenuItem_Click);
+            // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrosDeEntradaToolStripMenuItem,
             this.registrosDeSalidaToolStripMenuItem,
-            this.buscarPorFechaToolStripMenuItem});
+            this.registroDeCajaToolStripMenuItem,
+            this.incidenciasToolStripMenuItem});
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
             this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(144, 32);
             this.ajustesToolStripMenuItem.Text = "Consultas";
@@ -108,12 +126,12 @@
             this.registrosDeSalidaToolStripMenuItem.Text = "Registros de Salida";
             this.registrosDeSalidaToolStripMenuItem.Click += new System.EventHandler(this.registrosDeSalidaToolStripMenuItem_Click);
             // 
-            // aforoToolStripMenuItem
+            // informeToolStripMenuItem
             // 
-            this.aforoToolStripMenuItem.Name = "aforoToolStripMenuItem";
-            this.aforoToolStripMenuItem.Size = new System.Drawing.Size(144, 32);
-            this.aforoToolStripMenuItem.Text = "Aforo";
-            this.aforoToolStripMenuItem.Click += new System.EventHandler(this.aforoToolStripMenuItem_Click);
+            this.informeToolStripMenuItem.Name = "informeToolStripMenuItem";
+            this.informeToolStripMenuItem.Size = new System.Drawing.Size(144, 32);
+            this.informeToolStripMenuItem.Text = "Informe";
+            this.informeToolStripMenuItem.Click += new System.EventHandler(this.informeToolStripMenuItem_Click);
             // 
             // ajustesToolStripMenuItem1
             // 
@@ -127,15 +145,15 @@
             // precioToolStripMenuItem
             // 
             this.precioToolStripMenuItem.Name = "precioToolStripMenuItem";
-            this.precioToolStripMenuItem.Size = new System.Drawing.Size(271, 32);
-            this.precioToolStripMenuItem.Text = "Precio";
+            this.precioToolStripMenuItem.Size = new System.Drawing.Size(298, 32);
+            this.precioToolStripMenuItem.Text = "Ajustes Generales";
             this.precioToolStripMenuItem.Click += new System.EventHandler(this.precioToolStripMenuItem_Click);
             // 
             // baseDeDatosToolStripMenuItem
             // 
             this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(271, 32);
-            this.baseDeDatosToolStripMenuItem.Text = "Crear Base de Datos";
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(298, 32);
+            this.baseDeDatosToolStripMenuItem.Text = "Reiniciar Base de Datos";
             this.baseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.baseDeDatosToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
@@ -192,19 +210,19 @@
             this.butNuevoTicket.UseVisualStyleBackColor = false;
             this.butNuevoTicket.Click += new System.EventHandler(this.butNuevoTicket_Click);
             // 
-            // informeToolStripMenuItem
+            // incidenciasToolStripMenuItem
             // 
-            this.informeToolStripMenuItem.Name = "informeToolStripMenuItem";
-            this.informeToolStripMenuItem.Size = new System.Drawing.Size(144, 32);
-            this.informeToolStripMenuItem.Text = "Informe";
-            this.informeToolStripMenuItem.Click += new System.EventHandler(this.informeToolStripMenuItem_Click);
+            this.incidenciasToolStripMenuItem.Name = "incidenciasToolStripMenuItem";
+            this.incidenciasToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.incidenciasToolStripMenuItem.Text = "Incidencias";
+            this.incidenciasToolStripMenuItem.Click += new System.EventHandler(this.incidenciasToolStripMenuItem_Click);
             // 
-            // buscarPorFechaToolStripMenuItem
+            // registroDeCajaToolStripMenuItem
             // 
-            this.buscarPorFechaToolStripMenuItem.Name = "buscarPorFechaToolStripMenuItem";
-            this.buscarPorFechaToolStripMenuItem.Size = new System.Drawing.Size(308, 32);
-            this.buscarPorFechaToolStripMenuItem.Text = "Buscar por Fecha y Hora";
-            this.buscarPorFechaToolStripMenuItem.Click += new System.EventHandler(this.buscarPorFechaToolStripMenuItem_Click);
+            this.registroDeCajaToolStripMenuItem.Name = "registroDeCajaToolStripMenuItem";
+            this.registroDeCajaToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.registroDeCajaToolStripMenuItem.Text = "Registros de Caja";
+            this.registroDeCajaToolStripMenuItem.Click += new System.EventHandler(this.registroDeCajaToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -247,7 +265,9 @@
         private System.Windows.Forms.ToolStripMenuItem registrosDeEntradaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrosDeSalidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarPorFechaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registroDeCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem incidenciasToolStripMenuItem;
     }
 }
 

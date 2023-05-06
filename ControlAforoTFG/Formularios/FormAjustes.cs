@@ -46,7 +46,7 @@ namespace ControlAforoTFG.Formularios
 
         private void GuardarAjustes()
         {
-            Ajustes nuevosAjustes = new Ajustes(textBoxPrecioMinuto.Text, textBoxPrecioMediaHora.Text, Int32.Parse(textBoxDescuento.Text), Int32.Parse(textBoxAforo.Text));
+            Ajustes nuevosAjustes = new Ajustes(textBoxPrecioMinuto.Text, textBoxPrecioMediaHora.Text, Int32.Parse(textBoxDescuento.Text), Int32.Parse(textBoxAforo.Text), textBoxDinero.Text);
             if (ajustesDAO.guardarAjustes(nuevosAjustes))
             {
                 labelResultado.Text = "Se han guardado correctamente los cambios";
@@ -70,6 +70,7 @@ namespace ControlAforoTFG.Formularios
             textBoxPrecioMinuto.Text = ajustes.precio_minuto;
             textBoxDescuento.Text = ajustes.descuento.ToString();
             textBoxAforo.Text = ajustes.aforo.ToString();
+            textBoxDinero.Text = ajustes.dinero_introducido;
         }
 
         private void activarBoton()

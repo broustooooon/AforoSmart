@@ -202,28 +202,6 @@ namespace ControlAforoTFG
             }
         }
 
-        /*Abrir Formulario para buscar por fecha y hora*/
-        private void buscarPorFechaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.MdiChildren.Length == 0)
-            {
-                FormConsultaFechaYHoraOut nuevaConsulta = new FormConsultaFechaYHoraOut();
-                nuevaConsulta.MdiParent = this;
-                nuevaConsulta.Text = "Consultar Registros por Fecha y Hora";
-                nuevaConsulta.Dock = DockStyle.Fill;
-                nuevaConsulta.Show();
-            }
-            else
-            {
-                this.ActiveMdiChild.Close();
-                FormConsultaFechaYHoraOut nuevaConsulta = new FormConsultaFechaYHoraOut();
-                nuevaConsulta.MdiParent = this;
-                nuevaConsulta.Text = "Consultar Registros por Fecha y Hora";
-                nuevaConsulta.Dock = DockStyle.Fill;
-                nuevaConsulta.Show();
-            }
-        }
-
         private void informeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.MdiChildren.Length == 0)
@@ -242,6 +220,70 @@ namespace ControlAforoTFG
                 nuevaConsulta.Text = "Informe";
                 nuevaConsulta.Dock = DockStyle.Fill;
                 nuevaConsulta.Show();
+            }
+        }
+
+        /*Boton Abrir Menu Caja*/
+        private void cerrarCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                MenuCaja nuevaMenuCaja = new MenuCaja();
+                nuevaMenuCaja.MdiParent = this;
+                nuevaMenuCaja.Text = "Menu Caja";
+                nuevaMenuCaja.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                MenuCaja nuevaMenuCaja = new MenuCaja();
+                nuevaMenuCaja.MdiParent = this;
+                nuevaMenuCaja.Text = "Menu Caja";
+                nuevaMenuCaja.Show();
+            }
+        }
+
+        /*Abrir Formulario de Registro de Caja*/
+        private void registroDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                RegistroCaja nuevaRegistroCaja = new RegistroCaja();
+                nuevaRegistroCaja.MdiParent = this;
+                nuevaRegistroCaja.Text = "Registro Caja";
+                nuevaRegistroCaja.Dock = DockStyle.Fill;
+                nuevaRegistroCaja.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                RegistroCaja nuevaRegistroCaja = new RegistroCaja();
+                nuevaRegistroCaja.MdiParent = this;
+                nuevaRegistroCaja.Text = "Registro de Caja";
+                nuevaRegistroCaja.Dock = DockStyle.Fill;
+                nuevaRegistroCaja.Show();
+            }
+        }
+
+        /*Abrir Formulario de Incidencias*/
+        private void incidenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                Incidencias nuevaIncidencias = new Incidencias();
+                nuevaIncidencias.MdiParent = this;
+                nuevaIncidencias.Text = "Incidencias";
+                nuevaIncidencias.Dock = DockStyle.Fill;
+                nuevaIncidencias.Show();
+            }
+            else
+            {
+                this.ActiveMdiChild.Close();
+                MenuCaja nuevaIncidencias = new MenuCaja();
+                nuevaIncidencias.MdiParent = this;
+                nuevaIncidencias.Text = "Incidencias";
+                nuevaIncidencias.Dock = DockStyle.Fill;
+                nuevaIncidencias.Show();
             }
         }
     }

@@ -16,6 +16,7 @@ namespace ControlAforoTFG.Entidades
         public DateTime fecha_salida { get; set; }
         public decimal importe { get; set; }
         public string metodo_pago { get; set; }
+        public string estado { get; set; }
 
         public TicketOut() {
         
@@ -27,6 +28,7 @@ namespace ControlAforoTFG.Entidades
             this.num_personas_out = NumPersonasOut;
             this.fecha_salida = FechaSalida;
             this.metodo_pago = MetodoPago;
+            this.estado = "abierto";
         }
 
         public decimal calcularImporte(Ajustes ajustes)

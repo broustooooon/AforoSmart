@@ -1,4 +1,5 @@
 ﻿using ControlAforoTFG.Entidades;
+using ControlAforoTFG.Formularios.Consultas;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -37,6 +38,8 @@ namespace ControlAforoTFG.Modelos_DAO
             CreateTableTicketIn();
             CreateTableTicketOut();
             CreateTableAjustes();
+            CreateTableIncidencias();
+            createTableRegistroCaja();
             Close();
         }
 
@@ -62,11 +65,16 @@ namespace ControlAforoTFG.Modelos_DAO
 
         private void CreateTableAjustes()
         {
-            string createTableQuery = "CREATE TABLE Ajustes (precio_minuto decimal(6,2), precio_primera_media_hora decimal(6,2), descuento int, aforo int)";
+            string createTableQuery = "CREATE TABLE Ajustes (precio_minuto decimal(6,2), " +
+                                      "precio_primera_media_hora decimal(6,2), " +
+                                      "descuento int, " +
+                                      "aforo int, "+
+                                      "dinero_introducido decimal(6,2)," +
+                                      "estado_caja varchar(50))";
             SqlCommand command2 = new SqlCommand(createTableQuery, connection);
             command2.ExecuteNonQuery();
 
-            string createAjuste = "INSERT INTO Ajustes (precio_minuto, precio_primera_media_hora, descuento, aforo) VALUES (0, 0, 0, 0);";
+            string createAjuste = "INSERT INTO Ajustes (precio_minuto, precio_primera_media_hora, descuento, aforo, dinero_introducido, estado_caja) VALUES (0, 0, 0, 0, 0, 'cerrada');";
             SqlCommand saveCommand = new SqlCommand(createAjuste, connection);
             saveCommand.ExecuteNonQuery();
         }
@@ -88,9 +96,34 @@ namespace ControlAforoTFG.Modelos_DAO
                                                             "fecha_entrada DATETIME," +
                                                             "fecha_salida DATETIME," +
                                                             "importe decimal(6,2)," +
-                                                            "metodo_pago varchar(50))";
+                                                            "metodo_pago varchar(50)," +
+                                                            "estado varchar(50) DEFAULT 'abierto')";
             SqlCommand command2 = new SqlCommand(createTableQuery, connection);
             command2.ExecuteNonQuery();
+        }
+
+        private void CreateTableIncidencias()
+        {
+            string createTableQuery = "CREATE TABLE Incidencias (id int IDENTITY(1,1) PRIMARY KEY, " +
+                                                            "fecha DATETIME," +
+                                                            "descripcion varchar(50))";
+
+            SqlCommand command = new SqlCommand(createTableQuery, connection);
+            command.ExecuteNonQuery();
+        }
+
+        private void createTableRegistroCaja()
+        {
+            string createTableQuery = "CREATE TABLE RegistroCaja (id int IDENTITY(1,1) PRIMARY KEY, " +
+                                                            "fecha DATETIME," +
+                                                            "descripcion varchar(50)," +
+                                                            "dinero_introducido decimal(6,2)," +
+                                                            "efectivo decimal(6,2)," +
+                                                            "otros decimal(6,2)," +
+                                                            "total AS (dinero_introducido + efectivo + otros)PERSISTED)";
+
+            SqlCommand command = new SqlCommand(createTableQuery, connection);
+            command.ExecuteNonQuery();
         }
 
         public void GuardarTicketIn(TicketIn ticket)
@@ -131,7 +164,7 @@ namespace ControlAforoTFG.Modelos_DAO
 
                 string saveAjustesQuery = "UPDATE Ajustes SET precio_minuto = '" + ajustes.precio_minuto.Replace(',', '.') + "', " +
                                           "precio_primera_media_hora = '" + ajustes.precio_primera_media_hora.Replace(',', '.') + "', " +
-                                          "descuento = '" + ajustes.descuento + "', aforo = '" + ajustes.aforo +"'";
+                                          "descuento = '" + ajustes.descuento + "', aforo = '" + ajustes.aforo +"', dinero_introducido = '" + ajustes.dinero_introducido.Replace(',', '.') + "'";
                 SqlCommand ajustesCommand = new SqlCommand(saveAjustesQuery, connection);
                 ajustesCommand.ExecuteNonQuery();
 
@@ -166,6 +199,7 @@ namespace ControlAforoTFG.Modelos_DAO
                         ajustes.precio_primera_media_hora = Convert.ToString(reader["precio_primera_media_hora"]).Replace(',', '.');
                         ajustes.descuento = Convert.ToInt32(reader["descuento"]);
                         ajustes.aforo = Convert.ToInt32(reader["aforo"]);
+                        ajustes.dinero_introducido = Convert.ToString(reader["dinero_introducido"]).Replace(',', '.');
                     }
                 }
 
@@ -437,12 +471,206 @@ namespace ControlAforoTFG.Modelos_DAO
                         ticket.metodo_pago = reader.GetString(reader.GetOrdinal("metodo_pago"));
                     }
 
+                    /*Campo Estado*/
+                    if (reader.IsDBNull(reader.GetOrdinal("estado")))
+                    {
+                        ticket.estado = null;
+                    }
+                    else
+                    {
+                        ticket.estado = reader.GetString(reader.GetOrdinal("estado"));
+                    }
+
                     listaTickets.Add(ticket);
                 }
             }
 
             Close();
             return listaTickets;
+        }
+
+        public void cerrarTicket()
+        {
+            Open();
+            UsingDatabase();
+
+            string cerrarTicket = "UPDATE TicketOut SET estado = 'cerrado' WHERE estado = 'abierto'";
+            SqlCommand cerrarTicketCommand = new SqlCommand(cerrarTicket, connection);
+            cerrarTicketCommand.ExecuteNonQuery();
+
+            Close();
+        }
+
+        public bool ComprobarCajaAbierta()
+        {
+            Open();
+            UsingDatabase();
+
+            string comprobarCajaAbiertaQuery = "SELECT * FROM TicketOut WHERE estado = 'abierto'";
+            SqlCommand comprobarCajaAbiertaCommand = new SqlCommand(comprobarCajaAbiertaQuery, connection);
+            comprobarCajaAbiertaCommand.ExecuteNonQuery();
+
+            bool existeCajaAbierta = false;
+
+            using (SqlDataReader reader = comprobarCajaAbiertaCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    existeCajaAbierta = true;
+                }
+            }
+
+            Close();
+
+            return existeCajaAbierta;
+        }
+
+        public void CambiarDineroCaja(string dinero)
+        {
+            Open();
+            UsingDatabase();
+
+            string comprobarCajaAbiertaQuery = "UPDATE Ajustes SET dinero_introducido = '" + dinero.Replace(',', '.') + "'";
+            SqlCommand comprobarCajaAbiertaCommand = new SqlCommand(comprobarCajaAbiertaQuery, connection);
+            comprobarCajaAbiertaCommand.ExecuteNonQuery();
+
+
+            Close();
+        }
+
+        public string[] CalcularCierreCaja()
+        {
+            Open();
+            UsingDatabase();
+
+            string[] total = new string[3];
+
+            /*Obtener Dinero de los Tickets Efectivo*/
+            string dineroEfectivoQuery = "SELECT sum(importe) AS total FROM TicketOut WHERE estado = 'abierto' AND metodo_pago = 'Efectivo'";
+            SqlCommand dineroEfectivoCommand = new SqlCommand(dineroEfectivoQuery, connection);
+            dineroEfectivoCommand.ExecuteNonQuery();
+
+            using (SqlDataReader reader = dineroEfectivoCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    total[0] = Convert.ToString(reader["total"]).Replace(',', '.');
+                    if (total[0] == "")
+                    {
+                        total[0] = "0";
+                    }
+                }
+            }
+
+            /*Obtener Dinero de los Tickets Otros metodos != efectivo */
+            string otrosMetodosQuery = "SELECT sum(importe) AS total FROM TicketOut WHERE estado = 'abierto' AND metodo_pago != 'Efectivo'";
+            SqlCommand otrosMetodosCommand = new SqlCommand(otrosMetodosQuery, connection);
+            otrosMetodosCommand.ExecuteNonQuery();
+
+            using (SqlDataReader reader = otrosMetodosCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    total[1] = Convert.ToString(reader["total"]).Replace(',', '.');
+                    if (total[1] == "")
+                    {
+                        total[1] = "0";
+                    }
+                }
+            }
+
+            /*Obtener Dinero de Ajustes*/
+            string dineroAjustesQuery = "SELECT dinero_introducido AS total FROM Ajustes";
+            SqlCommand dineroAjustesCommand = new SqlCommand(dineroAjustesQuery, connection);
+            dineroAjustesCommand.ExecuteNonQuery();
+
+            using (SqlDataReader reader = dineroAjustesCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    total[2] = Convert.ToString(reader["total"]).Replace(',', '.');
+                }
+            }
+
+
+            Close();
+            return total;
+        }
+
+        public void AbrirCaja()
+        {
+            Open();
+            UsingDatabase();
+
+            string saveAjustesQuery = "UPDATE Ajustes SET estado_caja = 'abierta'";
+            SqlCommand ajustesCommand = new SqlCommand(saveAjustesQuery, connection);
+            ajustesCommand.ExecuteNonQuery();
+
+            Close();
+        }
+
+        public void CerrarCaja()
+        {
+            Open();
+            UsingDatabase();
+
+            string cerrarCajaQuery = "UPDATE Ajustes SET estado_caja = 'cerrada'";
+            SqlCommand cerrarCajaCommand = new SqlCommand(cerrarCajaQuery, connection);
+            cerrarCajaCommand.ExecuteNonQuery();
+
+            Close();
+        }
+
+        public bool EstadoCaja()
+        {
+            Open();
+            UsingDatabase();
+
+            string estadoCajaQuery = "SELECT estado_caja FROM Ajustes";
+            SqlCommand estadoCajaCommand = new SqlCommand(estadoCajaQuery, connection);
+            estadoCajaCommand.ExecuteNonQuery();
+
+            bool abierta = false;
+
+            using (SqlDataReader reader = estadoCajaCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    string estado = Convert.ToString(reader["estado_caja"]);
+                    if (estado.Equals("abierta")) {
+                        abierta = true;
+                    }
+                }
+            }
+
+            Close();
+            return abierta;
+        }
+
+        public void insertarIncidencia(Incidencia incidencia)
+        {
+            Open();
+            UsingDatabase();
+            string saveTicketQuery = "INSERT INTO Incidencias (fecha, descripcion) VALUES ('" + incidencia.fecha.Year + "-" + incidencia.fecha.Month + "-" + incidencia.fecha.Day +
+                                     " " + incidencia.fecha.Hour + ":" + incidencia.fecha.Minute + ":" + incidencia.fecha.Second + "', " +
+                                     "'" + incidencia.descripcion + "');";
+            SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
+            saveCommand.ExecuteNonQuery();
+
+            Close();
+        }
+
+        public void insertarRegistroCaja(Entidades.RegistroCaja registro)
+        {
+            Open();
+            UsingDatabase();
+            string saveTicketQuery = "INSERT INTO RegistroCaja (fecha, descripcion, efectivo, otros) VALUES ('" + registro.fecha.Year + "-" + registro.fecha.Month + "-" + registro.fecha.Day +
+                                     " " + registro.fecha.Hour + ":" + registro.fecha.Minute + ":" + registro.fecha.Second + "', " +
+                                     "'" + registro.descripcion + "', '"+registro.efectivo.ToString().Replace(",", ".") + "', '"+registro.otros.ToString().Replace(",", ".") + "');";
+            SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
+            saveCommand.ExecuteNonQuery();
+
+            Close();
         }
     }
 }

@@ -40,6 +40,8 @@
             this.labelResultado = new System.Windows.Forms.Label();
             this.textBoxAforo = new System.Windows.Forms.TextBox();
             this.labelAforo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxDinero = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelPrecioMinuto
@@ -166,11 +168,33 @@
             this.labelAforo.TabIndex = 11;
             this.labelAforo.Text = "Aforo Máximo";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 345);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 31);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Dinero Introducido";
+            // 
+            // textBoxDinero
+            // 
+            this.textBoxDinero.Location = new System.Drawing.Point(299, 345);
+            this.textBoxDinero.Multiline = true;
+            this.textBoxDinero.Name = "textBoxDinero";
+            this.textBoxDinero.Size = new System.Drawing.Size(125, 25);
+            this.textBoxDinero.TabIndex = 12;
+            this.textBoxDinero.TextChanged += new System.EventHandler(this.TextChanged);
+            this.textBoxDinero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
+            // 
             // FormAjustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 563);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxDinero);
             this.Controls.Add(this.labelAforo);
             this.Controls.Add(this.textBoxAforo);
             this.Controls.Add(this.labelResultado);
@@ -207,5 +231,7 @@
         private System.Windows.Forms.Label labelResultado;
         private System.Windows.Forms.TextBox textBoxAforo;
         private System.Windows.Forms.Label labelAforo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxDinero;
     }
 }

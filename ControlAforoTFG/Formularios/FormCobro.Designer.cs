@@ -63,10 +63,10 @@
             // 
             // butCobrar
             // 
-            this.butCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butCobrar.Location = new System.Drawing.Point(221, 427);
+            this.butCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butCobrar.Location = new System.Drawing.Point(221, 403);
             this.butCobrar.Name = "butCobrar";
-            this.butCobrar.Size = new System.Drawing.Size(122, 37);
+            this.butCobrar.Size = new System.Drawing.Size(177, 61);
             this.butCobrar.TabIndex = 3;
             this.butCobrar.Text = "Cobrar";
             this.butCobrar.UseVisualStyleBackColor = true;
@@ -74,10 +74,10 @@
             // 
             // butCancelar
             // 
-            this.butCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butCancelar.Location = new System.Drawing.Point(70, 427);
+            this.butCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butCancelar.Location = new System.Drawing.Point(12, 403);
             this.butCancelar.Name = "butCancelar";
-            this.butCancelar.Size = new System.Drawing.Size(122, 37);
+            this.butCancelar.Size = new System.Drawing.Size(177, 61);
             this.butCancelar.TabIndex = 4;
             this.butCancelar.Text = "Cancelar";
             this.butCancelar.UseVisualStyleBackColor = true;
