@@ -22,3 +22,5 @@ C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de G
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\itextsharp.dll
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\bin\Debug\itextsharp.xml
 C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.MenuCaja.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.Consultas.Incidencias.resources
+C:\Users\Javier\Desktop\Carpeta Personal\Trabajos\2ºDAM\FCT\Proyecto Final de Grado\MiProyecto\ControlAforoTFG\obj\Debug\ControlAforoTFG.Formularios.Consultas.RegistroCaja.resources

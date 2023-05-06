@@ -143,6 +143,12 @@
     <EmbeddedResource Include="Formularios\Consultas\FormConsultasIn.resx">
       <DependentUpon>FormConsultasIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Consultas\Incidencias.resx">
+      <DependentUpon>Incidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Consultas\RegistroCaja.resx">
+      <DependentUpon>RegistroCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ControlAforo.resx">
       <DependentUpon>ControlAforo.cs</DependentUpon>
     </EmbeddedResource>

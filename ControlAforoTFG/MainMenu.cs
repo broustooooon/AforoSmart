@@ -279,7 +279,7 @@ namespace ControlAforoTFG
             else
             {
                 this.ActiveMdiChild.Close();
-                MenuCaja nuevaIncidencias = new MenuCaja();
+                Incidencias nuevaIncidencias = new Incidencias();
                 nuevaIncidencias.MdiParent = this;
                 nuevaIncidencias.Text = "Incidencias";
                 nuevaIncidencias.Dock = DockStyle.Fill;

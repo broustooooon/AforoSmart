@@ -35,7 +35,7 @@ namespace ControlAforoTFG.Formularios
                 {
                     conexion.cerrarTicket();
                     MessageBox.Show("Se ha cerrado la Caja.", this.Text);
-                    conexion.insertarIncidencia(new Entidades.Incidencia(DateTime.Now, "Apertura"));
+                    conexion.insertarIncidencia(new Entidades.Incidencia(DateTime.Now, "Apertura sin cierre previo"));
                 } else
                 {
                     return;
@@ -49,7 +49,8 @@ namespace ControlAforoTFG.Formularios
                 conexion.AbrirCaja();
                 butContarDinero.Enabled = true;
                 butCerrarCaja.Enabled = true;
-                conexion.insertarRegistroCaja(new Entidades.RegistroCaja(DateTime.Now, "Apertura", 0, 0, 0));
+                conexion.insertarRegistroCaja(new Entidades.RegistroCaja(DateTime.Now, "Apertura", conexion.GetDineroCaja(), 
+                    conexion.GetEfectivoAbierto()/100, conexion.GetOtrosAbierto()/100));
             } else
             {
                 DialogResult result = MessageBox.Show("NO se ha abierto la caja",
@@ -70,14 +71,15 @@ namespace ControlAforoTFG.Formularios
             {
                 string[] dinero = conexion.CalcularCierreCaja();
 
-                MessageBox.Show("Dinero recaudado hasta el momento.\nEfectivo: " + dinero[0].ToString() + " €" + "\nTarjeta: " + dinero[1].ToString() + " €" +
-                    "\nOtros: " + dinero[2] + " €" + "\n\nTotal: " + ((Double.Parse(dinero[0]) + Double.Parse(dinero[1]) + Double.Parse(dinero[2])) / 100).ToString("0.00") + " €", this.Text);
+                MessageBox.Show("Dinero recaudado hasta el momento.\nEfectivo Recaudado: " + dinero[0].ToString() + " €" + "\nOtros: " + dinero[1].ToString() + " €" +
+                    "\nDinero al Abrir Caja: " + dinero[2] + " €" + "\nTotal Caja: " + ((Double.Parse(dinero[0]) + Double.Parse(dinero[2])) / 100).ToString("0.00") + " €"+ 
+                    "\n\nTotal Cierre: " + ((Double.Parse(dinero[0]) + Double.Parse(dinero[1]) + Double.Parse(dinero[2])) / 100).ToString("0.00") + " €", this.Text);
 
                 conexion.cerrarTicket();
                 butCerrarCaja.Enabled = false;
                 butContarDinero.Enabled = false;
                 conexion.CerrarCaja();
-                conexion.insertarRegistroCaja(new Entidades.RegistroCaja(DateTime.Now, "Cierre", 0, 0, 0));
+                conexion.insertarRegistroCaja(new Entidades.RegistroCaja(DateTime.Now, "Cierre", Decimal.Parse(dinero[2])/100, Decimal.Parse(dinero[0]) / 100, Decimal.Parse(dinero[1]) / 100));
             } else
             {
                 DialogResult result = MessageBox.Show("No se ha abierto la caja",
@@ -97,8 +99,9 @@ namespace ControlAforoTFG.Formularios
             if (existeCajaAbierta)
             {
                 string[] dinero = conexion.CalcularCierreCaja();
-                MessageBox.Show("Dinero recaudado hasta el momento.\nEfectivo: " + dinero[0].ToString() + " €" + "\nTarjeta: " + dinero[1].ToString() + " €" +
-                    "\nOtros: " + dinero[2] + " €" + "\n\nTotal: " + ((Double.Parse(dinero[0]) + Double.Parse(dinero[1]) + Double.Parse(dinero[2]))/100).ToString("0.00") + " €", this.Text);
+                MessageBox.Show("Dinero recaudado hasta el momento.\nEfectivo Recaudado: " + dinero[0].ToString() + " €" + "\nOtros: " + dinero[1].ToString() + " €" +
+                    "\nDinero al Abrir Caja: " + dinero[2] + " €" + "\nTotal Caja: " + ((Double.Parse(dinero[0]) + Double.Parse(dinero[2])) / 100).ToString("0.00") + " €" +
+                    "\n\nTotal Cierre: " + ((Double.Parse(dinero[0]) + Double.Parse(dinero[1]) + Double.Parse(dinero[2])) / 100).ToString("0.00") + " €", this.Text);
             }
             else
             {

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultasOut));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
             this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
@@ -84,6 +84,8 @@
             // 
             this.tableAdapterManager.AjustesTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IncidenciasTableAdapter = null;
+            this.tableAdapterManager.RegistroCajaTableAdapter = null;
             this.tableAdapterManager.TicketInTableAdapter = this.ticketInTableAdapter;
             this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
             this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -222,6 +224,7 @@
             // ticketOutDataGridView
             // 
             this.ticketOutDataGridView.AutoGenerateColumns = false;
+            this.ticketOutDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ticketOutDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketOutDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -232,14 +235,14 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.ticketOutDataGridView.DataSource = this.ticketOutBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ticketOutDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ticketOutDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.ticketOutDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ticketOutDataGridView.Location = new System.Drawing.Point(0, 27);
             this.ticketOutDataGridView.Name = "ticketOutDataGridView";
@@ -256,7 +259,6 @@
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -264,7 +266,6 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "codigo";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -272,7 +273,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "num_personas_out";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -280,7 +280,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "fecha_entrada";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -288,7 +287,6 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "fecha_salida";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -296,7 +294,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "importe";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -304,7 +301,6 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "metodo_pago";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // ticketInBindingSource
             // 

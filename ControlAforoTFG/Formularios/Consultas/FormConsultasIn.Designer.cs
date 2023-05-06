@@ -76,6 +76,8 @@
             // 
             this.tableAdapterManager.AjustesTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IncidenciasTableAdapter = null;
+            this.tableAdapterManager.RegistroCajaTableAdapter = null;
             this.tableAdapterManager.TicketInTableAdapter = this.ticketInTableAdapter;
             this.tableAdapterManager.TicketOutTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -210,6 +212,7 @@
             // ticketInDataGridView
             // 
             this.ticketInDataGridView.AutoGenerateColumns = false;
+            this.ticketInDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ticketInDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketInDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -231,7 +234,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "codigo";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -239,7 +241,6 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "num_personas_in";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -247,7 +248,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "fecha_entrada";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // FormConsultasIn
             // 

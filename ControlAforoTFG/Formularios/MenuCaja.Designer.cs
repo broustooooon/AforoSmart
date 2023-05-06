@@ -75,6 +75,7 @@
             this.Controls.Add(this.butCerrarCaja);
             this.Controls.Add(this.butAbrirCaja);
             this.Name = "MenuCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuCaja";
             this.Load += new System.EventHandler(this.MenuCaja_Load);
             this.ResumeLayout(false);

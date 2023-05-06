@@ -664,13 +664,96 @@ namespace ControlAforoTFG.Modelos_DAO
         {
             Open();
             UsingDatabase();
-            string saveTicketQuery = "INSERT INTO RegistroCaja (fecha, descripcion, efectivo, otros) VALUES ('" + registro.fecha.Year + "-" + registro.fecha.Month + "-" + registro.fecha.Day +
+            string saveTicketQuery = "INSERT INTO RegistroCaja (fecha, descripcion, dinero_introducido, efectivo, otros) VALUES ('" + registro.fecha.Year + "-" + registro.fecha.Month + "-" + registro.fecha.Day +
                                      " " + registro.fecha.Hour + ":" + registro.fecha.Minute + ":" + registro.fecha.Second + "', " +
-                                     "'" + registro.descripcion + "', '"+registro.efectivo.ToString().Replace(",", ".") + "', '"+registro.otros.ToString().Replace(",", ".") + "');";
+                                     "'" + registro.descripcion + "',  '" + registro.dinero_introducido.ToString().Replace(",", ".") +  "', '"+registro.efectivo.ToString().Replace(",", ".") + "', '"+registro.otros.ToString().Replace(",", ".") + "');";
             SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
             saveCommand.ExecuteNonQuery();
 
             Close();
+        }
+
+        public decimal GetDineroCaja()
+        {
+            Open();
+            UsingDatabase();
+
+            string dineroCajaQuery = "SELECT dinero_introducido FROM Ajustes";
+            SqlCommand dineroCajaCommand = new SqlCommand(dineroCajaQuery, connection);
+            dineroCajaCommand.ExecuteNonQuery();
+
+            decimal dinero = 0;
+
+            using (SqlDataReader reader = dineroCajaCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    dinero = Convert.ToDecimal(reader["dinero_introducido"]);
+                }
+            }
+
+            Close();
+            return dinero;
+        }
+
+        public decimal GetEfectivoAbierto()
+        {
+            Open();
+            UsingDatabase();
+
+            string efectivoAbiertoQuery = "SELECT sum(importe) AS importe FROM TicketOut WHERE estado = 'abierto' AND metodo_pago = 'Efectivo'";
+            SqlCommand efectivoAbiertoCommand = new SqlCommand(efectivoAbiertoQuery, connection);
+            efectivoAbiertoCommand.ExecuteNonQuery();
+
+            decimal dinero = 0;
+
+            using (SqlDataReader reader = efectivoAbiertoCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    if (reader.IsDBNull(reader.GetOrdinal("importe")))
+                    {
+                        dinero = 0;
+                    }
+                    else
+                    {
+                        dinero = Convert.ToDecimal(reader["importe"]);
+                    }
+                }
+            }
+
+            Close();
+            return dinero;
+        }
+
+        public decimal GetOtrosAbierto()
+        {
+            Open();
+            UsingDatabase();
+
+            string otrosQuery = "SELECT sum(importe) AS importe FROM TicketOut WHERE estado = 'abierto' AND metodo_pago != 'Efectivo'";
+            SqlCommand otrosCommand = new SqlCommand(otrosQuery, connection);
+            otrosCommand.ExecuteNonQuery();
+
+            decimal dinero = 0;
+
+            using (SqlDataReader reader = otrosCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    if (reader.IsDBNull(reader.GetOrdinal("importe")))
+                    {
+                        dinero = 0;
+                    }
+                    else
+                    {
+                        dinero = Convert.ToDecimal(reader["importe"]);
+                    }
+                }
+            }
+
+            Close();
+            return dinero;
         }
     }
 }

@@ -16,5 +16,12 @@ namespace ControlAforoTFG.Formularios.Consultas
         {
             InitializeComponent();
         }
+
+        private void Incidencias_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'controlAforoDataSet.Incidencias' Puede moverla o quitarla según sea necesario.
+            this.incidenciasTableAdapter.Fill(this.controlAforoDataSet.Incidencias);
+
+        }
     }
 }

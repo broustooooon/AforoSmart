@@ -16,5 +16,12 @@ namespace ControlAforoTFG.Formularios.Consultas
         {
             InitializeComponent();
         }
+
+        private void RegistroCaja_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'controlAforoDataSet.RegistroCaja' Puede moverla o quitarla según sea necesario.
+            this.registroCajaTableAdapter.Fill(this.controlAforoDataSet.RegistroCaja);
+
+        }
     }
 }
