@@ -1679,6 +1679,8 @@ namespace ControlAforoTFG {
             
             private global::System.Data.DataColumn columnestado;
             
+            private global::System.Data.DataColumn columntipo_descuento;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TicketOutDataTable() {
@@ -1778,6 +1780,14 @@ namespace ControlAforoTFG {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipo_descuentoColumn {
+                get {
+                    return this.columntipo_descuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1813,7 +1823,7 @@ namespace ControlAforoTFG {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketOutRow AddTicketOutRow(string codigo, int num_personas_out, System.DateTime fecha_entrada, System.DateTime fecha_salida, decimal importe, string metodo_pago, string estado) {
+            public TicketOutRow AddTicketOutRow(string codigo, int num_personas_out, System.DateTime fecha_entrada, System.DateTime fecha_salida, decimal importe, string metodo_pago, string estado, string tipo_descuento) {
                 TicketOutRow rowTicketOutRow = ((TicketOutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1823,7 +1833,8 @@ namespace ControlAforoTFG {
                         fecha_salida,
                         importe,
                         metodo_pago,
-                        estado};
+                        estado,
+                        tipo_descuento};
                 rowTicketOutRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTicketOutRow);
                 return rowTicketOutRow;
@@ -1861,6 +1872,7 @@ namespace ControlAforoTFG {
                 this.columnimporte = base.Columns["importe"];
                 this.columnmetodo_pago = base.Columns["metodo_pago"];
                 this.columnestado = base.Columns["estado"];
+                this.columntipo_descuento = base.Columns["tipo_descuento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1882,6 +1894,8 @@ namespace ControlAforoTFG {
                 base.Columns.Add(this.columnmetodo_pago);
                 this.columnestado = new global::System.Data.DataColumn("estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestado);
+                this.columntipo_descuento = new global::System.Data.DataColumn("tipo_descuento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo_descuento);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1893,6 +1907,7 @@ namespace ControlAforoTFG {
                 this.columncodigo.MaxLength = 10;
                 this.columnmetodo_pago.MaxLength = 50;
                 this.columnestado.MaxLength = 50;
+                this.columntipo_descuento.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2701,6 +2716,22 @@ namespace ControlAforoTFG {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipo_descuento {
+                get {
+                    try {
+                        return ((string)(this[this.tableTicketOut.tipo_descuentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipo_descuento\' de la tabla \'TicketOut\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTicketOut.tipo_descuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscodigoNull() {
                 return this.IsNull(this.tableTicketOut.codigoColumn);
             }
@@ -2781,6 +2812,18 @@ namespace ControlAforoTFG {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetestadoNull() {
                 this[this.tableTicketOut.estadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istipo_descuentoNull() {
+                return this.IsNull(this.tableTicketOut.tipo_descuentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settipo_descuentoNull() {
+                this[this.tableTicketOut.tipo_descuentoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4582,10 +4625,11 @@ SELECT codigo, num_personas_in, fecha_entrada FROM TicketIn WHERE (codigo = @cod
             tableMapping.ColumnMappings.Add("importe", "importe");
             tableMapping.ColumnMappings.Add("metodo_pago", "metodo_pago");
             tableMapping.ColumnMappings.Add("estado", "estado");
+            tableMapping.ColumnMappings.Add("tipo_descuento", "tipo_descuento");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[TicketOut] WHERE (([id] = @Original_id) AND ((@IsNull_codigo = 1 AND [codigo] IS NULL) OR ([codigo] = @Original_codigo)) AND ((@IsNull_num_personas_out = 1 AND [num_personas_out] IS NULL) OR ([num_personas_out] = @Original_num_personas_out)) AND ((@IsNull_fecha_entrada = 1 AND [fecha_entrada] IS NULL) OR ([fecha_entrada] = @Original_fecha_entrada)) AND ((@IsNull_fecha_salida = 1 AND [fecha_salida] IS NULL) OR ([fecha_salida] = @Original_fecha_salida)) AND ((@IsNull_importe = 1 AND [importe] IS NULL) OR ([importe] = @Original_importe)) AND ((@IsNull_metodo_pago = 1 AND [metodo_pago] IS NULL) OR ([metodo_pago] = @Original_metodo_pago)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [TicketOut] WHERE (([id] = @Original_id) AND ((@IsNull_codigo = 1 AND [codigo] IS NULL) OR ([codigo] = @Original_codigo)) AND ((@IsNull_num_personas_out = 1 AND [num_personas_out] IS NULL) OR ([num_personas_out] = @Original_num_personas_out)) AND ((@IsNull_fecha_entrada = 1 AND [fecha_entrada] IS NULL) OR ([fecha_entrada] = @Original_fecha_entrada)) AND ((@IsNull_fecha_salida = 1 AND [fecha_salida] IS NULL) OR ([fecha_salida] = @Original_fecha_salida)) AND ((@IsNull_importe = 1 AND [importe] IS NULL) OR ([importe] = @Original_importe)) AND ((@IsNull_metodo_pago = 1 AND [metodo_pago] IS NULL) OR ([metodo_pago] = @Original_metodo_pago)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_tipo_descuento = 1 AND [tipo_descuento] IS NULL) OR ([tipo_descuento] = @Original_tipo_descuento)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4602,10 +4646,12 @@ SELECT codigo, num_personas_in, fecha_entrada FROM TicketIn WHERE (codigo = @cod
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_metodo_pago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "metodo_pago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estado", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tipo_descuento", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_descuento", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tipo_descuento", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_descuento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TicketOut] ([codigo], [num_personas_out], [fecha_entrada], [fecha_salida], [importe], [metodo_pago], [estado]) VALUES (@codigo, @num_personas_out, @fecha_entrada, @fecha_salida, @importe, @metodo_pago, @estado);
-SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago, estado FROM TicketOut WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [TicketOut] ([codigo], [num_personas_out], [fecha_entrada], [fecha_salida], [importe], [metodo_pago], [estado], [tipo_descuento]) VALUES (@codigo, @num_personas_out, @fecha_entrada, @fecha_salida, @importe, @metodo_pago, @estado, @tipo_descuento);
+SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago, estado, tipo_descuento FROM TicketOut WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_personas_out", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_personas_out", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4614,10 +4660,11 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@importe", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "importe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@metodo_pago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "metodo_pago", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo_descuento", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_descuento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TicketOut] SET [codigo] = @codigo, [num_personas_out] = @num_personas_out, [fecha_entrada] = @fecha_entrada, [fecha_salida] = @fecha_salida, [importe] = @importe, [metodo_pago] = @metodo_pago, [estado] = @estado WHERE (([id] = @Original_id) AND ((@IsNull_codigo = 1 AND [codigo] IS NULL) OR ([codigo] = @Original_codigo)) AND ((@IsNull_num_personas_out = 1 AND [num_personas_out] IS NULL) OR ([num_personas_out] = @Original_num_personas_out)) AND ((@IsNull_fecha_entrada = 1 AND [fecha_entrada] IS NULL) OR ([fecha_entrada] = @Original_fecha_entrada)) AND ((@IsNull_fecha_salida = 1 AND [fecha_salida] IS NULL) OR ([fecha_salida] = @Original_fecha_salida)) AND ((@IsNull_importe = 1 AND [importe] IS NULL) OR ([importe] = @Original_importe)) AND ((@IsNull_metodo_pago = 1 AND [metodo_pago] IS NULL) OR ([metodo_pago] = @Original_metodo_pago)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)));
-SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago, estado FROM TicketOut WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [TicketOut] SET [codigo] = @codigo, [num_personas_out] = @num_personas_out, [fecha_entrada] = @fecha_entrada, [fecha_salida] = @fecha_salida, [importe] = @importe, [metodo_pago] = @metodo_pago, [estado] = @estado, [tipo_descuento] = @tipo_descuento WHERE (([id] = @Original_id) AND ((@IsNull_codigo = 1 AND [codigo] IS NULL) OR ([codigo] = @Original_codigo)) AND ((@IsNull_num_personas_out = 1 AND [num_personas_out] IS NULL) OR ([num_personas_out] = @Original_num_personas_out)) AND ((@IsNull_fecha_entrada = 1 AND [fecha_entrada] IS NULL) OR ([fecha_entrada] = @Original_fecha_entrada)) AND ((@IsNull_fecha_salida = 1 AND [fecha_salida] IS NULL) OR ([fecha_salida] = @Original_fecha_salida)) AND ((@IsNull_importe = 1 AND [importe] IS NULL) OR ([importe] = @Original_importe)) AND ((@IsNull_metodo_pago = 1 AND [metodo_pago] IS NULL) OR ([metodo_pago] = @Original_metodo_pago)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_tipo_descuento = 1 AND [tipo_descuento] IS NULL) OR ([tipo_descuento] = @Original_tipo_descuento)));
+SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago, estado, tipo_descuento FROM TicketOut WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_personas_out", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_personas_out", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4626,6 +4673,7 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@importe", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "importe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@metodo_pago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "metodo_pago", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo_descuento", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_descuento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4641,6 +4689,8 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_metodo_pago", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "metodo_pago", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estado", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tipo_descuento", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_descuento", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tipo_descuento", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo_descuento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -4658,7 +4708,7 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo" +
-                "_pago, estado FROM dbo.TicketOut";
+                "_pago, estado, tipo_descuento FROM TicketOut";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4719,7 +4769,7 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_codigo, global::System.Nullable<int> Original_num_personas_out, global::System.Nullable<global::System.DateTime> Original_fecha_entrada, global::System.Nullable<global::System.DateTime> Original_fecha_salida, global::System.Nullable<decimal> Original_importe, string Original_metodo_pago, string Original_estado) {
+        public virtual int Delete(int Original_id, string Original_codigo, global::System.Nullable<int> Original_num_personas_out, global::System.Nullable<global::System.DateTime> Original_fecha_entrada, global::System.Nullable<global::System.DateTime> Original_fecha_salida, global::System.Nullable<decimal> Original_importe, string Original_metodo_pago, string Original_estado, string Original_tipo_descuento) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_codigo == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -4777,6 +4827,14 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_estado));
             }
+            if ((Original_tipo_descuento == null)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_tipo_descuento));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4797,7 +4855,7 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string codigo, global::System.Nullable<int> num_personas_out, global::System.Nullable<global::System.DateTime> fecha_entrada, global::System.Nullable<global::System.DateTime> fecha_salida, global::System.Nullable<decimal> importe, string metodo_pago, string estado) {
+        public virtual int Insert(string codigo, global::System.Nullable<int> num_personas_out, global::System.Nullable<global::System.DateTime> fecha_entrada, global::System.Nullable<global::System.DateTime> fecha_salida, global::System.Nullable<decimal> importe, string metodo_pago, string estado, string tipo_descuento) {
             if ((codigo == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4840,6 +4898,12 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(estado));
             }
+            if ((tipo_descuento == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(tipo_descuento));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4868,6 +4932,7 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
                     global::System.Nullable<decimal> importe, 
                     string metodo_pago, 
                     string estado, 
+                    string tipo_descuento, 
                     int Original_id, 
                     string Original_codigo, 
                     global::System.Nullable<int> Original_num_personas_out, 
@@ -4876,6 +4941,7 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
                     global::System.Nullable<decimal> Original_importe, 
                     string Original_metodo_pago, 
                     string Original_estado, 
+                    string Original_tipo_descuento, 
                     int id) {
             if ((codigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4919,64 +4985,78 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(estado));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id));
-            if ((Original_codigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((tipo_descuento == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_codigo));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(tipo_descuento));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_id));
+            if ((Original_codigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_codigo));
             }
             if ((Original_num_personas_out.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_num_personas_out.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_num_personas_out.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_fecha_entrada.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_fecha_entrada.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_fecha_entrada.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_fecha_salida.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_fecha_salida.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_fecha_salida.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_importe.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_importe.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_importe.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_metodo_pago == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_metodo_pago));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_metodo_pago));
             }
             if ((Original_estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_estado));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_estado));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(id));
+            if ((Original_tipo_descuento == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_tipo_descuento));
+            }
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4997,8 +5077,25 @@ SELECT id, codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metod
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string codigo, global::System.Nullable<int> num_personas_out, global::System.Nullable<global::System.DateTime> fecha_entrada, global::System.Nullable<global::System.DateTime> fecha_salida, global::System.Nullable<decimal> importe, string metodo_pago, string estado, int Original_id, string Original_codigo, global::System.Nullable<int> Original_num_personas_out, global::System.Nullable<global::System.DateTime> Original_fecha_entrada, global::System.Nullable<global::System.DateTime> Original_fecha_salida, global::System.Nullable<decimal> Original_importe, string Original_metodo_pago, string Original_estado) {
-            return this.Update(codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago, estado, Original_id, Original_codigo, Original_num_personas_out, Original_fecha_entrada, Original_fecha_salida, Original_importe, Original_metodo_pago, Original_estado, Original_id);
+        public virtual int Update(
+                    string codigo, 
+                    global::System.Nullable<int> num_personas_out, 
+                    global::System.Nullable<global::System.DateTime> fecha_entrada, 
+                    global::System.Nullable<global::System.DateTime> fecha_salida, 
+                    global::System.Nullable<decimal> importe, 
+                    string metodo_pago, 
+                    string estado, 
+                    string tipo_descuento, 
+                    int Original_id, 
+                    string Original_codigo, 
+                    global::System.Nullable<int> Original_num_personas_out, 
+                    global::System.Nullable<global::System.DateTime> Original_fecha_entrada, 
+                    global::System.Nullable<global::System.DateTime> Original_fecha_salida, 
+                    global::System.Nullable<decimal> Original_importe, 
+                    string Original_metodo_pago, 
+                    string Original_estado, 
+                    string Original_tipo_descuento) {
+            return this.Update(codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago, estado, tipo_descuento, Original_id, Original_codigo, Original_num_personas_out, Original_fecha_entrada, Original_fecha_salida, Original_importe, Original_metodo_pago, Original_estado, Original_tipo_descuento, Original_id);
         }
     }
     

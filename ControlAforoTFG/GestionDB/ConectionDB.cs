@@ -96,6 +96,7 @@ namespace ControlAforoTFG.Modelos_DAO
                                                             "fecha_entrada DATETIME," +
                                                             "fecha_salida DATETIME," +
                                                             "importe decimal(6,2)," +
+                                                            "tipo_descuento varchar(50)," +
                                                             "metodo_pago varchar(50)," +
                                                             "estado varchar(50) DEFAULT 'abierto')";
             SqlCommand command2 = new SqlCommand(createTableQuery, connection);
@@ -143,12 +144,12 @@ namespace ControlAforoTFG.Modelos_DAO
         {
             Open();
             UsingDatabase();
-            string saveTicketQuery = "INSERT INTO TicketOut (codigo, num_personas_out, fecha_entrada, fecha_salida, importe, metodo_pago ) VALUES ('" + ticket.codigo + "', " + ticket.num_personas_out + "," +
+            string saveTicketQuery = "INSERT INTO TicketOut (codigo, num_personas_out, fecha_entrada, fecha_salida, importe, tipo_descuento, metodo_pago ) VALUES ('" + ticket.codigo + "', " + ticket.num_personas_out + "," +
                                      "'" + ticket.fecha_entrada.Year + "-" + ticket.fecha_entrada.Month + "-" + ticket.fecha_entrada.Day + 
                                      " " + ticket.fecha_entrada.Hour + ":" + ticket.fecha_entrada.Minute + ":" + ticket.fecha_entrada.Second+ "',"+
                                      "'" + ticket.fecha_salida.Year + "-" + ticket.fecha_salida.Month + "-" + ticket.fecha_salida.Day +
                                      " " + ticket.fecha_salida.Hour + ":" + ticket.fecha_salida.Minute + ":" + ticket.fecha_salida.Second + "'," +
-                                     " " + ticket.importe.ToString().Replace(",", ".") + ", '" +ticket.metodo_pago+ "');";
+                                     " " + ticket.importe.ToString().Replace(",", ".") + ", '" + ticket.tipo_descuento + "', '" +ticket.metodo_pago+ "');";
             SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
             saveCommand.ExecuteNonQuery();
 
@@ -459,6 +460,16 @@ namespace ControlAforoTFG.Modelos_DAO
                     else
                     {
                         ticket.importe = reader.GetDecimal(reader.GetOrdinal("importe"));
+                    }
+
+                    /*Campo tipo descuento*/
+                    if (reader.IsDBNull(reader.GetOrdinal("tipo_descuento")))
+                    {
+                        ticket.tipo_descuento = "";
+                    }
+                    else
+                    {
+                        ticket.tipo_descuento = reader.GetString(reader.GetOrdinal("tipo_descuento"));
                     }
 
                     /*Campo metodo_pago*/

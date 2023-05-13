@@ -38,7 +38,11 @@
             this.radioTarjeta = new System.Windows.Forms.RadioButton();
             this.radioEfectivo = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboDescuento = new System.Windows.Forms.ComboBox();
+            this.labelDescuento = new System.Windows.Forms.Label();
+            this.numericPorcentajeDescuento = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPorcentajeDescuento)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +68,7 @@
             // butCobrar
             // 
             this.butCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butCobrar.Location = new System.Drawing.Point(221, 403);
+            this.butCobrar.Location = new System.Drawing.Point(221, 416);
             this.butCobrar.Name = "butCobrar";
             this.butCobrar.Size = new System.Drawing.Size(177, 61);
             this.butCobrar.TabIndex = 3;
@@ -75,7 +79,7 @@
             // butCancelar
             // 
             this.butCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butCancelar.Location = new System.Drawing.Point(12, 403);
+            this.butCancelar.Location = new System.Drawing.Point(12, 416);
             this.butCancelar.Name = "butCancelar";
             this.butCancelar.Size = new System.Drawing.Size(177, 61);
             this.butCancelar.TabIndex = 4;
@@ -145,11 +149,50 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Forma de Pago";
             // 
+            // comboDescuento
+            // 
+            this.comboDescuento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboDescuento.FormattingEnabled = true;
+            this.comboDescuento.Items.AddRange(new object[] {
+            "Sin Descuento",
+            "2x1",
+            "3x2",
+            "Introducir %",
+            "1ª Hora Gratis",
+            "1ª 1/2 Hora Gratis"});
+            this.comboDescuento.Location = new System.Drawing.Point(40, 357);
+            this.comboDescuento.Name = "comboDescuento";
+            this.comboDescuento.Size = new System.Drawing.Size(129, 24);
+            this.comboDescuento.TabIndex = 16;
+            this.comboDescuento.SelectedIndexChanged += new System.EventHandler(this.comboDescuento_SelectedIndexChanged);
+            // 
+            // labelDescuento
+            // 
+            this.labelDescuento.AutoSize = true;
+            this.labelDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescuento.Location = new System.Drawing.Point(36, 329);
+            this.labelDescuento.Name = "labelDescuento";
+            this.labelDescuento.Size = new System.Drawing.Size(133, 31);
+            this.labelDescuento.TabIndex = 17;
+            this.labelDescuento.Text = "Descuento";
+            // 
+            // numericPorcentajeDescuento
+            // 
+            this.numericPorcentajeDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericPorcentajeDescuento.Location = new System.Drawing.Point(241, 351);
+            this.numericPorcentajeDescuento.Name = "numericPorcentajeDescuento";
+            this.numericPorcentajeDescuento.Size = new System.Drawing.Size(131, 30);
+            this.numericPorcentajeDescuento.TabIndex = 19;
+            this.numericPorcentajeDescuento.Visible = false;
+            // 
             // FormCobro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 506);
+            this.Controls.Add(this.numericPorcentajeDescuento);
+            this.Controls.Add(this.labelDescuento);
+            this.Controls.Add(this.comboDescuento);
             this.Controls.Add(this.radioTarjeta);
             this.Controls.Add(this.radioEfectivo);
             this.Controls.Add(this.label2);
@@ -165,6 +208,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCobro";
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPorcentajeDescuento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +225,8 @@
         private System.Windows.Forms.RadioButton radioTarjeta;
         private System.Windows.Forms.RadioButton radioEfectivo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboDescuento;
+        private System.Windows.Forms.Label labelDescuento;
+        private System.Windows.Forms.NumericUpDown numericPorcentajeDescuento;
     }
 }

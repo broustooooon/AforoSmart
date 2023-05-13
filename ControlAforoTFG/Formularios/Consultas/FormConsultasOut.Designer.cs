@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultasOut));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
-            this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
-            this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
-            this.ticketInTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketInTableAdapter();
             this.ticketOutBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -50,49 +45,27 @@
             this.ticketOutBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.ticketOutDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
+            this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
+            this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
+            this.ticketInTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketInTableAdapter();
+            this.ticketInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ticketInBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).BeginInit();
             this.ticketOutBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketInBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // controlAforoDataSet
-            // 
-            this.controlAforoDataSet.DataSetName = "ControlAforoDataSet";
-            this.controlAforoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ticketOutBindingSource
-            // 
-            this.ticketOutBindingSource.DataMember = "TicketOut";
-            this.ticketOutBindingSource.DataSource = this.controlAforoDataSet;
-            // 
-            // ticketOutTableAdapter
-            // 
-            this.ticketOutTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AjustesTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.IncidenciasTableAdapter = null;
-            this.tableAdapterManager.RegistroCajaTableAdapter = null;
-            this.tableAdapterManager.TicketInTableAdapter = this.ticketInTableAdapter;
-            this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // ticketInTableAdapter
-            // 
-            this.ticketInTableAdapter.ClearBeforeFill = true;
             // 
             // ticketOutBindingNavigator
             // 
@@ -121,7 +94,7 @@
             this.ticketOutBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.ticketOutBindingNavigator.Name = "ticketOutBindingNavigator";
             this.ticketOutBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.ticketOutBindingNavigator.Size = new System.Drawing.Size(1075, 27);
+            this.ticketOutBindingNavigator.Size = new System.Drawing.Size(1344, 39);
             this.ticketOutBindingNavigator.TabIndex = 0;
             this.ticketOutBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -131,13 +104,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 36);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
@@ -147,7 +120,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
             // 
             // bindingNavigatorMovePreviousItem
@@ -156,13 +129,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -177,7 +150,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -185,7 +158,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -194,20 +167,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // ticketOutBindingNavigatorSaveItem
             // 
             this.ticketOutBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.ticketOutBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("ticketOutBindingNavigatorSaveItem.Image")));
             this.ticketOutBindingNavigatorSaveItem.Name = "ticketOutBindingNavigatorSaveItem";
-            this.ticketOutBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.ticketOutBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 36);
             this.ticketOutBindingNavigatorSaveItem.Text = "Guardar datos";
             this.ticketOutBindingNavigatorSaveItem.Click += new System.EventHandler(this.ticketOutBindingNavigatorSaveItem_Click);
             // 
@@ -217,7 +190,7 @@
             this.toolStripButton1.Image = global::ControlAforoTFG.Properties.Resources.Red_Cross_PNG_Photo;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 36);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -227,12 +200,13 @@
             this.ticketOutDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ticketOutDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketOutDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
+            this.tipo_descuento,
             this.dataGridViewTextBoxColumn7});
             this.ticketOutDataGridView.DataSource = this.ticketOutBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -244,13 +218,60 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ticketOutDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.ticketOutDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ticketOutDataGridView.Location = new System.Drawing.Point(0, 27);
+            this.ticketOutDataGridView.Location = new System.Drawing.Point(0, 49);
             this.ticketOutDataGridView.Name = "ticketOutDataGridView";
             this.ticketOutDataGridView.RowHeadersWidth = 51;
             this.ticketOutDataGridView.RowTemplate.Height = 24;
-            this.ticketOutDataGridView.Size = new System.Drawing.Size(1075, 599);
+            this.ticketOutDataGridView.Size = new System.Drawing.Size(1344, 734);
             this.ticketOutDataGridView.TabIndex = 1;
             this.ticketOutDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketOutDataGridView_CellValueChanged);
+            // 
+            // ticketOutBindingSource
+            // 
+            this.ticketOutBindingSource.DataMember = "TicketOut";
+            this.ticketOutBindingSource.DataSource = this.controlAforoDataSet;
+            // 
+            // controlAforoDataSet
+            // 
+            this.controlAforoDataSet.DataSetName = "ControlAforoDataSet";
+            this.controlAforoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ticketOutTableAdapter
+            // 
+            this.ticketOutTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AjustesTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IncidenciasTableAdapter = null;
+            this.tableAdapterManager.RegistroCajaTableAdapter = null;
+            this.tableAdapterManager.TicketInTableAdapter = this.ticketInTableAdapter;
+            this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // ticketInTableAdapter
+            // 
+            this.ticketInTableAdapter.ClearBeforeFill = true;
+            // 
+            // ticketInBindingSource
+            // 
+            this.ticketInBindingSource.DataMember = "TicketIn";
+            this.ticketInBindingSource.DataSource = this.controlAforoDataSet;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "codigo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "codigo";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha_entrada";
+            this.dataGridViewTextBoxColumn4.HeaderText = "fecha_entrada";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -260,26 +281,12 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "codigo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "codigo";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "num_personas_out";
             this.dataGridViewTextBoxColumn3.HeaderText = "num_personas_out";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha_entrada";
-            this.dataGridViewTextBoxColumn4.HeaderText = "fecha_entrada";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -295,17 +302,19 @@
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
+            // tipo_descuento
+            // 
+            this.tipo_descuento.DataPropertyName = "tipo_descuento";
+            this.tipo_descuento.HeaderText = "tipo_descuento";
+            this.tipo_descuento.MinimumWidth = 6;
+            this.tipo_descuento.Name = "tipo_descuento";
+            // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "metodo_pago";
             this.dataGridViewTextBoxColumn7.HeaderText = "metodo_pago";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // ticketInBindingSource
-            // 
-            this.ticketInBindingSource.DataMember = "TicketIn";
-            this.ticketInBindingSource.DataSource = this.controlAforoDataSet;
             // 
             // FormConsultasOut
             // 
@@ -318,12 +327,12 @@
             this.Text = "FormConsultas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConsultasOut_FormClosing);
             this.Load += new System.EventHandler(this.FormConsultas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).EndInit();
             this.ticketOutBindingNavigator.ResumeLayout(false);
             this.ticketOutBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketInBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,16 +357,17 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton ticketOutBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView ticketOutDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private ControlAforoDataSetTableAdapters.TicketInTableAdapter ticketInTableAdapter;
         private System.Windows.Forms.BindingSource ticketInBindingSource;
+        private System.Windows.Forms.DataGridView ticketOutDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_descuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

@@ -18,6 +18,7 @@ namespace ControlAforoTFG.Formularios
         public FormCobro()
         {
             InitializeComponent();
+            comboDescuento.SelectedIndex = 0;
         }
 
         /*Boton Cobrar*/
@@ -31,9 +32,9 @@ namespace ControlAforoTFG.Formularios
                                                       MessageBoxIcon.Error);
                 return;
             }
-            if (numPersonas.Value <= 0)
+            if (numPersonas.Value <= 0 || numericPorcentajeDescuento.Value < 0)
             {
-                DialogResult result = MessageBox.Show("No has introducido un numero de personas válido",
+                DialogResult result = MessageBox.Show("No se admiten números negativos.",
                                                       "Error",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Error);
@@ -51,7 +52,6 @@ namespace ControlAforoTFG.Formularios
             string codigo = NuevoTicket.GenerarCodigoUnico(Convert.ToDateTime(textBoxFechaEntrada.Text));
             ConectionDB conexion = new ConectionDB();
             TicketOut ticketOut = conexion.ExisteTicketIn(codigo);
-            ticketOut.num_personas_out = Convert.ToInt32(numPersonas.Value);
 
             if (ticketOut == null)
             {
@@ -61,6 +61,9 @@ namespace ControlAforoTFG.Formularios
                                                       MessageBoxIcon.Error);
                 return;
             }
+
+            ticketOut.num_personas_out = Convert.ToInt32(numPersonas.Value);
+            
             if (!conexion.checkSalida(ticketOut))
             {
                 DialogResult result = MessageBox.Show("No puede salir más gente de la que ha entrado con este ticket",
@@ -70,7 +73,6 @@ namespace ControlAforoTFG.Formularios
                 return;
             }
 
-            //ticketOut.MetodoPago = comboBoxTipoPago.SelectedItem.ToString();
             if(radioEfectivo.Checked)
             {
                 ticketOut.metodo_pago = radioEfectivo.Text;
@@ -78,14 +80,16 @@ namespace ControlAforoTFG.Formularios
             {
                 ticketOut.metodo_pago = radioTarjeta.Text;
             }
-            ticketOut.importe = ticketOut.calcularImporte(conexion.CargarAjustes());
+
+            ticketOut.importe = ticketOut.calcularImporte(conexion.CargarAjustes(), comboDescuento.SelectedItem.ToString(), Int32.Parse(numericPorcentajeDescuento.Value.ToString()), Int32.Parse(numPersonas.Value.ToString()));
+            ticketOut.tipo_descuento = comboDescuento.SelectedItem.ToString();
 
             TicketDAO ticketDAO = new TicketDAO();
             ticketDAO.guardarTicketOut(ticketOut);
             ControlAforo.actualizarAforo();
-            DialogResult messageBox = MessageBox.Show("importe a Pagar: " + ticketOut.importe.ToString("0.00") + " €" +
+            DialogResult messageBox = MessageBox.Show("Importe a Pagar: " + ticketOut.importe.ToString("0.00")  + " €" +
                                                       "\nImporte por persona: " + (ticketOut.importe / ticketOut.num_personas_out).ToString("0.00") + " €",
-                                                      "importe total",
+                                                      "Importe total",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Information);
         }
@@ -102,7 +106,24 @@ namespace ControlAforoTFG.Formularios
 
         private void textBoxFechaEntrada_TextChanged(object sender, EventArgs e)
         {
-            dateTimeFecha.Value = Convert.ToDateTime(textBoxFechaEntrada.Text);
+            try {
+                dateTimeFecha.Value = Convert.ToDateTime(textBoxFechaEntrada.Text);
+            } catch (Exception)
+            {
+                
+            }
+        }
+
+        private void comboDescuento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboDescuento.SelectedIndex == 3)
+            {
+                numericPorcentajeDescuento.Visible = true;
+            }
+            else
+            {
+                numericPorcentajeDescuento.Visible = false;
+            }
         }
     }
 }

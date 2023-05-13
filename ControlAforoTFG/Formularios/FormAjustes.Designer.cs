@@ -100,9 +100,9 @@
             this.labelDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescuento.Location = new System.Drawing.Point(29, 199);
             this.labelDescuento.Name = "labelDescuento";
-            this.labelDescuento.Size = new System.Drawing.Size(106, 25);
+            this.labelDescuento.Size = new System.Drawing.Size(161, 31);
             this.labelDescuento.TabIndex = 4;
-            this.labelDescuento.Text = "Descuento\r\n";
+            this.labelDescuento.Text = "Descuento %\r\n";
             // 
             // GuardarCerrar
             // 
@@ -174,7 +174,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(29, 345);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 31);
+            this.label1.Size = new System.Drawing.Size(170, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Dinero Introducido";
             // 

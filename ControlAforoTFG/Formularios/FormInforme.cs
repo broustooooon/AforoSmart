@@ -17,6 +17,7 @@ namespace ControlAforoTFG.Formularios
 {
     public partial class FormInforme : Form
     {
+        private decimal IVA = 1.21m;
         string consulta = "";
         public FormInforme()
         {
@@ -193,6 +194,11 @@ namespace ControlAforoTFG.Formularios
                                 importeMetodoMesParrafo.Alignment = Element.ALIGN_LEFT;
                                 importeMetodoMesParrafo.SpacingBefore = 10f;
                                 document.Add(importeMetodoMesParrafo);
+
+                                var importeMetodoMesParrafoSinIva = new Paragraph($"Total recaudado por {kvp.Key} en {fecha} SIN IVA: {Math.Round(kvp.Value.Sum() / IVA, 3)} €");
+                                importeMetodoMesParrafoSinIva.Alignment = Element.ALIGN_LEFT;
+                                importeMetodoMesParrafoSinIva.SpacingBefore = 10f;
+                                document.Add(importeMetodoMesParrafoSinIva);
                             }
 
 
@@ -202,10 +208,15 @@ namespace ControlAforoTFG.Formularios
                             importeMesParrafo.SpacingBefore = 10f;
                             document.Add(importeMesParrafo);
 
+                            var importeMesParrafoSinIva = new Paragraph($"Total recaudado SIN IVA {fecha.ToUpper()}: {Math.Round((importeMes / IVA), 3)} €");
+                            importeMesParrafoSinIva.Alignment = Element.ALIGN_LEFT;
+                            importeMesParrafoSinIva.SpacingBefore = 10f;
+                            document.Add(importeMesParrafoSinIva);
+
                             document.NewPage();
                         }
 
-                        var tituloResultadoInforme = new Paragraph("RESULTADO DEL INFORME:");
+                        var tituloResultadoInforme = new Paragraph("RESULTADO DEL INFORME: DESDE " + meses.First().Key.ToString("MMMM yyyy").ToUpper() + " HASTA " + meses.Last().Key.ToString("MMMM yyyy").ToUpper());
                         tituloResultadoInforme.Alignment = Element.ALIGN_LEFT;
                         document.Add(tituloResultadoInforme);
 
@@ -228,6 +239,12 @@ namespace ControlAforoTFG.Formularios
                         totalParrafo.SpacingBefore = 10f;
                         totalParrafo.Font.Color = BaseColor.BLUE;
                         document.Add(totalParrafo);
+
+                        var totalParrafoSinIva = new Paragraph($"Total recaudado SIN IVA: {Math.Round((totalRecaudado / IVA), 3)} €");
+                        totalParrafoSinIva.Alignment = Element.ALIGN_LEFT;
+                        totalParrafoSinIva.SpacingBefore = 10f;
+                        totalParrafoSinIva.Font.Color = BaseColor.BLUE;
+                        document.Add(totalParrafoSinIva);
 
 
                         document.Close();
