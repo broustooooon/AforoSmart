@@ -92,6 +92,8 @@ namespace ControlAforoTFG.Formularios
                                                       "Importe total",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Information);
+            FormRecibo recibo = new FormRecibo();
+            recibo.ticketOut = ticketOut;
         }
 
         private void butCancelar_Click(object sender, EventArgs e)

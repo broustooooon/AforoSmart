@@ -39,7 +39,8 @@ namespace ControlAforoTFG.Modelos_DAO
             CreateTableTicketOut();
             CreateTableAjustes();
             CreateTableIncidencias();
-            createTableRegistroCaja();
+            CreateTableRegistroCaja();
+            CreateTableAuxiliar();
             Close();
         }
 
@@ -65,11 +66,11 @@ namespace ControlAforoTFG.Modelos_DAO
 
         private void CreateTableAjustes()
         {
-            string createTableQuery = "CREATE TABLE Ajustes (precio_minuto decimal(6,2), " +
-                                      "precio_primera_media_hora decimal(6,2), " +
+            string createTableQuery = "CREATE TABLE Ajustes (precio_minuto decimal(10,2), " +
+                                      "precio_primera_media_hora decimal(10,2), " +
                                       "descuento int, " +
-                                      "aforo int, "+
-                                      "dinero_introducido decimal(6,2)," +
+                                      "aforo int, " +
+                                      "dinero_introducido decimal(10,2)," +
                                       "estado_caja varchar(50))";
             SqlCommand command2 = new SqlCommand(createTableQuery, connection);
             command2.ExecuteNonQuery();
@@ -92,13 +93,13 @@ namespace ControlAforoTFG.Modelos_DAO
         {
             string createTableQuery = "CREATE TABLE TicketOut (id int IDENTITY(1,1) PRIMARY KEY, " +
                                                             "codigo varchar(10)," +
-                                                            "num_personas_out int, "+
                                                             "fecha_entrada DATETIME," +
                                                             "fecha_salida DATETIME," +
-                                                            "importe decimal(6,2)," +
                                                             "tipo_descuento varchar(50)," +
                                                             "metodo_pago varchar(50)," +
-                                                            "estado varchar(50) DEFAULT 'abierto')";
+                                                            "estado varchar(50) DEFAULT 'abierto'," +
+                                                            "num_personas_out int, " +
+                                                            "importe decimal(10,2))";
             SqlCommand command2 = new SqlCommand(createTableQuery, connection);
             command2.ExecuteNonQuery();
         }
@@ -113,18 +114,29 @@ namespace ControlAforoTFG.Modelos_DAO
             command.ExecuteNonQuery();
         }
 
-        private void createTableRegistroCaja()
+        private void CreateTableRegistroCaja()
         {
             string createTableQuery = "CREATE TABLE RegistroCaja (id int IDENTITY(1,1) PRIMARY KEY, " +
                                                             "fecha DATETIME," +
                                                             "descripcion varchar(50)," +
-                                                            "dinero_introducido decimal(6,2)," +
-                                                            "efectivo decimal(6,2)," +
-                                                            "otros decimal(6,2)," +
+                                                            "dinero_introducido decimal(10,2)," +
+                                                            "efectivo decimal(10,2)," +
+                                                            "otros decimal(10,2)," +
                                                             "total AS (dinero_introducido + efectivo + otros)PERSISTED)";
 
             SqlCommand command = new SqlCommand(createTableQuery, connection);
             command.ExecuteNonQuery();
+        }
+
+        private void CreateTableAuxiliar()
+        {
+            string createTableQuery = "CREATE TABLE Auxiliar (num_personas int)";
+            SqlCommand command2 = new SqlCommand(createTableQuery, connection);
+            command2.ExecuteNonQuery();
+
+            string createAuxiliar = "INSERT INTO Auxiliar (num_personas) VALUES (0);";
+            SqlCommand saveCommand = new SqlCommand(createAuxiliar, connection);
+            saveCommand.ExecuteNonQuery();
         }
 
         public void GuardarTicketIn(TicketIn ticket)
@@ -144,12 +156,13 @@ namespace ControlAforoTFG.Modelos_DAO
         {
             Open();
             UsingDatabase();
-            string saveTicketQuery = "INSERT INTO TicketOut (codigo, num_personas_out, fecha_entrada, fecha_salida, importe, tipo_descuento, metodo_pago ) VALUES ('" + ticket.codigo + "', " + ticket.num_personas_out + "," +
+            string saveTicketQuery = "INSERT INTO TicketOut (codigo, fecha_entrada, fecha_salida, tipo_descuento, metodo_pago, num_personas_out, importe) VALUES ('" + ticket.codigo + "', "+
                                      "'" + ticket.fecha_entrada.Year + "-" + ticket.fecha_entrada.Month + "-" + ticket.fecha_entrada.Day + 
                                      " " + ticket.fecha_entrada.Hour + ":" + ticket.fecha_entrada.Minute + ":" + ticket.fecha_entrada.Second+ "',"+
                                      "'" + ticket.fecha_salida.Year + "-" + ticket.fecha_salida.Month + "-" + ticket.fecha_salida.Day +
                                      " " + ticket.fecha_salida.Hour + ":" + ticket.fecha_salida.Minute + ":" + ticket.fecha_salida.Second + "'," +
-                                     " " + ticket.importe.ToString().Replace(",", ".") + ", '" + ticket.tipo_descuento + "', '" +ticket.metodo_pago+ "');";
+                                     " '" + ticket.tipo_descuento + "', '" +ticket.metodo_pago+ "', " +ticket.num_personas_out+ ", " 
+                                     + ticket.importe.ToString().Replace(",", ".") + ")";
             SqlCommand saveCommand = new SqlCommand(saveTicketQuery, connection);
             saveCommand.ExecuteNonQuery();
 
@@ -219,6 +232,7 @@ namespace ControlAforoTFG.Modelos_DAO
             int aforoDisponible = 0;
             var personasIn = 0;
             var personasOut = 0;
+            var aforoAux = 0;
             int aforoMax = 0;
 
             try
@@ -280,8 +294,22 @@ namespace ControlAforoTFG.Modelos_DAO
                     }
                 }
 
+                /*Obtenemos personas de la tabla auxiliar*/
+                string obtenerNumAux = "SELECT num_personas FROM Auxiliar";
+
+                SqlCommand command3 = new SqlCommand(obtenerNumAux, connection);
+
+                using (SqlDataReader reader = command3.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        aforoAux = Convert.ToInt32(reader["num_personas"]);
+                    }
+                }
+
                 /*Calculamos aforo disponible*/
-                aforoDisponible = aforoMax - (personasIn - personasOut);
+                //                   20           31            16          17
+                aforoDisponible = aforoMax - (personasIn - personasOut - aforoAux);
 
                 Close();
             }
@@ -601,6 +629,57 @@ namespace ControlAforoTFG.Modelos_DAO
                 {
                     total[2] = Convert.ToString(reader["total"]).Replace(',', '.');
                 }
+            }
+
+            var personasIn = 0;
+            var personasOut = 0;
+
+            string getNumPersonasIn = "SELECT sum(num_personas_in) AS total_personas_in FROM TicketIn";
+
+            SqlCommand commandIn = new SqlCommand(getNumPersonasIn, connection);
+
+            using (SqlDataReader reader = commandIn.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+
+                    if (reader.IsDBNull(reader.GetOrdinal("total_personas_in")))
+                    {
+                        personasIn = 0;
+                    }
+                    else
+                    {
+                        personasIn = Convert.ToInt32(reader["total_personas_in"]);
+                    }
+                }
+            }
+
+            /*Obtenemos numero de personas que salen*/
+            string getNumPersonasOut = "SELECT sum(num_personas_out) AS total_personas_out FROM TicketOut";
+
+            SqlCommand commandOut = new SqlCommand(getNumPersonasOut, connection);
+
+            using (SqlDataReader reader = commandOut.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+
+                    if (reader.IsDBNull(reader.GetOrdinal("total_personas_out")))
+                    {
+                        personasOut = 0;
+                    }
+                    else
+                    {
+                        personasOut = Convert.ToInt32(reader["total_personas_out"]);
+                    }
+                }
+            }
+
+            if(personasIn - personasOut != 0)
+            {
+                string saveAjustesQuery = "UPDATE Auxiliar SET num_personas = " + (personasIn - personasOut) + "";
+                SqlCommand ajustesCommand = new SqlCommand(saveAjustesQuery, connection);
+                ajustesCommand.ExecuteNonQuery();
             }
 
 

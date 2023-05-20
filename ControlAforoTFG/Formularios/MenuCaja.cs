@@ -34,8 +34,10 @@ namespace ControlAforoTFG.Formularios
                 if (result == DialogResult.Yes)
                 {
                     conexion.cerrarTicket();
+                    string[] dinero = conexion.CalcularCierreCaja();
                     MessageBox.Show("Se ha cerrado la Caja.", this.Text);
                     conexion.insertarIncidencia(new Entidades.Incidencia(DateTime.Now, "Apertura sin cierre previo"));
+                    conexion.insertarRegistroCaja(new Entidades.RegistroCaja(DateTime.Now, "Cierre", Decimal.Parse(dinero[2]) / 100, Decimal.Parse(dinero[0]) / 100, Decimal.Parse(dinero[1]) / 100));
                 } else
                 {
                     return;

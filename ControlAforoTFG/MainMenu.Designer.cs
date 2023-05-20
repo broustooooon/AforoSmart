@@ -36,6 +36,8 @@
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosDeEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosDeSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incidenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.precioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +48,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.butCobroTicket = new System.Windows.Forms.Button();
             this.butNuevoTicket = new System.Windows.Forms.Button();
-            this.incidenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registroDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(157, 710);
+            this.menuStrip1.Size = new System.Drawing.Size(159, 710);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,16 +115,30 @@
             // registrosDeEntradaToolStripMenuItem
             // 
             this.registrosDeEntradaToolStripMenuItem.Name = "registrosDeEntradaToolStripMenuItem";
-            this.registrosDeEntradaToolStripMenuItem.Size = new System.Drawing.Size(308, 32);
+            this.registrosDeEntradaToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
             this.registrosDeEntradaToolStripMenuItem.Text = "Registros de Entrada";
             this.registrosDeEntradaToolStripMenuItem.Click += new System.EventHandler(this.registrosDeEntradaToolStripMenuItem_Click);
             // 
             // registrosDeSalidaToolStripMenuItem
             // 
             this.registrosDeSalidaToolStripMenuItem.Name = "registrosDeSalidaToolStripMenuItem";
-            this.registrosDeSalidaToolStripMenuItem.Size = new System.Drawing.Size(308, 32);
+            this.registrosDeSalidaToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
             this.registrosDeSalidaToolStripMenuItem.Text = "Registros de Salida";
             this.registrosDeSalidaToolStripMenuItem.Click += new System.EventHandler(this.registrosDeSalidaToolStripMenuItem_Click);
+            // 
+            // registroDeCajaToolStripMenuItem
+            // 
+            this.registroDeCajaToolStripMenuItem.Name = "registroDeCajaToolStripMenuItem";
+            this.registroDeCajaToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.registroDeCajaToolStripMenuItem.Text = "Registros de Caja";
+            this.registroDeCajaToolStripMenuItem.Click += new System.EventHandler(this.registroDeCajaToolStripMenuItem_Click);
+            // 
+            // incidenciasToolStripMenuItem
+            // 
+            this.incidenciasToolStripMenuItem.Name = "incidenciasToolStripMenuItem";
+            this.incidenciasToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
+            this.incidenciasToolStripMenuItem.Text = "Incidencias";
+            this.incidenciasToolStripMenuItem.Click += new System.EventHandler(this.incidenciasToolStripMenuItem_Click);
             // 
             // informeToolStripMenuItem
             // 
@@ -176,7 +190,7 @@
             this.tableLayoutPanel1.Controls.Add(this.butCobroTicket, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.butNuevoTicket, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(157, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(159, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -209,20 +223,6 @@
             this.butNuevoTicket.Text = "Generar\r\nTicket";
             this.butNuevoTicket.UseVisualStyleBackColor = false;
             this.butNuevoTicket.Click += new System.EventHandler(this.butNuevoTicket_Click);
-            // 
-            // incidenciasToolStripMenuItem
-            // 
-            this.incidenciasToolStripMenuItem.Name = "incidenciasToolStripMenuItem";
-            this.incidenciasToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
-            this.incidenciasToolStripMenuItem.Text = "Incidencias";
-            this.incidenciasToolStripMenuItem.Click += new System.EventHandler(this.incidenciasToolStripMenuItem_Click);
-            // 
-            // registroDeCajaToolStripMenuItem
-            // 
-            this.registroDeCajaToolStripMenuItem.Name = "registroDeCajaToolStripMenuItem";
-            this.registroDeCajaToolStripMenuItem.Size = new System.Drawing.Size(277, 32);
-            this.registroDeCajaToolStripMenuItem.Text = "Registros de Caja";
-            this.registroDeCajaToolStripMenuItem.Click += new System.EventHandler(this.registroDeCajaToolStripMenuItem_Click);
             // 
             // MainMenu
             // 

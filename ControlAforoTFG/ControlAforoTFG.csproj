@@ -64,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ControlAforoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ControlAforoDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlAforoDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Ajustes.cs" />
     <Compile Include="Entidades\Incidencia.cs" />
     <Compile Include="Entidades\RegistroCaja.cs" />
@@ -93,6 +98,12 @@
     <Compile Include="Formularios\ControlAforo.Designer.cs">
       <DependentUpon>ControlAforo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormAcercaDe.Designer.cs">
+      <DependentUpon>FormAcercaDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormAjustes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +127,12 @@
     </Compile>
     <Compile Include="Formularios\FormInforme.Designer.cs">
       <DependentUpon>FormInforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormRecibo.Designer.cs">
+      <DependentUpon>FormRecibo.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\MenuCaja.cs">
       <SubType>Form</SubType>
@@ -152,6 +169,9 @@
     <EmbeddedResource Include="Formularios\ControlAforo.resx">
       <DependentUpon>ControlAforo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormAcercaDe.resx">
+      <DependentUpon>FormAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormAjustes.resx">
       <DependentUpon>FormAjustes.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormInforme.resx">
       <DependentUpon>FormInforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormRecibo.resx">
+      <DependentUpon>FormRecibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\MenuCaja.resx">
       <DependentUpon>MenuCaja.cs</DependentUpon>
@@ -194,6 +217,17 @@
     <None Include="ControlAforoDataSet.xss">
       <DependentUpon>ControlAforoDataSet.xsd</DependentUpon>
     </None>
+    <None Include="ControlAforoDataSet2.xsc">
+      <DependentUpon>ControlAforoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ControlAforoDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlAforoDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ControlAforoDataSet2.xss">
+      <DependentUpon>ControlAforoDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -210,6 +244,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Red-Cross-PNG-Photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AMExperience-Fondo Blanco.png" />
+    <None Include="Resources\AMExperience-Fondo Blanco1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

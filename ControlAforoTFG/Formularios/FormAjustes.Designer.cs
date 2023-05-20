@@ -80,9 +80,9 @@
             this.labelPrecioMediaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecioMediaHora.Location = new System.Drawing.Point(29, 130);
             this.labelPrecioMediaHora.Name = "labelPrecioMediaHora";
-            this.labelPrecioMediaHora.Size = new System.Drawing.Size(206, 25);
+            this.labelPrecioMediaHora.Size = new System.Drawing.Size(306, 31);
             this.labelPrecioMediaHora.TabIndex = 2;
-            this.labelPrecioMediaHora.Text = "Precio por Media Hora";
+            this.labelPrecioMediaHora.Text = "Precio Primera Media Hora";
             // 
             // textBoxDescuento
             // 
@@ -100,7 +100,7 @@
             this.labelDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescuento.Location = new System.Drawing.Point(29, 199);
             this.labelDescuento.Name = "labelDescuento";
-            this.labelDescuento.Size = new System.Drawing.Size(161, 31);
+            this.labelDescuento.Size = new System.Drawing.Size(129, 25);
             this.labelDescuento.TabIndex = 4;
             this.labelDescuento.Text = "Descuento %\r\n";
             // 

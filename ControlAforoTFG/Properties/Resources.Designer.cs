@@ -63,6 +63,16 @@ namespace ControlAforoTFG.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AMExperience_Fondo_Blanco {
+            get {
+                object obj = ResourceManager.GetObject("AMExperience-Fondo Blanco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Red_Cross_PNG_Photo {
             get {
                 object obj = ResourceManager.GetObject("Red-Cross-PNG-Photo", resourceCulture);

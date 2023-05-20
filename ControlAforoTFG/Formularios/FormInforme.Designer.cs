@@ -32,11 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInforme));
             this.dateTimeInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFin = new System.Windows.Forms.DateTimePicker();
-            this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
-            this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
-            this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
-            this.ticketOutDataGridView = new System.Windows.Forms.DataGridView();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -49,19 +44,36 @@
             this.ticketOutBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.butGenerarInforme = new System.Windows.Forms.Button();
             this.butBuscar = new System.Windows.Forms.Button();
+            this.ticketOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
+            this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
+            this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.controlAforoDataSet2 = new ControlAforoTFG.ControlAforoDataSet2();
+            this.ticketOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.ticketOutTableAdapter1 = new ControlAforoTFG.ControlAforoDataSet2TableAdapters.TicketOutTableAdapter();
+            this.ticketOutBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.ticketOutBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutDataGridView)).BeginInit();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).BeginInit();
             this.ticketOutBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimeInicio
@@ -79,51 +91,6 @@
             this.dateTimeFin.Name = "dateTimeFin";
             this.dateTimeFin.Size = new System.Drawing.Size(273, 27);
             this.dateTimeFin.TabIndex = 1;
-            // 
-            // controlAforoDataSet
-            // 
-            this.controlAforoDataSet.DataSetName = "ControlAforoDataSet";
-            this.controlAforoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ticketOutBindingSource
-            // 
-            this.ticketOutBindingSource.DataMember = "TicketOut";
-            this.ticketOutBindingSource.DataSource = this.controlAforoDataSet;
-            // 
-            // ticketOutTableAdapter
-            // 
-            this.ticketOutTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AjustesTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.IncidenciasTableAdapter = null;
-            this.tableAdapterManager.RegistroCajaTableAdapter = null;
-            this.tableAdapterManager.TicketInTableAdapter = null;
-            this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // ticketOutDataGridView
-            // 
-            this.ticketOutDataGridView.AutoGenerateColumns = false;
-            this.ticketOutDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ticketOutDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.tipo_descuento,
-            this.dataGridViewTextBoxColumn7});
-            this.ticketOutDataGridView.DataSource = this.ticketOutBindingSource;
-            this.ticketOutDataGridView.Location = new System.Drawing.Point(41, 94);
-            this.ticketOutDataGridView.Name = "ticketOutDataGridView";
-            this.ticketOutDataGridView.RowHeadersWidth = 51;
-            this.ticketOutDataGridView.RowTemplate.Height = 24;
-            this.ticketOutDataGridView.Size = new System.Drawing.Size(704, 283);
-            this.ticketOutDataGridView.TabIndex = 3;
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -243,6 +210,82 @@
             this.butBuscar.UseVisualStyleBackColor = true;
             this.butBuscar.Click += new System.EventHandler(this.butBuscar_Click);
             // 
+            // ticketOutBindingSource1
+            // 
+            this.ticketOutBindingSource1.DataMember = "TicketOut";
+            this.ticketOutBindingSource1.DataSource = this.controlAforoDataSet;
+            // 
+            // controlAforoDataSet
+            // 
+            this.controlAforoDataSet.DataSetName = "ControlAforoDataSet";
+            this.controlAforoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ticketOutBindingSource
+            // 
+            this.ticketOutBindingSource.DataMember = "TicketOut";
+            this.ticketOutBindingSource.DataSource = this.controlAforoDataSet;
+            // 
+            // ticketOutTableAdapter
+            // 
+            this.ticketOutTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AjustesTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IncidenciasTableAdapter = null;
+            this.tableAdapterManager.RegistroCajaTableAdapter = null;
+            this.tableAdapterManager.TicketInTableAdapter = null;
+            this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.dataGridView1.DataSource = this.ticketOutBindingSource4;
+            this.dataGridView1.Location = new System.Drawing.Point(41, 89);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(704, 312);
+            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // controlAforoDataSet2
+            // 
+            this.controlAforoDataSet2.DataSetName = "ControlAforoDataSet2";
+            this.controlAforoDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ticketOutBindingSource2
+            // 
+            this.ticketOutBindingSource2.DataMember = "TicketOut";
+            this.ticketOutBindingSource2.DataSource = this.controlAforoDataSet2;
+            // 
+            // ticketOutTableAdapter1
+            // 
+            this.ticketOutTableAdapter1.ClearBeforeFill = true;
+            // 
+            // ticketOutBindingSource3
+            // 
+            this.ticketOutBindingSource3.DataMember = "TicketOut";
+            this.ticketOutBindingSource3.DataSource = this.controlAforoDataSet2;
+            // 
+            // ticketOutBindingSource4
+            // 
+            this.ticketOutBindingSource4.DataMember = "TicketOut";
+            this.ticketOutBindingSource4.DataSource = this.controlAforoDataSet2;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -262,72 +305,85 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "num_personas_out";
-            this.dataGridViewTextBoxColumn3.HeaderText = "num_personas_out";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "fecha_entrada";
+            this.dataGridViewTextBoxColumn3.HeaderText = "fecha_entrada";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha_entrada";
-            this.dataGridViewTextBoxColumn4.HeaderText = "fecha_entrada";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha_salida";
+            this.dataGridViewTextBoxColumn4.HeaderText = "fecha_salida";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "fecha_salida";
-            this.dataGridViewTextBoxColumn5.HeaderText = "fecha_salida";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "tipo_descuento";
+            this.dataGridViewTextBoxColumn5.HeaderText = "tipo_descuento";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "importe";
-            this.dataGridViewTextBoxColumn6.HeaderText = "importe";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "metodo_pago";
+            this.dataGridViewTextBoxColumn6.HeaderText = "metodo_pago";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Width = 125;
             // 
-            // tipo_descuento
-            // 
-            this.tipo_descuento.DataPropertyName = "tipo_descuento";
-            this.tipo_descuento.HeaderText = "tipo_descuento";
-            this.tipo_descuento.MinimumWidth = 6;
-            this.tipo_descuento.Name = "tipo_descuento";
-            this.tipo_descuento.Width = 125;
-            // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "metodo_pago";
-            this.dataGridViewTextBoxColumn7.HeaderText = "metodo_pago";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "estado";
+            this.dataGridViewTextBoxColumn7.HeaderText = "estado";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "num_personas_out";
+            this.dataGridViewTextBoxColumn8.HeaderText = "num_personas_out";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "importe";
+            this.dataGridViewTextBoxColumn9.HeaderText = "importe";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 125;
             // 
             // FormInforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.butBuscar);
             this.Controls.Add(this.butGenerarInforme);
-            this.Controls.Add(this.ticketOutDataGridView);
             this.Controls.Add(this.ticketOutBindingNavigator);
             this.Controls.Add(this.dateTimeFin);
             this.Controls.Add(this.dateTimeInicio);
             this.Name = "FormInforme";
             this.Text = "Ventana de Informe";
             this.Load += new System.EventHandler(this.FormInforme_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).EndInit();
             this.ticketOutBindingNavigator.ResumeLayout(false);
             this.ticketOutBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +397,6 @@
         private System.Windows.Forms.BindingSource ticketOutBindingSource;
         private ControlAforoDataSetTableAdapters.TicketOutTableAdapter ticketOutTableAdapter;
         private ControlAforoDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView ticketOutDataGridView;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -354,13 +409,21 @@
         private System.Windows.Forms.BindingNavigator ticketOutBindingNavigator;
         private System.Windows.Forms.Button butGenerarInforme;
         private System.Windows.Forms.Button butBuscar;
+        private System.Windows.Forms.BindingSource ticketOutBindingSource1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private ControlAforoDataSet2 controlAforoDataSet2;
+        private System.Windows.Forms.BindingSource ticketOutBindingSource2;
+        private ControlAforoDataSet2TableAdapters.TicketOutTableAdapter ticketOutTableAdapter1;
+        private System.Windows.Forms.BindingSource ticketOutBindingSource3;
+        private System.Windows.Forms.BindingSource ticketOutBindingSource4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

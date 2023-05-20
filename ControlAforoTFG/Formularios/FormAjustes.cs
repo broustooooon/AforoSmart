@@ -17,6 +17,7 @@ namespace ControlAforoTFG.Formularios
     {
         AjustesDAO ajustesDAO = new AjustesDAO();
         Ajustes ajustes;
+        int aforoMaximo = 0;
         public FormAjustes()
         {
             InitializeComponent();
@@ -46,6 +47,18 @@ namespace ControlAforoTFG.Formularios
 
         private void GuardarAjustes()
         {
+            ConectionDB conexion = new ConectionDB();
+            var aforoActual = conexion.calcularAforo();
+
+            if((aforoMaximo - aforoActual) > Int32.Parse(textBoxAforo.Text))
+            {
+                labelResultado.Text = "Numero de personas dentro mayor que aforo... Aumente el valor";
+                labelResultado.ForeColor = Color.Red;
+                labelResultado.Visible = true;
+                CargarAjustes();
+                return;
+            }
+
             Ajustes nuevosAjustes = new Ajustes(textBoxPrecioMinuto.Text, textBoxPrecioMediaHora.Text, Int32.Parse(textBoxDescuento.Text), Int32.Parse(textBoxAforo.Text), textBoxDinero.Text);
             if (ajustesDAO.guardarAjustes(nuevosAjustes))
             {
@@ -71,6 +84,7 @@ namespace ControlAforoTFG.Formularios
             textBoxDescuento.Text = ajustes.descuento.ToString();
             textBoxAforo.Text = ajustes.aforo.ToString();
             textBoxDinero.Text = ajustes.dinero_introducido;
+            aforoMaximo = ajustes.aforo;
         }
 
         private void activarBoton()
