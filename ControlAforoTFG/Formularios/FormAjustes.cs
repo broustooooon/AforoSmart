@@ -59,7 +59,7 @@ namespace ControlAforoTFG.Formularios
                 return;
             }
 
-            Ajustes nuevosAjustes = new Ajustes(textBoxPrecioMinuto.Text, textBoxPrecioMediaHora.Text, Int32.Parse(textBoxDescuento.Text), Int32.Parse(textBoxAforo.Text), textBoxDinero.Text);
+            Ajustes nuevosAjustes = new Ajustes(textBoxPrecioMinuto.Text, textBoxPrecioMediaHora.Text, 0, Int32.Parse(textBoxAforo.Text), textBoxDinero.Text);
             if (ajustesDAO.guardarAjustes(nuevosAjustes))
             {
                 labelResultado.Text = "Se han guardado correctamente los cambios";
@@ -81,7 +81,6 @@ namespace ControlAforoTFG.Formularios
             ajustes = ajustesDAO.cargarAjustes();
             textBoxPrecioMediaHora.Text = ajustes.precio_primera_media_hora;
             textBoxPrecioMinuto.Text = ajustes.precio_minuto;
-            textBoxDescuento.Text = ajustes.descuento.ToString();
             textBoxAforo.Text = ajustes.aforo.ToString();
             textBoxDinero.Text = ajustes.dinero_introducido;
             aforoMaximo = ajustes.aforo;

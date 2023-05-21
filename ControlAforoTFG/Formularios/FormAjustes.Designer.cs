@@ -32,8 +32,6 @@
             this.textBoxPrecioMinuto = new System.Windows.Forms.TextBox();
             this.textBoxPrecioMediaHora = new System.Windows.Forms.TextBox();
             this.labelPrecioMediaHora = new System.Windows.Forms.Label();
-            this.textBoxDescuento = new System.Windows.Forms.TextBox();
-            this.labelDescuento = new System.Windows.Forms.Label();
             this.GuardarCerrar = new System.Windows.Forms.Button();
             this.Guardar = new System.Windows.Forms.Button();
             this.butCancelar = new System.Windows.Forms.Button();
@@ -80,29 +78,9 @@
             this.labelPrecioMediaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecioMediaHora.Location = new System.Drawing.Point(29, 130);
             this.labelPrecioMediaHora.Name = "labelPrecioMediaHora";
-            this.labelPrecioMediaHora.Size = new System.Drawing.Size(306, 31);
+            this.labelPrecioMediaHora.Size = new System.Drawing.Size(245, 25);
             this.labelPrecioMediaHora.TabIndex = 2;
             this.labelPrecioMediaHora.Text = "Precio Primera Media Hora";
-            // 
-            // textBoxDescuento
-            // 
-            this.textBoxDescuento.Location = new System.Drawing.Point(299, 203);
-            this.textBoxDescuento.Multiline = true;
-            this.textBoxDescuento.Name = "textBoxDescuento";
-            this.textBoxDescuento.Size = new System.Drawing.Size(125, 25);
-            this.textBoxDescuento.TabIndex = 5;
-            this.textBoxDescuento.TextChanged += new System.EventHandler(this.TextChanged);
-            this.textBoxDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
-            // 
-            // labelDescuento
-            // 
-            this.labelDescuento.AutoSize = true;
-            this.labelDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescuento.Location = new System.Drawing.Point(29, 199);
-            this.labelDescuento.Name = "labelDescuento";
-            this.labelDescuento.Size = new System.Drawing.Size(129, 25);
-            this.labelDescuento.TabIndex = 4;
-            this.labelDescuento.Text = "Descuento %\r\n";
             // 
             // GuardarCerrar
             // 
@@ -150,7 +128,7 @@
             // 
             // textBoxAforo
             // 
-            this.textBoxAforo.Location = new System.Drawing.Point(299, 273);
+            this.textBoxAforo.Location = new System.Drawing.Point(299, 197);
             this.textBoxAforo.Multiline = true;
             this.textBoxAforo.Name = "textBoxAforo";
             this.textBoxAforo.Size = new System.Drawing.Size(125, 25);
@@ -162,7 +140,7 @@
             // 
             this.labelAforo.AutoSize = true;
             this.labelAforo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAforo.Location = new System.Drawing.Point(29, 273);
+            this.labelAforo.Location = new System.Drawing.Point(29, 197);
             this.labelAforo.Name = "labelAforo";
             this.labelAforo.Size = new System.Drawing.Size(133, 25);
             this.labelAforo.TabIndex = 11;
@@ -172,7 +150,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 345);
+            this.label1.Location = new System.Drawing.Point(29, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 25);
             this.label1.TabIndex = 13;
@@ -180,7 +158,7 @@
             // 
             // textBoxDinero
             // 
-            this.textBoxDinero.Location = new System.Drawing.Point(299, 345);
+            this.textBoxDinero.Location = new System.Drawing.Point(299, 269);
             this.textBoxDinero.Multiline = true;
             this.textBoxDinero.Name = "textBoxDinero";
             this.textBoxDinero.Size = new System.Drawing.Size(125, 25);
@@ -201,8 +179,6 @@
             this.Controls.Add(this.butCancelar);
             this.Controls.Add(this.Guardar);
             this.Controls.Add(this.GuardarCerrar);
-            this.Controls.Add(this.textBoxDescuento);
-            this.Controls.Add(this.labelDescuento);
             this.Controls.Add(this.textBoxPrecioMediaHora);
             this.Controls.Add(this.labelPrecioMediaHora);
             this.Controls.Add(this.textBoxPrecioMinuto);
@@ -223,8 +199,6 @@
         private System.Windows.Forms.TextBox textBoxPrecioMinuto;
         private System.Windows.Forms.TextBox textBoxPrecioMediaHora;
         private System.Windows.Forms.Label labelPrecioMediaHora;
-        private System.Windows.Forms.TextBox textBoxDescuento;
-        private System.Windows.Forms.Label labelDescuento;
         private System.Windows.Forms.Button GuardarCerrar;
         private System.Windows.Forms.Button Guardar;
         private System.Windows.Forms.Button butCancelar;

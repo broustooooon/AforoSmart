@@ -9,18 +9,20 @@ namespace ControlAforoTFG.Entidades
 {
     internal class TicketOut
     {
-        public int id {  get; set; }
+        public int id { get; set; }
         public string codigo { get; set; }
         public int num_personas_out { get; set; }
         public DateTime fecha_entrada { get; set; }
         public DateTime fecha_salida { get; set; }
         public decimal importe { get; set; }
+        public decimal descuento { get; set; }
         public string tipo_descuento { get; set; }
         public string metodo_pago { get; set; }
         public string estado { get; set; }
 
-        public TicketOut() {
-        
+        public TicketOut()
+        {
+
         }
 
         public TicketOut(string codigo, int NumPersonasOut, DateTime FechaSalida, string MetodoPago)
@@ -30,41 +32,8 @@ namespace ControlAforoTFG.Entidades
             this.fecha_salida = FechaSalida;
             this.metodo_pago = MetodoPago;
             this.estado = "abierto";
+            this.descuento = 0;
         }
-
-        /*
-        public decimal calcularImporte(Ajustes ajustes)
-        {
-            decimal importe = 0;
-            decimal precio_primera_media_hora = decimal.Parse(ajustes.precio_primera_media_hora, CultureInfo.InvariantCulture);
-            decimal precio_minuto = decimal.Parse(ajustes.precio_minuto, CultureInfo.InvariantCulture);
-            int descuento = ajustes.descuento;
-
-            // Calcular la diferencia de tiempo entre la fecha de entrada y la fecha de salida en minutos
-            TimeSpan tiempoTranscurrido = this.fecha_salida - this.fecha_entrada;
-            int minutosTranscurridos = Convert.ToInt32(tiempoTranscurrido.TotalMinutes);
-
-            // Calcular el importe en base a los precios establecidos y la diferencia de tiempo
-            if (minutosTranscurridos <= 30)
-            {
-                importe = precio_primera_media_hora;
-            }
-            else
-            {
-                importe = precio_primera_media_hora + ((minutosTranscurridos - 30) * precio_minuto);
-            }
-
-            // Aplicar el descuento si corresponde
-            if (descuento != 0)
-            {
-                decimal descuentoPorcentual = Convert.ToDecimal(descuento) / 100;
-                decimal importeConDescuento = importe - (importe * descuentoPorcentual);
-                importe = importeConDescuento * this.num_personas_out;
-            }
-
-            return importe;
-        }
-        */
 
         public decimal calcularImporte(Ajustes ajustes, string tipoDescuento = null, int porcentajeDescuento = 0, int numTickets = 0)
         {
@@ -75,7 +44,7 @@ namespace ControlAforoTFG.Entidades
 
             if(tipoDescuento.Equals("Sin Descuento"))
             {
-                descuento = ajustes.descuento;
+                descuento = 0;
             }
 
             else if (tipoDescuento.Equals("2x1") && numTickets >= 2)
@@ -114,11 +83,13 @@ namespace ControlAforoTFG.Entidades
             // Dividir el tiempo transcurrido en tramos de 60 minutos
             int horas = (minutosTranscurridos + 59) / 60;
 
+            /*
             if(horas == 0)
             {
                 importe = precio_primera_media_hora;
             }
-
+            */
+            
             // Calcular el importe en base a los precios establecidos y la diferencia de tiempo para cada tramo
             for (int i = 0; i < horas; i++)
             {
@@ -128,6 +99,7 @@ namespace ControlAforoTFG.Entidades
                 {
                     // Primera HORA y tiempo inferior o igual a 30 minutos
                     importe += precio_primera_media_hora;
+                    //return importe * numTickets;
                 }
 
                 if (minutosTramoActual >= 50 && minutosTramoActual <= 60)
@@ -138,10 +110,11 @@ namespace ControlAforoTFG.Entidades
                     if (tipoDescuento.Equals("1ª Hora Gratis") && i == 0) 
                     {
                         importe -= precio_minuto * 50;
+                        this.descuento += precio_minuto * 50;
                     }
                     
                 } 
-                else
+                else if (minutosTramoActual > 30 && minutosTramoActual < 50)
                 {
                     // Primera HORA con más de 30 minutos pero menos de 50  O  Cualquier HORA con menos de 50 minutos
                     importe += precio_minuto * minutosTramoActual;
@@ -149,6 +122,7 @@ namespace ControlAforoTFG.Entidades
                     if (tipoDescuento.Equals("1ª Hora Gratis") && i == 0)
                     {
                         importe -= precio_minuto * minutosTramoActual;
+                        this.descuento += precio_minuto * minutosTramoActual;
                     }
                 }
             }
@@ -156,6 +130,7 @@ namespace ControlAforoTFG.Entidades
             if (tipoDescuento.Equals("1ª 1/2 Hora Gratis"))
             {
                 importe -= precio_primera_media_hora;
+                this.descuento += precio_primera_media_hora;
             }
 
 
@@ -163,6 +138,7 @@ namespace ControlAforoTFG.Entidades
             if (descuento != 0)
             {
                 decimal descuentoPorcentual = Convert.ToDecimal(descuento) / 100;
+                this.descuento = importe * descuentoPorcentual;
                 decimal importeConDescuento = importe - (importe * descuentoPorcentual);
                 importe = importeConDescuento;
             }

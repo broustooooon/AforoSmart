@@ -45,18 +45,10 @@ namespace ControlAforoTFG.Formularios
             consulta = "SELECT * FROM TicketOut order by fecha_salida";
             ConectionDB conexion = new ConectionDB();
             List<TicketOut> listaTickets = conexion.DevolverInforme(consulta);
-            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = listaTickets;
 
-            dataGridView1.Columns["dataGridViewTextBoxColumn1"].DisplayIndex = 0;  // id
-            dataGridView1.Columns["dataGridViewTextBoxColumn2"].DisplayIndex = 1;  // codigo
-            dataGridView1.Columns["dataGridViewTextBoxColumn3"].DisplayIndex = 2;  // fecha_entrada
-            dataGridView1.Columns["dataGridViewTextBoxColumn4"].DisplayIndex = 3;  // fecha_salida
-            dataGridView1.Columns["dataGridViewTextBoxColumn5"].DisplayIndex = 4;  // tipo_descuento
-            dataGridView1.Columns["dataGridViewTextBoxColumn6"].DisplayIndex = 5;  // metodo_pago
-            dataGridView1.Columns["dataGridViewTextBoxColumn7"].DisplayIndex = 6;  // estado
-            dataGridView1.Columns["dataGridViewTextBoxColumn8"].DisplayIndex = 7;  // num_personas_out
-            dataGridView1.Columns["dataGridViewTextBoxColumn9"].DisplayIndex = 8;  // importe
+            
         }
 
         /*Boton Buscar*/
@@ -75,7 +67,7 @@ namespace ControlAforoTFG.Formularios
 
             ConectionDB conexion = new ConectionDB();
             List<TicketOut> listaTickets = conexion.DevolverInforme(consulta);
-            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = listaTickets;
             //ticketOutDataGridView.DataSource = listaTickets;
         }
@@ -334,36 +326,6 @@ namespace ControlAforoTFG.Formularios
                         tituloResultadoInforme.Alignment = Element.ALIGN_LEFT;
                         tituloResultadoInforme.SpacingAfter = 10f;
                         document.Add(tituloResultadoInforme);
-
-                        /*
-                        decimal totalRecaudado = 0;
-                        // Mostramos el total recaudado por método de pago en total
-                        foreach (var kvp in importesPorMetodoPagoMes)
-                        {
-                            //var importeMetodoParrafo = new Paragraph($"Total recaudado por {kvp.Key}: {kvp.Value.Sum()} €");
-                            var importeMetodoParrafo = new Paragraph($"{kvp.Key}: {kvp.Value.Sum()} €");
-                            importeMetodoParrafo.Alignment = Element.ALIGN_LEFT;
-                            importeMetodoParrafo.SpacingBefore = 10f;
-                            importeMetodoParrafo.Font.Color = BaseColor.BLUE;
-                            document.Add(importeMetodoParrafo);
-
-                            totalRecaudado += kvp.Value.Sum();
-                        }
-
-                        //Mostrar cuantia total
-                        //var totalParrafo = new Paragraph($"Total recaudado: {totalRecaudado} €");
-                        var totalParrafo = new Paragraph($"TOTAL: {totalRecaudado} €");
-                        totalParrafo.Alignment = Element.ALIGN_LEFT;
-                        totalParrafo.SpacingBefore = 10f;
-                        totalParrafo.Font.Color = BaseColor.BLUE;
-                        document.Add(totalParrafo);
-
-                        var totalParrafoSinIva = new Paragraph($"Total SIN IVA: {Math.Round((totalRecaudado / IVA), 3)} €");
-                        totalParrafoSinIva.Alignment = Element.ALIGN_LEFT;
-                        totalParrafoSinIva.SpacingBefore = 10f;
-                        totalParrafoSinIva.Font.Color = BaseColor.BLUE;
-                        document.Add(totalParrafoSinIva);
-                        */
 
                         // Crear tabla para mostrar los totales recaudados por método de pago en total
                         PdfPTable tablaTotalesPorMetodoPago = new PdfPTable(2); // 2 columnas: Método de Pago y Total Recaudado

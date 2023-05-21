@@ -62,6 +62,7 @@ namespace ControlAforoTFG.Formularios
                 return;
             }
 
+            ticketOut.codigo = codigo;
             ticketOut.num_personas_out = Convert.ToInt32(numPersonas.Value);
             
             if (!conexion.checkSalida(ticketOut))
@@ -81,7 +82,7 @@ namespace ControlAforoTFG.Formularios
                 ticketOut.metodo_pago = radioTarjeta.Text;
             }
 
-            ticketOut.importe = ticketOut.calcularImporte(conexion.CargarAjustes(), comboDescuento.SelectedItem.ToString(), Int32.Parse(numericPorcentajeDescuento.Value.ToString()), Int32.Parse(numPersonas.Value.ToString()));
+            ticketOut.importe = ticketOut.calcularImporte(conexion.CargarAjustes(), comboDescuento.SelectedItem.ToString(), Int32.Parse(numericPorcentajeDescuento.Value.ToString()), Int32.Parse(numPersonas.Value.ToString()));            
             ticketOut.tipo_descuento = comboDescuento.SelectedItem.ToString();
 
             TicketDAO ticketDAO = new TicketDAO();
@@ -92,8 +93,9 @@ namespace ControlAforoTFG.Formularios
                                                       "Importe total",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Information);
-            FormRecibo recibo = new FormRecibo();
-            recibo.ticketOut = ticketOut;
+            FormRecibo recibo = new FormRecibo(ticketOut);
+            recibo.Text = "Nuevo Recibo";
+            recibo.Show();
         }
 
         private void butCancelar_Click(object sender, EventArgs e)
