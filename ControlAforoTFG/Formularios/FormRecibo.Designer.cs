@@ -462,7 +462,7 @@
             this.Controls.Add(this.buttonImprimir);
             this.Controls.Add(this.panelPrint);
             this.Name = "FormRecibo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recibo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);

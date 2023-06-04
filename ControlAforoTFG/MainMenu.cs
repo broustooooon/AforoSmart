@@ -286,5 +286,13 @@ namespace ControlAforoTFG
                 nuevaIncidencias.Show();
             }
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAcercaDe acercade = new FormAcercaDe();
+            acercade.Text = "Acerca de la Aplicación";
+            acercade.ShowDialog();
+            acercade.Focus();
+        }
     }
 }

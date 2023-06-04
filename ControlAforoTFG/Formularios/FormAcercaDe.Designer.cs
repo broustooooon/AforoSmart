@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 621);
+            this.ClientSize = new System.Drawing.Size(875, 621);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -182,6 +182,7 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormAcercaDe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acerca De";
             this.Load += new System.EventHandler(this.FormAcercaDe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
