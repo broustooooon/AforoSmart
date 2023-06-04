@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControlAforoTFG.Formularios.Consultas
 {
-    public partial class RegistroCaja : Form
+    public partial class FormRegistroCaja : Form
     {
-        public RegistroCaja()
+        public FormRegistroCaja()
         {
             InitializeComponent();
         }

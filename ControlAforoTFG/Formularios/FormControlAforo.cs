@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace ControlAforoTFG.Formularios
 {
-    public partial class ControlAforo : Form
+    public partial class FormControlAforo : Form
     {
         private static Label label;
-        public ControlAforo()
+        public FormControlAforo()
         {
             InitializeComponent();
             label = label1;

@@ -1,6 +1,6 @@
 ﻿namespace ControlAforoTFG.Formularios
 {
-    partial class MenuCaja
+    partial class FormMenuCaja
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuCaja));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuCaja));
             this.butAbrirCaja = new System.Windows.Forms.Button();
             this.butCerrarCaja = new System.Windows.Forms.Button();
             this.butContarDinero = new System.Windows.Forms.Button();

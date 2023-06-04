@@ -80,23 +80,23 @@
     <Compile Include="Formularios\Consultas\FormConsultasIn.Designer.cs">
       <DependentUpon>FormConsultasIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Consultas\Incidencias.cs">
+    <Compile Include="Formularios\Consultas\FormIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Consultas\Incidencias.Designer.cs">
-      <DependentUpon>Incidencias.cs</DependentUpon>
+    <Compile Include="Formularios\Consultas\FormIncidencias.Designer.cs">
+      <DependentUpon>FormIncidencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Consultas\RegistroCaja.cs">
+    <Compile Include="Formularios\Consultas\FormRegistroCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Consultas\RegistroCaja.Designer.cs">
-      <DependentUpon>RegistroCaja.cs</DependentUpon>
+    <Compile Include="Formularios\Consultas\FormRegistroCaja.Designer.cs">
+      <DependentUpon>FormRegistroCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\ControlAforo.cs">
+    <Compile Include="Formularios\FormControlAforo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\ControlAforo.Designer.cs">
-      <DependentUpon>ControlAforo.cs</DependentUpon>
+    <Compile Include="Formularios\FormControlAforo.Designer.cs">
+      <DependentUpon>FormControlAforo.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormAcercaDe.cs">
       <SubType>Form</SubType>
@@ -134,17 +134,17 @@
     <Compile Include="Formularios\FormRecibo.Designer.cs">
       <DependentUpon>FormRecibo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\MenuCaja.cs">
+    <Compile Include="Formularios\FormMenuCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\MenuCaja.Designer.cs">
-      <DependentUpon>MenuCaja.cs</DependentUpon>
+    <Compile Include="Formularios\FormMenuCaja.Designer.cs">
+      <DependentUpon>FormMenuCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\NuevoTicket.cs">
+    <Compile Include="Formularios\FormNuevoTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\NuevoTicket.Designer.cs">
-      <DependentUpon>NuevoTicket.cs</DependentUpon>
+    <Compile Include="Formularios\FormNuevoTicket.Designer.cs">
+      <DependentUpon>FormNuevoTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -158,14 +158,14 @@
     <EmbeddedResource Include="Formularios\Consultas\FormConsultasIn.resx">
       <DependentUpon>FormConsultasIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Consultas\Incidencias.resx">
-      <DependentUpon>Incidencias.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Consultas\FormIncidencias.resx">
+      <DependentUpon>FormIncidencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Consultas\RegistroCaja.resx">
-      <DependentUpon>RegistroCaja.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Consultas\FormRegistroCaja.resx">
+      <DependentUpon>FormRegistroCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\ControlAforo.resx">
-      <DependentUpon>ControlAforo.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormControlAforo.resx">
+      <DependentUpon>FormControlAforo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormAcercaDe.resx">
       <DependentUpon>FormAcercaDe.cs</DependentUpon>
@@ -185,11 +185,11 @@
     <EmbeddedResource Include="Formularios\FormRecibo.resx">
       <DependentUpon>FormRecibo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\MenuCaja.resx">
-      <DependentUpon>MenuCaja.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormMenuCaja.resx">
+      <DependentUpon>FormMenuCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NuevoTicket.resx">
-      <DependentUpon>NuevoTicket.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormNuevoTicket.resx">
+      <DependentUpon>FormNuevoTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

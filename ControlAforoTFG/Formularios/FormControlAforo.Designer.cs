@@ -1,7 +1,7 @@
 ﻿
 namespace ControlAforoTFG.Formularios
 {
-    partial class ControlAforo
+    partial class FormControlAforo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ControlAforoTFG.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlAforo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormControlAforo));
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 

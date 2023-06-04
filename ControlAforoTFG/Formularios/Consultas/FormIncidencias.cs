@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControlAforoTFG.Formularios.Consultas
 {
-    public partial class Incidencias : Form
+    public partial class FormIncidencias : Form
     {
-        public Incidencias()
+        public FormIncidencias()
         {
             InitializeComponent();
         }
