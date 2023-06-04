@@ -31,13 +31,13 @@
             this.butImprimir = new System.Windows.Forms.Button();
             this.printTicket = new System.Drawing.Printing.PrintDocument();
             this.panelPrint = new System.Windows.Forms.Panel();
+            this.labelNumPersonas = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.imgQR = new System.Windows.Forms.PictureBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.numPersonas = new System.Windows.Forms.NumericUpDown();
-            this.labelNumPersonas = new System.Windows.Forms.Label();
             this.panelPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).BeginInit();
@@ -69,6 +69,17 @@
             this.panelPrint.Name = "panelPrint";
             this.panelPrint.Size = new System.Drawing.Size(410, 379);
             this.panelPrint.TabIndex = 3;
+            // 
+            // labelNumPersonas
+            // 
+            this.labelNumPersonas.AutoSize = true;
+            this.labelNumPersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumPersonas.Location = new System.Drawing.Point(70, 340);
+            this.labelNumPersonas.Name = "labelNumPersonas";
+            this.labelNumPersonas.Size = new System.Drawing.Size(113, 20);
+            this.labelNumPersonas.TabIndex = 10;
+            this.labelNumPersonas.Text = "Nº Personas: ";
+            this.labelNumPersonas.Visible = false;
             // 
             // labelHora
             // 
@@ -129,17 +140,6 @@
             this.numPersonas.Size = new System.Drawing.Size(120, 27);
             this.numPersonas.TabIndex = 10;
             this.numPersonas.ValueChanged += new System.EventHandler(this.numPersonas_ValueChanged);
-            // 
-            // labelNumPersonas
-            // 
-            this.labelNumPersonas.AutoSize = true;
-            this.labelNumPersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumPersonas.Location = new System.Drawing.Point(70, 340);
-            this.labelNumPersonas.Name = "labelNumPersonas";
-            this.labelNumPersonas.Size = new System.Drawing.Size(113, 20);
-            this.labelNumPersonas.TabIndex = 10;
-            this.labelNumPersonas.Text = "Nº Personas: ";
-            this.labelNumPersonas.Visible = false;
             // 
             // NuevoTicket
             // 

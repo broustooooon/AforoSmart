@@ -69,7 +69,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(157, 710);
+            this.menuStrip1.Size = new System.Drawing.Size(159, 710);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -190,7 +190,7 @@
             this.tableLayoutPanel1.Controls.Add(this.butCobroTicket, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.butNuevoTicket, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(157, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(159, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));

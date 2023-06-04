@@ -93,6 +93,7 @@ namespace ControlAforoTFG.Formularios
                                                       "Importe total",
                                                       MessageBoxButtons.OK,
                                                       MessageBoxIcon.Information);
+
             FormRecibo recibo = new FormRecibo(ticketOut);
             recibo.Text = "Nuevo Recibo";
             recibo.Show();

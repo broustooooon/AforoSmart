@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace ControlAforoTFG.Formularios
     {
         private decimal IVA = 1.21m;
         //private decimal descuento = 0m;
+        private Bitmap memoryImg;
         public FormRecibo(TicketOut ticketOut)
         {
             InitializeComponent();
@@ -43,7 +45,36 @@ namespace ControlAforoTFG.Formularios
             labelPrecioSinIVA.Text = Math.Round(ticketOut.importe / IVA, 3).ToString() + " €";
             labelValorIVA.Text = (ticketOut.importe - Math.Round(ticketOut.importe / IVA, 3)).ToString() + " €";
             labelValorTotal.Text = Math.Round(ticketOut.importe,2).ToString() + " €";
+
         }
 
+        private void Print(Panel pnl)
+        {
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.PrinterSettings.PrinterName = PrinterSettings.InstalledPrinters[0];
+            printDoc.PrintController = new StandardPrintController();
+            panelPrint = pnl;
+            getPrintArea(pnl);
+            printDoc.PrintPage += new PrintPageEventHandler(printTicket_PrintPage);
+            printDoc.Print();
+        }
+
+        private void getPrintArea(Panel pnl)
+        {
+            memoryImg = new Bitmap(pnl.Width, pnl.Height);
+            pnl.DrawToBitmap(memoryImg, new Rectangle(0, 0, pnl.Width, pnl.Height));
+        }
+
+        private void printTicket_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(memoryImg, (pagearea.Width / 2) - (this.panelPrint.Width / 2), this.panelPrint.Location.Y);
+        }
+
+        private void buttonImprimir_Click_1(object sender, EventArgs e)
+        {
+            Print(panelPrint);
+            this.Close();
+        }
     }
 }
