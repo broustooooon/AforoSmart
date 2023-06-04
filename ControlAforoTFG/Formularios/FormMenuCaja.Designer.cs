@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuCaja));
             this.butAbrirCaja = new System.Windows.Forms.Button();
             this.butCerrarCaja = new System.Windows.Forms.Button();
             this.butContarDinero = new System.Windows.Forms.Button();
@@ -74,6 +75,7 @@
             this.Controls.Add(this.butContarDinero);
             this.Controls.Add(this.butCerrarCaja);
             this.Controls.Add(this.butAbrirCaja);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuCaja";

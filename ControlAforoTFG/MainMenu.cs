@@ -94,13 +94,13 @@ namespace ControlAforoTFG
         private void crearFormAforo()
         {
             // Verificar si ya existe un formulario de tipo ControlAforo
-            if (formulariosAbiertos.Any(f => f.GetType() == typeof(ControlAforo)))
+            if (formulariosAbiertos.Any(f => f.GetType() == typeof(FormControlAforo)))
             {
                 return;
             }
 
             // Si no existe, crear uno nuevo y agregarlo a la lista
-            ControlAforo controlAforo = new ControlAforo();
+            FormControlAforo controlAforo = new FormControlAforo();
             controlAforo.Text = "Aforo Disponible Actual";
             controlAforo.Show();
             formulariosAbiertos.Add(controlAforo);
@@ -109,7 +109,7 @@ namespace ControlAforoTFG
         /*Abrir Formulario de control de Aforo*/
         private void instanciarFormAforo()
         {
-            ControlAforo controlAforo = new ControlAforo();
+            FormControlAforo controlAforo = new FormControlAforo();
             controlAforo.Text = "Aforo Disponible Actual";
             controlAforo.Close();
         }
@@ -145,7 +145,7 @@ namespace ControlAforoTFG
         {
             if (this.MdiChildren.Length == 0)
             {
-                NuevoTicket nuevoTicket = new NuevoTicket();
+                FormNuevoTicket nuevoTicket = new FormNuevoTicket();
                 nuevoTicket.MdiParent = this;
                 nuevoTicket.Text = "Nuevo Ticket";
                 nuevoTicket.Show();
@@ -153,7 +153,7 @@ namespace ControlAforoTFG
             else
             {
                 this.ActiveMdiChild.Close();
-                NuevoTicket nuevoTicket = new NuevoTicket();
+                FormNuevoTicket nuevoTicket = new FormNuevoTicket();
                 nuevoTicket.MdiParent = this;
                 nuevoTicket.Text = "Nuevo Ticket";
                 nuevoTicket.Show();
@@ -228,7 +228,7 @@ namespace ControlAforoTFG
         {
             if (this.MdiChildren.Length == 0)
             {
-                MenuCaja nuevaMenuCaja = new MenuCaja();
+                FormMenuCaja nuevaMenuCaja = new FormMenuCaja();
                 nuevaMenuCaja.MdiParent = this;
                 nuevaMenuCaja.Text = "Menu Caja";
                 nuevaMenuCaja.Show();
@@ -236,7 +236,7 @@ namespace ControlAforoTFG
             else
             {
                 this.ActiveMdiChild.Close();
-                MenuCaja nuevaMenuCaja = new MenuCaja();
+                FormMenuCaja nuevaMenuCaja = new FormMenuCaja();
                 nuevaMenuCaja.MdiParent = this;
                 nuevaMenuCaja.Text = "Menu Caja";
                 nuevaMenuCaja.Show();
@@ -248,7 +248,7 @@ namespace ControlAforoTFG
         {
             if (this.MdiChildren.Length == 0)
             {
-                RegistroCaja nuevaRegistroCaja = new RegistroCaja();
+                FormRegistroCaja nuevaRegistroCaja = new FormRegistroCaja();
                 nuevaRegistroCaja.MdiParent = this;
                 nuevaRegistroCaja.Text = "Registro Caja";
                 nuevaRegistroCaja.Dock = DockStyle.Fill;
@@ -257,7 +257,7 @@ namespace ControlAforoTFG
             else
             {
                 this.ActiveMdiChild.Close();
-                RegistroCaja nuevaRegistroCaja = new RegistroCaja();
+                FormRegistroCaja nuevaRegistroCaja = new FormRegistroCaja();
                 nuevaRegistroCaja.MdiParent = this;
                 nuevaRegistroCaja.Text = "Registro de Caja";
                 nuevaRegistroCaja.Dock = DockStyle.Fill;
@@ -270,7 +270,7 @@ namespace ControlAforoTFG
         {
             if (this.MdiChildren.Length == 0)
             {
-                Incidencias nuevaIncidencias = new Incidencias();
+                FormIncidencias nuevaIncidencias = new FormIncidencias();
                 nuevaIncidencias.MdiParent = this;
                 nuevaIncidencias.Text = "Incidencias";
                 nuevaIncidencias.Dock = DockStyle.Fill;
@@ -279,7 +279,7 @@ namespace ControlAforoTFG
             else
             {
                 this.ActiveMdiChild.Close();
-                Incidencias nuevaIncidencias = new Incidencias();
+                FormIncidencias nuevaIncidencias = new FormIncidencias();
                 nuevaIncidencias.MdiParent = this;
                 nuevaIncidencias.Text = "Incidencias";
                 nuevaIncidencias.Dock = DockStyle.Fill;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjustes));
             this.labelPrecioMinuto = new System.Windows.Forms.Label();
             this.textBoxPrecioMinuto = new System.Windows.Forms.TextBox();
             this.textBoxPrecioMediaHora = new System.Windows.Forms.TextBox();
@@ -183,6 +184,7 @@
             this.Controls.Add(this.labelPrecioMediaHora);
             this.Controls.Add(this.textBoxPrecioMinuto);
             this.Controls.Add(this.labelPrecioMinuto);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormAjustes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -256,6 +256,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ticketInDataGridView);
             this.Controls.Add(this.ticketInBindingNavigator);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormConsultasIn";
             this.Text = "FormConsultasIn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConsultasIn_FormClosing);

@@ -83,12 +83,6 @@ namespace ControlAforoTFG.Entidades
             // Dividir el tiempo transcurrido en tramos de 60 minutos
             int horas = (minutosTranscurridos + 59) / 60;
 
-            /*
-            if(horas == 0)
-            {
-                importe = precio_primera_media_hora;
-            }
-            */
             
             // Calcular el importe en base a los precios establecidos y la diferencia de tiempo para cada tramo
             for (int i = 0; i < horas; i++)
@@ -125,6 +119,11 @@ namespace ControlAforoTFG.Entidades
                         this.descuento += precio_minuto * minutosTramoActual;
                     }
                 }
+            }
+
+            if(horas == 0)
+            {
+                importe = precio_primera_media_hora;
             }
 
             if (tipoDescuento.Equals("1ª 1/2 Hora Gratis"))

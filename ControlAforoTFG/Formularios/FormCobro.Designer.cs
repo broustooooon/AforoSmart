@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCobro));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxFechaEntrada = new System.Windows.Forms.TextBox();
             this.butCobrar = new System.Windows.Forms.Button();
@@ -172,7 +173,7 @@
             this.labelDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescuento.Location = new System.Drawing.Point(36, 329);
             this.labelDescuento.Name = "labelDescuento";
-            this.labelDescuento.Size = new System.Drawing.Size(133, 31);
+            this.labelDescuento.Size = new System.Drawing.Size(106, 25);
             this.labelDescuento.TabIndex = 17;
             this.labelDescuento.Text = "Descuento";
             // 
@@ -204,6 +205,7 @@
             this.Controls.Add(this.textBoxFechaEntrada);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCobro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCobro";

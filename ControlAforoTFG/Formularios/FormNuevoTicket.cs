@@ -6,18 +6,17 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using ControlAforoTFG.Entidades;
-using ControlAforoTFG.ModelosDAO;
 using ControlAforoTFG.Modelos_DAO;
 
 namespace ControlAforoTFG.Formularios
 {
-    public partial class NuevoTicket : Form
+    public partial class FormNuevoTicket : Form
     {
         /*Propiedades*/
         private DateTime fecha;
         private Bitmap memoryImg;
 
-        public NuevoTicket()
+        public FormNuevoTicket()
         {
             InitializeComponent();
         }
@@ -50,17 +49,16 @@ namespace ControlAforoTFG.Formularios
                 {
                     /*Crea el Ticket*/
                     TicketIn ticket = new TicketIn(GenerarCodigoUnico(fecha), fecha, Convert.ToInt32(numPersonas.Value));
-                    TicketDAO ticketDAO = new TicketDAO();
 
                     /*Guarda el Ticket en base de datos*/
-                    ticketDAO.guardarTicketIn(ticket);
+                    conection.GuardarTicketIn(ticket);
 
                     /*Imprimir Ticket*/
                     for (int i = 0; i < ticket.NumPersonasIn; i++)
                     {
                         Print(panelPrint);
                     }
-                    ControlAforo.actualizarAforo();
+                    FormControlAforo.actualizarAforo();
                     this.Close();
                 }
             }

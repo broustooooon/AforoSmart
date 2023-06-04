@@ -42,19 +42,14 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ticketOutBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
             this.butGenerarInforme = new System.Windows.Forms.Button();
             this.butBuscar = new System.Windows.Forms.Button();
             this.ticketOutBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.controlAforoDataSet = new ControlAforoTFG.ControlAforoDataSet();
-            this.ticketOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
             this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.controlAforoDataSet2 = new ControlAforoTFG.ControlAforoDataSet2();
-            this.ticketOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.ticketOutTableAdapter1 = new ControlAforoTFG.ControlAforoDataSet2TableAdapters.TicketOutTableAdapter();
-            this.ticketOutBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.ticketOutBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,16 +59,21 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketOutBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.controlAforoDataSet2 = new ControlAforoTFG.ControlAforoDataSet2();
+            this.ticketOutBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.ticketOutTableAdapter1 = new ControlAforoTFG.ControlAforoDataSet2TableAdapters.TicketOutTableAdapter();
+            this.ticketOutBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).BeginInit();
             this.ticketOutBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimeInicio
@@ -188,6 +188,16 @@
             this.ticketOutBindingNavigator.TabIndex = 2;
             this.ticketOutBindingNavigator.Text = "bindingNavigator1";
             // 
+            // ticketOutBindingSource
+            // 
+            this.ticketOutBindingSource.DataMember = "TicketOut";
+            this.ticketOutBindingSource.DataSource = this.controlAforoDataSet;
+            // 
+            // controlAforoDataSet
+            // 
+            this.controlAforoDataSet.DataSetName = "ControlAforoDataSet";
+            this.controlAforoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // butGenerarInforme
             // 
             this.butGenerarInforme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,16 +224,6 @@
             // 
             this.ticketOutBindingSource1.DataMember = "TicketOut";
             this.ticketOutBindingSource1.DataSource = this.controlAforoDataSet;
-            // 
-            // controlAforoDataSet
-            // 
-            this.controlAforoDataSet.DataSetName = "ControlAforoDataSet";
-            this.controlAforoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ticketOutBindingSource
-            // 
-            this.ticketOutBindingSource.DataMember = "TicketOut";
-            this.ticketOutBindingSource.DataSource = this.controlAforoDataSet;
             // 
             // ticketOutTableAdapter
             // 
@@ -261,30 +261,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(704, 312);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // controlAforoDataSet2
-            // 
-            this.controlAforoDataSet2.DataSetName = "ControlAforoDataSet2";
-            this.controlAforoDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ticketOutBindingSource2
-            // 
-            this.ticketOutBindingSource2.DataMember = "TicketOut";
-            this.ticketOutBindingSource2.DataSource = this.controlAforoDataSet2;
-            // 
-            // ticketOutTableAdapter1
-            // 
-            this.ticketOutTableAdapter1.ClearBeforeFill = true;
-            // 
-            // ticketOutBindingSource3
-            // 
-            this.ticketOutBindingSource3.DataMember = "TicketOut";
-            this.ticketOutBindingSource3.DataSource = this.controlAforoDataSet2;
-            // 
-            // ticketOutBindingSource4
-            // 
-            this.ticketOutBindingSource4.DataMember = "TicketOut";
-            this.ticketOutBindingSource4.DataSource = this.controlAforoDataSet2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -359,6 +335,30 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 125;
             // 
+            // ticketOutBindingSource4
+            // 
+            this.ticketOutBindingSource4.DataMember = "TicketOut";
+            this.ticketOutBindingSource4.DataSource = this.controlAforoDataSet2;
+            // 
+            // controlAforoDataSet2
+            // 
+            this.controlAforoDataSet2.DataSetName = "ControlAforoDataSet2";
+            this.controlAforoDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ticketOutBindingSource2
+            // 
+            this.ticketOutBindingSource2.DataMember = "TicketOut";
+            this.ticketOutBindingSource2.DataSource = this.controlAforoDataSet2;
+            // 
+            // ticketOutTableAdapter1
+            // 
+            this.ticketOutTableAdapter1.ClearBeforeFill = true;
+            // 
+            // ticketOutBindingSource3
+            // 
+            this.ticketOutBindingSource3.DataMember = "TicketOut";
+            this.ticketOutBindingSource3.DataSource = this.controlAforoDataSet2;
+            // 
             // FormInforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -370,20 +370,21 @@
             this.Controls.Add(this.ticketOutBindingNavigator);
             this.Controls.Add(this.dateTimeFin);
             this.Controls.Add(this.dateTimeInicio);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInforme";
             this.Text = "Ventana de Informe";
             this.Load += new System.EventHandler(this.FormInforme_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).EndInit();
             this.ticketOutBindingNavigator.ResumeLayout(false);
             this.ticketOutBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlAforoDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

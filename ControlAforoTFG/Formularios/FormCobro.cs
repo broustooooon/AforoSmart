@@ -1,6 +1,5 @@
 ﻿using ControlAforoTFG.Entidades;
 using ControlAforoTFG.Modelos_DAO;
-using ControlAforoTFG.ModelosDAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,7 +48,7 @@ namespace ControlAforoTFG.Formularios
                 return;
             }
 
-            string codigo = NuevoTicket.GenerarCodigoUnico(Convert.ToDateTime(textBoxFechaEntrada.Text));
+            string codigo = FormNuevoTicket.GenerarCodigoUnico(Convert.ToDateTime(textBoxFechaEntrada.Text));
             ConectionDB conexion = new ConectionDB();
             TicketOut ticketOut = conexion.ExisteTicketIn(codigo);
 
@@ -85,9 +84,8 @@ namespace ControlAforoTFG.Formularios
             ticketOut.importe = ticketOut.calcularImporte(conexion.CargarAjustes(), comboDescuento.SelectedItem.ToString(), Int32.Parse(numericPorcentajeDescuento.Value.ToString()), Int32.Parse(numPersonas.Value.ToString()));            
             ticketOut.tipo_descuento = comboDescuento.SelectedItem.ToString();
 
-            TicketDAO ticketDAO = new TicketDAO();
-            ticketDAO.guardarTicketOut(ticketOut);
-            ControlAforo.actualizarAforo();
+            conexion.GuardarTicketOut(ticketOut);
+            FormControlAforo.actualizarAforo();
             DialogResult messageBox = MessageBox.Show("Importe a Pagar: " + ticketOut.importe.ToString("0.00")  + " €" +
                                                       "\nImporte por persona: " + (ticketOut.importe / ticketOut.num_personas_out).ToString("0.00") + " €",
                                                       "Importe total",

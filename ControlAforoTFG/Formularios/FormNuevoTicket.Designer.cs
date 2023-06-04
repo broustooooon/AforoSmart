@@ -1,6 +1,6 @@
 ﻿namespace ControlAforoTFG.Formularios
 {
-    partial class NuevoTicket
+    partial class FormNuevoTicket
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNuevoTicket));
             this.butImprimir = new System.Windows.Forms.Button();
             this.printTicket = new System.Drawing.Printing.PrintDocument();
             this.panelPrint = new System.Windows.Forms.Panel();
@@ -152,6 +153,7 @@
             this.Controls.Add(this.panelPrint);
             this.Controls.Add(this.butImprimir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoTicket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevoTicket";

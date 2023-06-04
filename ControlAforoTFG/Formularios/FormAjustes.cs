@@ -1,6 +1,5 @@
 ﻿using ControlAforoTFG.Entidades;
 using ControlAforoTFG.Modelos_DAO;
-using ControlAforoTFG.ModelosDAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +14,6 @@ namespace ControlAforoTFG.Formularios
 {
     public partial class FormAjustes : Form
     {
-        AjustesDAO ajustesDAO = new AjustesDAO();
         Ajustes ajustes;
         int aforoMaximo = 0;
         public FormAjustes()
@@ -60,7 +58,7 @@ namespace ControlAforoTFG.Formularios
             }
 
             Ajustes nuevosAjustes = new Ajustes(textBoxPrecioMinuto.Text, textBoxPrecioMediaHora.Text, 0, Int32.Parse(textBoxAforo.Text), textBoxDinero.Text);
-            if (ajustesDAO.guardarAjustes(nuevosAjustes))
+            if (conexion.GuardarAjustes(nuevosAjustes))
             {
                 labelResultado.Text = "Se han guardado correctamente los cambios";
                 labelResultado.ForeColor = Color.Green;
@@ -73,12 +71,13 @@ namespace ControlAforoTFG.Formularios
                 labelResultado.ForeColor = Color.Red;
                 labelResultado.Visible = true;
             }
-            ControlAforo.actualizarAforo();
+            FormControlAforo.actualizarAforo();
         }
 
         private void CargarAjustes()
         {
-            ajustes = ajustesDAO.cargarAjustes();
+            ConectionDB conexion = new ConectionDB();
+            ajustes = conexion.CargarAjustes();
             textBoxPrecioMediaHora.Text = ajustes.precio_primera_media_hora;
             textBoxPrecioMinuto.Text = ajustes.precio_minuto;
             textBoxAforo.Text = ajustes.aforo.ToString();

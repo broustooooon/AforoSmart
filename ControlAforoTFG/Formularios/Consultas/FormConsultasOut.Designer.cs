@@ -47,10 +47,6 @@
             this.ticketOutBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.ticketOutDataGridView = new System.Windows.Forms.DataGridView();
-            this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
-            this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
-            this.ticketInTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketInTableAdapter();
-            this.ticketInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +56,10 @@
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketOutTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketOutTableAdapter();
+            this.tableAdapterManager = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager();
+            this.ticketInTableAdapter = new ControlAforoTFG.ControlAforoDataSetTableAdapters.TicketInTableAdapter();
+            this.ticketInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingNavigator)).BeginInit();
             this.ticketOutBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketOutBindingSource)).BeginInit();
@@ -238,29 +238,6 @@
             this.ticketOutDataGridView.TabIndex = 1;
             this.ticketOutDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketOutDataGridView_CellValueChanged);
             // 
-            // ticketOutTableAdapter
-            // 
-            this.ticketOutTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AjustesTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.IncidenciasTableAdapter = null;
-            this.tableAdapterManager.RegistroCajaTableAdapter = null;
-            this.tableAdapterManager.TicketInTableAdapter = this.ticketInTableAdapter;
-            this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // ticketInTableAdapter
-            // 
-            this.ticketInTableAdapter.ClearBeforeFill = true;
-            // 
-            // ticketInBindingSource
-            // 
-            this.ticketInBindingSource.DataMember = "TicketIn";
-            this.ticketInBindingSource.DataSource = this.controlAforoDataSet;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -325,6 +302,29 @@
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
+            // ticketOutTableAdapter
+            // 
+            this.ticketOutTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AjustesTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IncidenciasTableAdapter = null;
+            this.tableAdapterManager.RegistroCajaTableAdapter = null;
+            this.tableAdapterManager.TicketInTableAdapter = this.ticketInTableAdapter;
+            this.tableAdapterManager.TicketOutTableAdapter = this.ticketOutTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ControlAforoTFG.ControlAforoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // ticketInTableAdapter
+            // 
+            this.ticketInTableAdapter.ClearBeforeFill = true;
+            // 
+            // ticketInBindingSource
+            // 
+            this.ticketInBindingSource.DataMember = "TicketIn";
+            this.ticketInBindingSource.DataSource = this.controlAforoDataSet;
+            // 
             // FormConsultasOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,6 +332,7 @@
             this.ClientSize = new System.Drawing.Size(1075, 626);
             this.Controls.Add(this.ticketOutDataGridView);
             this.Controls.Add(this.ticketOutBindingNavigator);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormConsultasOut";
             this.Text = "FormConsultas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConsultasOut_FormClosing);
