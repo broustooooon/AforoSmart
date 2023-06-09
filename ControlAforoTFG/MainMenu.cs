@@ -45,8 +45,21 @@ namespace ControlAforoTFG
 
             if (result == DialogResult.Yes)
             {
-                ConectionDB conexion = new ConectionDB();
-                conexion.ScriptBaseDeDatos();
+                string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Escriba la palabra 'CONFIRMAR':", "Confirmación", "");
+
+                if (string.Equals(respuesta, "confirmar", StringComparison.OrdinalIgnoreCase))
+                {
+                    ConectionDB conexion = new ConectionDB();
+                    conexion.ScriptBaseDeDatos();
+
+                    MessageBox.Show("La Base de Datos se ha Reiniciado.", "Información",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("La Base de Datos NO se ha Reiniciado.", "Información",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
