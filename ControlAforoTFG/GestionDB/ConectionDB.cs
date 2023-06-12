@@ -241,7 +241,6 @@ namespace ControlAforoTFG.Modelos_DAO
                 UsingDatabase();
 
                 /*Obtenemos num de personas dentro*/
-                //string calculaAforo = "SELECT 'Total' AS codigo, SUM(CASE WHEN rn = 1 THEN num_personas_in ELSE 0 END) AS total_personas_in, SUM(num_personas_out) AS total_personas_out FROM ( SELECT codigo, num_personas_in, num_personas_out, ROW_NUMBER() OVER (PARTITION BY codigo ORDER BY id) AS rn FROM Ticket WHERE YEAR(fecha_entrada) = YEAR(GETDATE()) AND MONTH(fecha_entrada) = MONTH(GETDATE()) AND DAY(fecha_entrada) = DAY(GETDATE())) AS subquery GROUP BY codigo WITH ROLLUP HAVING GROUPING_ID(codigo) = 1;";
                 string getNumPersonasIn = "SELECT sum(num_personas_in) AS total_personas_in FROM TicketIn";
 
                 SqlCommand commandIn = new SqlCommand(getNumPersonasIn, connection);
