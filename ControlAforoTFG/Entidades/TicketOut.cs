@@ -84,6 +84,11 @@ namespace ControlAforoTFG.Entidades
                     // Primera HORA y tiempo inferior o igual a 30 minutos
                     importe += precio_primera_media_hora;
                     //return importe * numTickets;
+                    if (tipoDescuento.Equals("1ª Hora Gratis") && i == 0)
+                    {
+                        importe -= precio_primera_media_hora;
+                        this.descuento += precio_minuto * 50;
+                    }
                 }
 
                 if (minutosTramoActual >= 50 && minutosTramoActual <= 60)

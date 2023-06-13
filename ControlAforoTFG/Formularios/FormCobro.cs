@@ -48,7 +48,20 @@ namespace ControlAforoTFG.Formularios
                 return;
             }
 
-            string codigo = FormNuevoTicket.GenerarCodigoUnico(Convert.ToDateTime(textBoxFechaEntrada.Text));
+            string codigo = "";
+            try
+            {
+                codigo = FormNuevoTicket.GenerarCodigoUnico(Convert.ToDateTime(textBoxFechaEntrada.Text));
+            }
+            catch
+            {
+                DialogResult result = MessageBox.Show("No has introducido una fecha válida.",
+                                                      "Error",
+                                                      MessageBoxButtons.OK,
+                                                      MessageBoxIcon.Error);
+                return;
+            }
+
             ConectionDB conexion = new ConectionDB();
             TicketOut ticketOut = conexion.ExisteTicketIn(codigo);
 

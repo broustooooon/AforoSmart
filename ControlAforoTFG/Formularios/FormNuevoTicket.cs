@@ -95,6 +95,7 @@ namespace ControlAforoTFG.Formularios
         private DateTime capturarFecha()
         {
             DateTime dateTime = DateTime.Now;
+            dateTime = dateTime.AddHours(-2);
             return dateTime;
         }
 
