@@ -15,7 +15,6 @@ namespace ControlAforoTFG.Formularios
     internal partial class FormRecibo : Form
     {
         private decimal IVA = 1.21m;
-        //private decimal descuento = 0m;
         private Bitmap memoryImg;
         public FormRecibo(TicketOut ticketOut)
         {

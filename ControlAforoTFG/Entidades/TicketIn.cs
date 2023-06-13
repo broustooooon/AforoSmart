@@ -8,7 +8,6 @@ namespace ControlAforoTFG.Entidades
 {
     internal class TicketIn
     {
-        public long Id { get; set; }
         public string codigo { get; set; }
         public int NumPersonasIn { get; set; }
         public DateTime FechaEntrada { get; set; }
@@ -17,11 +16,6 @@ namespace ControlAforoTFG.Entidades
             this.codigo = codigo;
             this.FechaEntrada = FechaEntrada;
             this.NumPersonasIn = NumPersonaIn;
-        }
-
-        public TicketIn()
-        {
-
         }
     }
 }

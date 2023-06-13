@@ -37,7 +37,6 @@ namespace ControlAforoTFG.Formularios
             // TODO: esta línea de código carga datos en la tabla 'controlAforoDataSet2.TicketOut' Puede moverla o quitarla según sea necesario.
             this.ticketOutTableAdapter1.Fill(this.controlAforoDataSet2.TicketOut);
             // TODO: esta línea de código carga datos en la tabla 'controlAforoDataSet.TicketOut' Puede moverla o quitarla según sea necesario.
-            //this.ticketOutTableAdapter.Fill(this.controlAforoDataSet.TicketOut);
             DateTime fechaNow = DateTime.Now;
             dateTimeFin.Value = fechaNow;
             dateTimeInicio.Value = fechaNow;
@@ -69,7 +68,6 @@ namespace ControlAforoTFG.Formularios
             List<TicketOut> listaTickets = conexion.DevolverInforme(consulta);
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = listaTickets;
-            //ticketOutDataGridView.DataSource = listaTickets;
         }
 
         /*Boton Generar Informe*/
@@ -208,7 +206,6 @@ namespace ControlAforoTFG.Formularios
                                     document.Add(pTable);
 
                                     // Mostrar el importe total por método de pago
-                                    //var importeMetodoParrafo = new Paragraph($"Subtotal recaudado por {metodo.Key} en {fechaDia} {importeMetodoPago} €");
                                     var importeMetodoParrafo = new Paragraph($"{metodo.Key} {fechaDia} {importeMetodoPago} €");
                                     importeMetodoParrafo.Alignment = Element.ALIGN_RIGHT;
                                     importeMetodoParrafo.SpacingBefore = 10f;
@@ -220,7 +217,6 @@ namespace ControlAforoTFG.Formularios
                                 }
 
                                 // Mostramos el importe total recaudado por cada día
-                                //var importeDiaParrafo = new Paragraph($"Total recaudado en {fechaDia} {importeDia} €");
                                 var importeDiaParrafo = new Paragraph($"{fechaDia} {importeDia} €");
                                 importeDiaParrafo.Alignment = Element.ALIGN_RIGHT;
                                 importeDiaParrafo.SpacingBefore = 10f;

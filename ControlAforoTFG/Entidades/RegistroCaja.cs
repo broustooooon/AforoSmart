@@ -13,9 +13,6 @@ namespace ControlAforoTFG.Entidades
         public decimal dinero_introducido { get; set; }
         public decimal efectivo { get; set; }
         public decimal otros { get; set; }
-        public decimal total { get; set; }
-
-        public RegistroCaja() { }
 
         public RegistroCaja(DateTime fecha, string descripcion, decimal dinero_introducido, decimal efectivo, decimal otros) { 
             this.fecha = fecha;

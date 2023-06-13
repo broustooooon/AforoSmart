@@ -25,16 +25,6 @@ namespace ControlAforoTFG.Entidades
 
         }
 
-        public TicketOut(string codigo, int NumPersonasOut, DateTime FechaSalida, string MetodoPago)
-        {
-            this.codigo = codigo;
-            this.num_personas_out = NumPersonasOut;
-            this.fecha_salida = FechaSalida;
-            this.metodo_pago = MetodoPago;
-            this.estado = "abierto";
-            this.descuento = 0;
-        }
-
         public decimal calcularImporte(Ajustes ajustes, string tipoDescuento = null, int porcentajeDescuento = 0, int numTickets = 0)
         {
             decimal importe = 0;

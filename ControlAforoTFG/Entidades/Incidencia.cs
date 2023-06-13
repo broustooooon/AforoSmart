@@ -11,8 +11,6 @@ namespace ControlAforoTFG.Entidades
         public DateTime fecha { get; set; }
         public string descripcion { get; set; }
 
-        public Incidencia() { }
-
         public Incidencia(DateTime fecha, string descripcion) {
             this.fecha = fecha;
             this.descripcion = descripcion;

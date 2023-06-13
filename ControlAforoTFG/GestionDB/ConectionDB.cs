@@ -307,7 +307,6 @@ namespace ControlAforoTFG.Modelos_DAO
                 }
 
                 /*Calculamos aforo disponible*/
-                //                   20           31            16          17
                 aforoDisponible = aforoMax - (personasIn - personasOut - aforoAux);
 
                 Close();
