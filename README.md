@@ -26,3 +26,6 @@ Este proyecto tiene como objetivo desarrollar una aplicación para gestionar el 
    git clone https://github.com/broustooooon/AforoSmart.git
 2. Instalar SQL Management Studio:
    - La cadena de conexión está configurada para la instalación estándar. Es posible que se requiera modificarla para un funcionamiento correcto.
+
+## Documentación
+- https://docs.google.com/document/d/109NxJHXC2vmjMmwPwY9hLWQ1pWVEijF7uGSJUfIzd7Q/edit?usp=sharing
